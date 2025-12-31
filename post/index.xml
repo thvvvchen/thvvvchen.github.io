@@ -7,7 +7,23 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>陈梓锋</copyright>
-        <lastBuildDate>Wed, 31 Dec 2025 21:16:48 +0800</lastBuildDate><atom:link href="https://thvvvchen.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 31 Dec 2025 22:16:22 +0800</lastBuildDate><atom:link href="https://thvvvchen.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Test5</title>
+        <link>https://thvvvchen.github.io/p/test5/</link>
+        <pubDate>Wed, 31 Dec 2025 22:16:22 +0800</pubDate>
+        
+        <guid>https://thvvvchen.github.io/p/test5/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Test4</title>
+        <link>https://thvvvchen.github.io/p/test4/</link>
+        <pubDate>Wed, 31 Dec 2025 22:06:50 +0800</pubDate>
+        
+        <guid>https://thvvvchen.github.io/p/test4/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>Test3</title>
         <link>https://thvvvchen.github.io/p/test3/</link>
         <pubDate>Wed, 31 Dec 2025 21:16:48 +0800</pubDate>
