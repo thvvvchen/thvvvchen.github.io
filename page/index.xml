@@ -29,42 +29,45 @@
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
         <guid>https://thvvvchen.github.io/%E5%85%B3%E8%81%94/</guid>
-        <description>&lt;p&gt;To use this feature, add &lt;code&gt;links&lt;/code&gt; section to frontmatter.&lt;/p&gt;
-&lt;p&gt;This page&amp;rsquo;s frontmatter:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;links&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;- &lt;span class=&#34;nt&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;GitHub&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;description&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;GitHub is the world&amp;#39;s largest software development platform.&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;website&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;https://github.com&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;- &lt;span class=&#34;nt&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;TypeScript&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;description&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;website&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;https://www.typescriptlang.org&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;ts-logo-128.jpg&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;code&gt;image&lt;/code&gt; field accepts both local and external images.&lt;/p&gt;
-</description>
+        <description></description>
         </item>
         <item>
-        <title>关于</title>
-        <link>https://thvvvchen.github.io/%E5%85%B3%E4%BA%8E/</link>
+        <title>作者</title>
+        <link>https://thvvvchen.github.io/%E4%BD%9C%E8%80%85/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://thvvvchen.github.io/%E5%85%B3%E4%BA%8E/</guid>
-        <description>&lt;p&gt;This is a test page for i18n support.&lt;/p&gt;
+        <guid>https://thvvvchen.github.io/%E4%BD%9C%E8%80%85/</guid>
+        <description>&lt;h1 id=&#34;前端开发实习生&#34;&gt;前端开发实习生
+&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;广东医科大学(2023.9-2027.6)                      &lt;br&gt;
+专业：数据科学与大数据技术&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;项目经历&#34;&gt;项目经历：
+&lt;/h2&gt;&lt;h3 id=&#34;导师实验室项目内部系统模型-陪诊系统&#34;&gt;&lt;em&gt;导师实验室项目（内部系统模型）-陪诊系统&lt;/em&gt;
+&lt;/h3&gt;&lt;p&gt;项⽬简介：⾯向实验室数据管理场景，实现陪诊师档案、患者信息及相关业务数据的统⼀展示与维护。项⽬聚焦于系统&lt;/p&gt;
+&lt;p&gt;安全性、权限控制、模块化架构及⼤数据量前端性能优化。&lt;/p&gt;
+&lt;p&gt;技术栈：Vue + Vite + Pinia + Vue-Router + Element Plus&lt;/p&gt;
+&lt;p&gt;项⽬⼯作：&lt;/p&gt;
+&lt;p&gt;基于 Vue3 搭建模块化前端⼯程，并通过 Vue Router 实现路由懒加载与动态权限控制，保障不同⻆⾊的数据访问安全。&lt;/p&gt;
+&lt;p&gt;将状态管理从 Vuex 迁移⾄ Pinia，利⽤其强类型⽀持和模块化设计提升代码可维护性，并减少模板代码量。&lt;/p&gt;
+&lt;p&gt;封装 Axios 请求层，实现 Token ⾃动注⼊、统⼀错误处理与接⼝重试机制，同时结合异步请求缓存策略优化⼤数据量下的接⼝调⽤性能。&lt;/p&gt;
+&lt;p&gt;针对患者任务、陪诊记录及数据列表等⾼数据量场景，基于 Composition API 封装useVirtualList Hook，通过动态计算滚动视窗与元素位置关系，仅渲染可见区域，提⾼渲染效率和交互流畅性。&lt;/p&gt;
+&lt;p&gt;通过图⽚压缩、资源 CDN、异步缓存请求等⼿段优化⻚⾯⾸屏加载速度，将 LCP 指标由3.5s优化⾄1.8s。&lt;/p&gt;
+&lt;p&gt;构建通⽤业务组件库，如状态图表、计时器组件，实现配置化、可复⽤和可扩展的前端模块，提升迭代效率与项⽬复⽤性。&lt;/p&gt;
+&lt;h3 id=&#34;nebula-ui-企业级中后台组件库&#34;&gt;&lt;em&gt;Nebula UI 企业级中后台组件库&lt;/em&gt;
+&lt;/h3&gt;&lt;p&gt;项目简介：基于 Vue 3 + TypeScript 的企业级组件库，专为中后台产品设计，提供丰富的基础组件、按需加载和主题定制功能，支持完整文档与示例，助力快速搭建高质量 UI 界面并提升开发效率。&lt;/p&gt;
+&lt;p&gt;技术栈：Vue 3 + TypeScript + Vite + Storybook&lt;/p&gt;
+&lt;p&gt;项目工作：&lt;/p&gt;
+&lt;p&gt;构建完整 Monorepo 工程结构，实现组件包独立开发、构建、测试和发布流程，配置自动化脚本支持增量打包，提升团队协作和版本管理效率。&lt;/p&gt;
+&lt;p&gt;根据组件功能进行分类，分别实现了例如 Message、Select、Tooltip、Collapse 等核心组件，组件具备响应式布局、主题定制和高复用性。&lt;/p&gt;
+&lt;p&gt;集成 Storybook 实现组件文档、示例预览和交互式测试，统一组件展示风格，并提供丰富示例与状态演示，方便前端开发人员快速接入使用。&lt;/p&gt;
+&lt;p&gt;配置 Vite + ESLint + Prettier 开发环境，制定严格代码规范，支持按需引入和 Tree-shaking，提升项目构建速度和运行性能。&lt;/p&gt;
+&lt;p&gt;编写组件单元测试，使用 Vitest + Vue Test Utils 对核心组件进行功能和交互验证，覆盖常用状态和异常场景，确保组件稳定可靠。&lt;/p&gt;
+&lt;h2 id=&#34;专业技能&#34;&gt;专业技能
+&lt;/h2&gt;&lt;p&gt;熟悉常⽤ HTML/HTML5 标签语义与结构，掌握 CSS/CSS3 语法与布局⽅式，具备较强的设计稿还原能⼒。&lt;/p&gt;
+&lt;p&gt;熟练掌握 JavaScript 及 ES6+ 语法特性，深⼊理解 this 指向、作⽤域、原型链、箭头函数、Promise 等核⼼概念与使⽤场景。&lt;/p&gt;
+&lt;p&gt;熟悉 Vue 框架及其原理，并掌握相关⽣态，能够结合 Element Plus 等主流组件库进⾏⾼效开发。&lt;/p&gt;
+&lt;p&gt;了解 HTTP 协议、TCP/IP 协议及常⻅ HTTP 状态码，具备基本的计算机⽹络知识。&lt;/p&gt;
+&lt;p&gt;掌握 Vite、Webpack 等主流前端构建⼯具的配置与使⽤，熟悉 Git 代码版本管理流程。&lt;/p&gt;
+&lt;p&gt;了解Java语法，对mysql、redis、springboot有使用经验。&lt;/p&gt;
 </description>
         </item>
         

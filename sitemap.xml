@@ -3,13 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://thvvvchen.github.io/</loc>
-    <lastmod>2026-01-01T15:06:17+08:00</lastmod>
-  </url><url>
-    <loc>https://thvvvchen.github.io/post/</loc>
-    <lastmod>2026-01-01T15:06:17+08:00</lastmod>
-  </url><url>
-    <loc>https://thvvvchen.github.io/p/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%A1%A5%E5%85%85/</loc>
-    <lastmod>2026-01-01T15:06:17+08:00</lastmod>
+    <lastmod>2026-01-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://thvvvchen.github.io/p/2026%E7%AC%AC%E4%B8%80%E7%AF%87%E6%B5%8B%E8%AF%95/</loc>
     <lastmod>2026-01-01T00:00:00+00:00</lastmod>
@@ -17,10 +11,16 @@
     <loc>https://thvvvchen.github.io/categories/</loc>
     <lastmod>2026-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://thvvvchen.github.io/categories/test/</loc>
+    <loc>https://thvvvchen.github.io/categories/javascript/</loc>
     <lastmod>2026-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://thvvvchen.github.io/categories/%E6%B5%8B%E8%AF%95/</loc>
+    <loc>https://thvvvchen.github.io/p/js%E7%9B%B8%E5%85%B3/</loc>
+    <lastmod>2026-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://thvvvchen.github.io/post/</loc>
+    <lastmod>2026-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://thvvvchen.github.io/categories/test/</loc>
     <lastmod>2026-01-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://thvvvchen.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</loc>
@@ -32,12 +32,6 @@
     <loc>https://thvvvchen.github.io/p/test6/</loc>
     <lastmod>2025-12-31T22:20:31+08:00</lastmod>
   </url><url>
-    <loc>https://thvvvchen.github.io/p/firstblog/</loc>
-    <lastmod>2025-12-31T17:17:07+08:00</lastmod>
-  </url><url>
-    <loc>https://thvvvchen.github.io/p/newnewnew/</loc>
-    <lastmod>2025-12-31T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://thvvvchen.github.io/page/</loc>
     <lastmod>2025-12-31T00:00:00+00:00</lastmod>
   </url><url>
@@ -47,12 +41,16 @@
     <loc>https://thvvvchen.github.io/p/test-chinese/</loc>
     <lastmod>2020-09-09T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://thvvvchen.github.io/categories/html%E5%92%8Ccss/</loc>
+  </url><url>
+    <loc>https://thvvvchen.github.io/categories/project/</loc>
+  </url><url>
     <loc>https://thvvvchen.github.io/tags/</loc>
   </url><url>
     <loc>https://thvvvchen.github.io/search/</loc>
   </url><url>
     <loc>https://thvvvchen.github.io/%E5%85%B3%E8%81%94/</loc>
   </url><url>
-    <loc>https://thvvvchen.github.io/%E5%85%B3%E4%BA%8E/</loc>
+    <loc>https://thvvvchen.github.io/%E4%BD%9C%E8%80%85/</loc>
   </url>
 </urlset>

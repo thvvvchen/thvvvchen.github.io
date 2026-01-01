@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>JavaScript on 陈梓锋</title>
+        <link>https://thvvvchen.github.io/categories/javascript/</link>
+        <description>Recent content in JavaScript on 陈梓锋</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <copyright>陈梓锋</copyright>
+        <lastBuildDate>Thu, 01 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://thvvvchen.github.io/categories/javascript/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>js相关</title>
+        <link>https://thvvvchen.github.io/p/js%E7%9B%B8%E5%85%B3/</link>
+        <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
+        
+        <guid>https://thvvvchen.github.io/p/js%E7%9B%B8%E5%85%B3/</guid>
+        <description>&lt;p&gt;#JavaScript&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

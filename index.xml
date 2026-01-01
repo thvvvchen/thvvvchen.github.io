@@ -7,21 +7,22 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>陈梓锋</copyright>
-        <lastBuildDate>Thu, 01 Jan 2026 15:06:17 +0800</lastBuildDate><atom:link href="https://thvvvchen.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>计算机网络补充</title>
-        <link>https://thvvvchen.github.io/p/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%A1%A5%E5%85%85/</link>
-        <pubDate>Thu, 01 Jan 2026 15:06:17 +0800</pubDate>
-        
-        <guid>https://thvvvchen.github.io/p/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%A1%A5%E5%85%85/</guid>
-        <description></description>
-        </item>
-        <item>
+        <lastBuildDate>Thu, 01 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://thvvvchen.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>2026第一篇测试</title>
         <link>https://thvvvchen.github.io/p/2026%E7%AC%AC%E4%B8%80%E7%AF%87%E6%B5%8B%E8%AF%95/</link>
         <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
         
         <guid>https://thvvvchen.github.io/p/2026%E7%AC%AC%E4%B8%80%E7%AF%87%E6%B5%8B%E8%AF%95/</guid>
         <description>&lt;img src="https://thvvvchen.github.io/p/2026%E7%AC%AC%E4%B8%80%E7%AF%87%E6%B5%8B%E8%AF%95/image2.jpg" alt="Featured image of post 2026第一篇测试" /&gt;</description>
+        </item>
+        <item>
+        <title>js相关</title>
+        <link>https://thvvvchen.github.io/p/js%E7%9B%B8%E5%85%B3/</link>
+        <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
+        
+        <guid>https://thvvvchen.github.io/p/js%E7%9B%B8%E5%85%B3/</guid>
+        <description>&lt;p&gt;#JavaScript&lt;/p&gt;
+</description>
         </item>
         <item>
         <title>计算机网络</title>
@@ -78,21 +79,8 @@
 &lt;/table&gt;
 &lt;p&gt;一句话总结：&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;TCP：可靠但慢；UDP：快速但不可靠。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;适用场景:&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/bodyImage1.png&#34;
-	width=&#34;576&#34;
-	height=&#34;619&#34;
-	srcset=&#34;https://thvvvchen.github.io/p/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/bodyImage1_hu_daa3892f39674bb0.png 480w, https://thvvvchen.github.io/p/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/bodyImage1_hu_b8149aa3d9272634.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;图1&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;93&#34;
-		data-flex-basis=&#34;223px&#34;
-	
-&gt; &lt;img src=&#34;https://thvvvchen.github.io/p/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/bodyImage2.png&#34;
+&lt;p&gt;&lt;strong&gt;适用场景：&lt;/strong&gt;
+![图1](bodyImage1.png） &lt;img src=&#34;https://thvvvchen.github.io/p/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/bodyImage2.png&#34;
 	width=&#34;693&#34;
 	height=&#34;641&#34;
 	srcset=&#34;https://thvvvchen.github.io/p/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/bodyImage2_hu_cabfcc51fffac25a.png 480w, https://thvvvchen.github.io/p/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/bodyImage2_hu_a70b53e04090ef37.png 1024w&#34;
@@ -249,8 +237,7 @@
 **&lt;strong&gt;标准情况是四次，这是最通用、最保险的做法。&lt;/strong&gt;&lt;/p&gt;
 &lt;h1 id=&#34;4开头状态码&#34;&gt;4开头状态码
 &lt;/h1&gt;&lt;details class=&#34;lake-collapse&#34;&gt;&lt;summary id=&#34;u6cb1a473&#34;&gt;&lt;strong&gt;&lt;span class=&#34;ne-text&#34;&gt;4开头状态码&lt;/span&gt;&lt;/strong&gt;&lt;/summary&gt;&lt;p id=&#34;u173c5a7c&#34; class=&#34;ne-p&#34; style=&#34;margin: 0; padding: 0; min-height: 24px&#34;&gt;&lt;strong&gt;&lt;span class=&#34;ne-text&#34;&gt;400 Bad Request&lt;/span&gt;&lt;/strong&gt;&lt;span class=&#34;ne-text&#34;&gt;&lt;br&gt;&lt;/span&gt;&lt;span class=&#34;ne-text&#34;&gt;请求格式有问题，比如：&lt;/span&gt;&lt;/p&gt;&lt;ul class=&#34;ne-list-wrap&#34; style=&#34;margin: 0; padding-left: 23px; list-style: none&#34;&gt;&lt;ul ne-level=&#34;1&#34; class=&#34;ne-ul&#34; style=&#34;margin: 0; padding-left: 23px; list-style: circle&#34;&gt;&lt;li id=&#34;u698dce7c&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;span class=&#34;ne-text&#34;&gt;JSON 语法错了&lt;/span&gt;&lt;/li&gt;&lt;li id=&#34;u445bb505&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;span class=&#34;ne-text&#34;&gt;必填参数没传&lt;/span&gt;&lt;/li&gt;&lt;li id=&#34;u86515243&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;span class=&#34;ne-text&#34;&gt;URL 太乱，服务器解析不了&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/ul&gt;&lt;ul class=&#34;ne-ul&#34; style=&#34;margin: 0; padding-left: 23px&#34;&gt;&lt;li id=&#34;u217605be&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;strong&gt;&lt;span class=&#34;ne-text&#34;&gt;401 Unauthorized&lt;/span&gt;&lt;/strong&gt;&lt;span class=&#34;ne-text&#34;&gt;&lt;br&gt;&lt;/span&gt;&lt;span class=&#34;ne-text&#34;&gt;未认证/未登录：&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;ul class=&#34;ne-list-wrap&#34; style=&#34;margin: 0; padding-left: 23px; list-style: none&#34;&gt;&lt;ul ne-level=&#34;1&#34; class=&#34;ne-ul&#34; style=&#34;margin: 0; padding-left: 23px; list-style: circle&#34;&gt;&lt;li id=&#34;u48855ae1&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;span class=&#34;ne-text&#34;&gt;需要带 token / 需要登录，但你没带或带错了&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/ul&gt;&lt;ul class=&#34;ne-ul&#34; style=&#34;margin: 0; padding-left: 23px&#34;&gt;&lt;li id=&#34;ufe3836b4&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;strong&gt;&lt;span class=&#34;ne-text&#34;&gt;403 Forbidden&lt;/span&gt;&lt;/strong&gt;&lt;span class=&#34;ne-text&#34;&gt;&lt;br&gt;&lt;/span&gt;&lt;span class=&#34;ne-text&#34;&gt;已经认证了，但&lt;/span&gt;&lt;strong&gt;&lt;span class=&#34;ne-text&#34;&gt;没有权限&lt;/span&gt;&lt;/strong&gt;&lt;span class=&#34;ne-text&#34;&gt;：&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;ul class=&#34;ne-list-wrap&#34; style=&#34;margin: 0; padding-left: 23px; list-style: none&#34;&gt;&lt;ul ne-level=&#34;1&#34; class=&#34;ne-ul&#34; style=&#34;margin: 0; padding-left: 23px; list-style: circle&#34;&gt;&lt;li id=&#34;u8fe129fe&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;span class=&#34;ne-text&#34;&gt;你是普通用户，访问了管理员接口&lt;/span&gt;&lt;/li&gt;&lt;li id=&#34;u6e2a6941&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;span class=&#34;ne-text&#34;&gt;IP 被拉黑&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/ul&gt;&lt;ul class=&#34;ne-ul&#34; style=&#34;margin: 0; padding-left: 23px&#34;&gt;&lt;li id=&#34;uaa924a58&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;strong&gt;&lt;span class=&#34;ne-text&#34;&gt;404 Not Found&lt;/span&gt;&lt;/strong&gt;&lt;span class=&#34;ne-text&#34;&gt;&lt;br&gt;&lt;/span&gt;&lt;span class=&#34;ne-text&#34;&gt;资源不存在：&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;ul class=&#34;ne-list-wrap&#34; style=&#34;margin: 0; padding-left: 23px; list-style: none&#34;&gt;&lt;ul ne-level=&#34;1&#34; class=&#34;ne-ul&#34; style=&#34;margin: 0; padding-left: 23px; list-style: circle&#34;&gt;&lt;li id=&#34;u54ea4897&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;span class=&#34;ne-text&#34;&gt;URL 写错&lt;/span&gt;&lt;/li&gt;&lt;li id=&#34;u4a08c3fb&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;span class=&#34;ne-text&#34;&gt;接口路径没这个路由&lt;/span&gt;&lt;/li&gt;&lt;li id=&#34;uaa5fc99a&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;span class=&#34;ne-text&#34;&gt;静态文件没找到&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/ul&gt;&lt;ul class=&#34;ne-ul&#34; style=&#34;margin: 0; padding-left: 23px&#34;&gt;&lt;li id=&#34;uf534d743&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;strong&gt;&lt;span class=&#34;ne-text&#34;&gt;405 Method Not Allowed&lt;/span&gt;&lt;/strong&gt;&lt;span class=&#34;ne-text&#34;&gt;&lt;br&gt;&lt;/span&gt;&lt;span class=&#34;ne-text&#34;&gt;请求方法不被允许：&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;ul class=&#34;ne-list-wrap&#34; style=&#34;margin: 0; padding-left: 23px; list-style: none&#34;&gt;&lt;ul ne-level=&#34;1&#34; class=&#34;ne-ul&#34; style=&#34;margin: 0; padding-left: 23px; list-style: circle&#34;&gt;&lt;li id=&#34;u47a76000&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;span class=&#34;ne-text&#34;&gt;后端只支持 &lt;/span&gt;&lt;code class=&#34;ne-code&#34; style=&#34;font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace; background-color: rgba(0, 0, 0, 0.06); border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 2px; padding: 0px 2px&#34;&gt;&lt;span class=&#34;ne-text&#34;&gt;GET&lt;/span&gt;&lt;/code&gt;&lt;span class=&#34;ne-text&#34;&gt;，你发了 &lt;/span&gt;&lt;code class=&#34;ne-code&#34; style=&#34;font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace; background-color: rgba(0, 0, 0, 0.06); border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 2px; padding: 0px 2px&#34;&gt;&lt;span class=&#34;ne-text&#34;&gt;POST&lt;/span&gt;&lt;/code&gt;&lt;/li&gt;&lt;li id=&#34;ued131357&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;span class=&#34;ne-text&#34;&gt;只允许 &lt;/span&gt;&lt;code class=&#34;ne-code&#34; style=&#34;font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace; background-color: rgba(0, 0, 0, 0.06); border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 2px; padding: 0px 2px&#34;&gt;&lt;span class=&#34;ne-text&#34;&gt;POST&lt;/span&gt;&lt;/code&gt;&lt;span class=&#34;ne-text&#34;&gt;，你用了 &lt;/span&gt;&lt;code class=&#34;ne-code&#34; style=&#34;font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace; background-color: rgba(0, 0, 0, 0.06); border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 2px; padding: 0px 2px&#34;&gt;&lt;span class=&#34;ne-text&#34;&gt;PUT&lt;/span&gt;&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/ul&gt;&lt;ul class=&#34;ne-ul&#34; style=&#34;margin: 0; padding-left: 23px&#34;&gt;&lt;li id=&#34;u07db071c&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;strong&gt;&lt;span class=&#34;ne-text&#34;&gt;408 Request Timeout&lt;/span&gt;&lt;/strong&gt;&lt;span class=&#34;ne-text&#34;&gt;&lt;br&gt;&lt;/span&gt;&lt;span class=&#34;ne-text&#34;&gt;请求超时：&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;ul class=&#34;ne-list-wrap&#34; style=&#34;margin: 0; padding-left: 23px; list-style: none&#34;&gt;&lt;ul ne-level=&#34;1&#34; class=&#34;ne-ul&#34; style=&#34;margin: 0; padding-left: 23px; list-style: circle&#34;&gt;&lt;li id=&#34;u6ed3a710&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;span class=&#34;ne-text&#34;&gt;客户端请求太慢 / 连接挂太久没发完&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/ul&gt;&lt;ul class=&#34;ne-ul&#34; style=&#34;margin: 0; padding-left: 23px&#34;&gt;&lt;li id=&#34;uf80d3801&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;strong&gt;&lt;span class=&#34;ne-text&#34;&gt;409 Conflict&lt;/span&gt;&lt;/strong&gt;&lt;span class=&#34;ne-text&#34;&gt;&lt;br&gt;&lt;/span&gt;&lt;span class=&#34;ne-text&#34;&gt;资源状态冲突：&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;ul class=&#34;ne-list-wrap&#34; style=&#34;margin: 0; padding-left: 23px; list-style: none&#34;&gt;&lt;ul ne-level=&#34;1&#34; class=&#34;ne-ul&#34; style=&#34;margin: 0; padding-left: 23px; list-style: circle&#34;&gt;&lt;li id=&#34;uc425de73&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;span class=&#34;ne-text&#34;&gt;比如并发修改同一条数据导致版本冲突&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/ul&gt;&lt;ul class=&#34;ne-ul&#34; style=&#34;margin: 0; padding-left: 23px&#34;&gt;&lt;li id=&#34;uf5dafcbb&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;strong&gt;&lt;span class=&#34;ne-text&#34;&gt;429 Too Many Requests&lt;/span&gt;&lt;/strong&gt;&lt;span class=&#34;ne-text&#34;&gt;&lt;br&gt;&lt;/span&gt;&lt;span class=&#34;ne-text&#34;&gt;请求太频繁：&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;ul class=&#34;ne-list-wrap&#34; style=&#34;margin: 0; padding-left: 23px; list-style: none&#34;&gt;&lt;ul ne-level=&#34;1&#34; class=&#34;ne-ul&#34; style=&#34;margin: 0; padding-left: 23px; list-style: circle&#34;&gt;&lt;li id=&#34;ud0b06652&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;span class=&#34;ne-text&#34;&gt;被限流了（例如接口 QPS 超过阈值）&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/ul&gt;&lt;p id=&#34;ue7f1c6c8&#34; class=&#34;ne-p&#34; style=&#34;margin: 0; padding: 0; min-height: 24px&#34;&gt;&lt;br&gt;&lt;/p&gt;&lt;/details&gt;
-&lt;h1 id=&#34;&#34;&gt;
-&lt;/h1&gt;&lt;h1 id=&#34;强缓存和协商缓存&#34;&gt;强缓存和协商缓存
+&lt;h1 id=&#34;强缓存和协商缓存&#34;&gt;强缓存和协商缓存
 &lt;/h1&gt;&lt;details class=&#34;lake-collapse&#34;&gt;&lt;summary id=&#34;u35139d89&#34;&gt;&lt;strong&gt;&lt;span class=&#34;ne-text&#34;&gt;浏览器缓存？http缓存协议？&lt;/span&gt;&lt;/strong&gt;&lt;/summary&gt;&lt;p id=&#34;u81c463c1&#34; class=&#34;ne-p&#34; style=&#34;margin: 0; padding: 0; min-height: 24px&#34;&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 16px&#34;&gt;浏览器缓存是浏览器对已请求资源的本地存储机制，核心分为&lt;/span&gt;&lt;strong&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(0, 0, 0) !important; font-size: 16px&#34;&gt;强缓存&lt;/span&gt;&lt;/strong&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 16px&#34;&gt;和&lt;/span&gt;&lt;strong&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(0, 0, 0) !important; font-size: 16px&#34;&gt;协商缓存&lt;/span&gt;&lt;/strong&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 16px&#34;&gt;，由 HTTP 缓存协议（HTTP 头字段）控制。&lt;/span&gt;&lt;/p&gt;&lt;h3 id=&#34;0bf2a8a2&#34; style=&#34;font-size: 20; line-height: 28px; margin: 16px 0 5px 0&#34;&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(0, 0, 0)&#34;&gt;一、强缓存&lt;/span&gt;&lt;/h3&gt;&lt;p id=&#34;u260e54cb&#34; class=&#34;ne-p&#34; style=&#34;margin: 0; padding: 0; min-height: 24px&#34;&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 16px&#34;&gt;浏览器直接从本地缓存读取资源，不向服务器发起请求，由以下 HTTP 头控制：&lt;/span&gt;&lt;/p&gt;&lt;ol class=&#34;ne-ol&#34; style=&#34;margin: 0; padding-left: 23px&#34;&gt;&lt;li id=&#34;u36094c62&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;strong&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(0, 0, 0) !important; font-size: 16px&#34;&gt;Expires（HTTP/1.0）&lt;/span&gt;&lt;/strong&gt;&lt;/li&gt;&lt;/ol&gt;&lt;ul class=&#34;ne-list-wrap&#34; style=&#34;margin: 0; padding-left: 23px; list-style: none&#34;&gt;&lt;ul ne-level=&#34;1&#34; class=&#34;ne-ul&#34; style=&#34;margin: 0; padding-left: 23px; list-style: circle&#34;&gt;&lt;li id=&#34;u05bc9812&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 16px&#34;&gt;格式：&lt;/span&gt;&lt;code class=&#34;ne-code&#34; style=&#34;font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace; background-color: rgba(0, 0, 0, 0.06); border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 2px; padding: 0px 2px&#34;&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 14px&#34;&gt;Expires: Wed, 26 Dec 2025 12:00:00 GMT&lt;/span&gt;&lt;/code&gt;&lt;/li&gt;&lt;li id=&#34;u6aa0b2df&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 16px&#34;&gt;含义：资源的过期时间（服务器时间），若当前时间早于 Expires，直接用缓存。&lt;/span&gt;&lt;/li&gt;&lt;li id=&#34;udcd7c51c&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 16px&#34;&gt;缺陷：依赖服务器与客户端时间同步，易因时间偏差失效。&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/ul&gt;&lt;ol start=&#34;2&#34; class=&#34;ne-ol&#34; style=&#34;margin: 0; padding-left: 23px&#34;&gt;&lt;li id=&#34;u74cf7eb8&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;strong&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(0, 0, 0) !important; font-size: 16px&#34;&gt;Cache-Control（HTTP/1.1，优先级更高）&lt;/span&gt;&lt;/strong&gt;&lt;/li&gt;&lt;/ol&gt;&lt;ul class=&#34;ne-list-wrap&#34; style=&#34;margin: 0; padding-left: 23px; list-style: none&#34;&gt;&lt;ul ne-level=&#34;1&#34; class=&#34;ne-ul&#34; style=&#34;margin: 0; padding-left: 23px; list-style: circle&#34;&gt;&lt;li id=&#34;u91ff80e9&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 16px&#34;&gt;常用值：&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/ul&gt;&lt;ul class=&#34;ne-list-wrap&#34; style=&#34;margin: 0; padding-left: 23px; list-style: none&#34;&gt;&lt;ul class=&#34;ne-list-wrap&#34; style=&#34;margin: 0; padding-left: 23px; list-style: none&#34;&gt;&lt;ul ne-level=&#34;2&#34; class=&#34;ne-ul&#34; style=&#34;margin: 0; padding-left: 23px; list-style: square&#34;&gt;&lt;li id=&#34;ub41fc927&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;code class=&#34;ne-code&#34; style=&#34;font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace; background-color: rgba(0, 0, 0, 0.06); border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 2px; padding: 0px 2px&#34;&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 14px&#34;&gt;max-age=3600&lt;/span&gt;&lt;/code&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 16px&#34;&gt;：资源在本地缓存 3600 秒（从请求成功时开始计时）。&lt;/span&gt;&lt;/li&gt;&lt;li id=&#34;ua903a50b&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;code class=&#34;ne-code&#34; style=&#34;font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace; background-color: rgba(0, 0, 0, 0.06); border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 2px; padding: 0px 2px&#34;&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 14px&#34;&gt;public&lt;/span&gt;&lt;/code&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 16px&#34;&gt;：允许任何缓存（浏览器、CDN 等）存储该资源。&lt;/span&gt;&lt;/li&gt;&lt;li id=&#34;u331a99f9&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;code class=&#34;ne-code&#34; style=&#34;font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace; background-color: rgba(0, 0, 0, 0.06); border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 2px; padding: 0px 2px&#34;&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 14px&#34;&gt;private&lt;/span&gt;&lt;/code&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 16px&#34;&gt;：仅允许浏览器（私有缓存）存储，禁止 CDN 等共享缓存。&lt;/span&gt;&lt;/li&gt;&lt;li id=&#34;u28a8b2c1&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;code class=&#34;ne-code&#34; style=&#34;font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace; background-color: rgba(0, 0, 0, 0.06); border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 2px; padding: 0px 2px&#34;&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 14px&#34;&gt;no-cache&lt;/span&gt;&lt;/code&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 16px&#34;&gt;：不使用强缓存，直接进入协商缓存。&lt;/span&gt;&lt;/li&gt;&lt;li id=&#34;ufb095ed0&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;code class=&#34;ne-code&#34; style=&#34;font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace; background-color: rgba(0, 0, 0, 0.06); border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 2px; padding: 0px 2px&#34;&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 14px&#34;&gt;no-store&lt;/span&gt;&lt;/code&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 16px&#34;&gt;：禁止任何缓存，每次都从服务器获取新资源。&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/ul&gt;&lt;/ul&gt;&lt;h3 id=&#34;9dc9c4b4&#34; style=&#34;font-size: 20; line-height: 28px; margin: 16px 0 5px 0&#34;&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(0, 0, 0)&#34;&gt;二、协商缓存&lt;/span&gt;&lt;/h3&gt;&lt;p id=&#34;uc6de212c&#34; class=&#34;ne-p&#34; style=&#34;margin: 0; padding: 0; min-height: 24px&#34;&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 16px&#34;&gt;浏览器先向服务器发送请求，由服务器判断资源是否更新：若未更新，返回 304 状态码，浏览器用本地缓存；若已更新，返回 200 和新资源。由以下 HTTP 头配对控制：&lt;/span&gt;&lt;/p&gt;&lt;ol class=&#34;ne-ol&#34; style=&#34;margin: 0; padding-left: 23px&#34;&gt;&lt;li id=&#34;u94c82aa1&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;strong&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(0, 0, 0) !important; font-size: 16px&#34;&gt;Last-Modified &amp;amp; If-Modified-Since&lt;/span&gt;&lt;/strong&gt;&lt;/li&gt;&lt;/ol&gt;&lt;ul class=&#34;ne-list-wrap&#34; style=&#34;margin: 0; padding-left: 23px; list-style: none&#34;&gt;&lt;ul ne-level=&#34;1&#34; class=&#34;ne-ul&#34; style=&#34;margin: 0; padding-left: 23px; list-style: circle&#34;&gt;&lt;li id=&#34;u6cc563be&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 16px&#34;&gt;服务器响应头：&lt;/span&gt;&lt;code class=&#34;ne-code&#34; style=&#34;font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace; background-color: rgba(0, 0, 0, 0.06); border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 2px; padding: 0px 2px&#34;&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 14px&#34;&gt;Last-Modified: Tue, 25 Dec 2025 10:00:00 GMT&lt;/span&gt;&lt;/code&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 16px&#34;&gt;（资源最后修改时间）。&lt;/span&gt;&lt;/li&gt;&lt;li id=&#34;uff2e881f&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 16px&#34;&gt;浏览器请求头：&lt;/span&gt;&lt;code class=&#34;ne-code&#34; style=&#34;font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace; background-color: rgba(0, 0, 0, 0.06); border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 2px; padding: 0px 2px&#34;&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 14px&#34;&gt;If-Modified-Since: Tue, 25 Dec 2025 10:00:00 GMT&lt;/span&gt;&lt;/code&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 16px&#34;&gt;（携带上次的 Last-Modified 值）。&lt;/span&gt;&lt;/li&gt;&lt;li id=&#34;uce40cc5e&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 16px&#34;&gt;服务器逻辑：对比资源当前修改时间与 If-Modified-Since，若未变化则返回 304。&lt;/span&gt;&lt;/li&gt;&lt;li id=&#34;udda5fe21&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 16px&#34;&gt;缺陷：无法识别 “文件内容未变但修改时间变化” 的情况，精度仅到秒级。&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/ul&gt;&lt;ol start=&#34;2&#34; class=&#34;ne-ol&#34; style=&#34;margin: 0; padding-left: 23px&#34;&gt;&lt;li id=&#34;u09a652d9&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;strong&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(0, 0, 0) !important; font-size: 16px&#34;&gt;ETag &amp;amp; If-None-Match（优先级更高）&lt;/span&gt;&lt;/strong&gt;&lt;/li&gt;&lt;/ol&gt;&lt;ul class=&#34;ne-list-wrap&#34; style=&#34;margin: 0; padding-left: 23px; list-style: none&#34;&gt;&lt;ul ne-level=&#34;1&#34; class=&#34;ne-ul&#34; style=&#34;margin: 0; padding-left: 23px; list-style: circle&#34;&gt;&lt;li id=&#34;u6ef4a1ca&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 16px&#34;&gt;服务器响应头：&lt;/span&gt;&lt;code class=&#34;ne-code&#34; style=&#34;font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace; background-color: rgba(0, 0, 0, 0.06); border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 2px; padding: 0px 2px&#34;&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 14px&#34;&gt;ETag: &#34;abc123&#34;&lt;/span&gt;&lt;/code&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 16px&#34;&gt;（资源内容的唯一标识，通常是哈希值）。&lt;/span&gt;&lt;/li&gt;&lt;li id=&#34;u0cbb2be9&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 16px&#34;&gt;浏览器请求头：&lt;/span&gt;&lt;code class=&#34;ne-code&#34; style=&#34;font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace; background-color: rgba(0, 0, 0, 0.06); border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 2px; padding: 0px 2px&#34;&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 14px&#34;&gt;If-None-Match: &#34;abc123&#34;&lt;/span&gt;&lt;/code&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 16px&#34;&gt;（携带上次的 ETag 值）。&lt;/span&gt;&lt;/li&gt;&lt;li id=&#34;u4e0f9b10&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 16px&#34;&gt;服务器逻辑：对比资源当前 ETag 与 If-None-Match，若一致则返回 304。&lt;/span&gt;&lt;/li&gt;&lt;li id=&#34;u936a5b48&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 16px&#34;&gt;优势：基于内容标识，精度更高，避免时间偏差问题。&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/ul&gt;&lt;h3 id=&#34;9a3f0e3a&#34; style=&#34;font-size: 20; line-height: 28px; margin: 16px 0 5px 0&#34;&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(0, 0, 0)&#34;&gt;三、缓存流程总结&lt;/span&gt;&lt;/h3&gt;&lt;ol class=&#34;ne-ol&#34; style=&#34;margin: 0; padding-left: 23px&#34;&gt;&lt;li id=&#34;u896725c1&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 16px&#34;&gt;浏览器请求资源时，先检查&lt;/span&gt;&lt;strong&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(0, 0, 0) !important; font-size: 16px&#34;&gt;Cache-Control/Expires&lt;/span&gt;&lt;/strong&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 16px&#34;&gt;：若未过期，直接用强缓存。&lt;/span&gt;&lt;/li&gt;&lt;li id=&#34;u052102f3&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 16px&#34;&gt;若强缓存过期，发起请求并携带&lt;/span&gt;&lt;strong&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(0, 0, 0) !important; font-size: 16px&#34;&gt;If-Modified-Since/If-None-Match&lt;/span&gt;&lt;/strong&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 16px&#34;&gt;，进入协商缓存。&lt;/span&gt;&lt;/li&gt;&lt;li id=&#34;uee60f171&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 16px&#34;&gt;服务器判断资源是否更新：&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;&lt;ul class=&#34;ne-list-wrap&#34; style=&#34;margin: 0; padding-left: 23px; list-style: none&#34;&gt;&lt;ul ne-level=&#34;1&#34; class=&#34;ne-ul&#34; style=&#34;margin: 0; padding-left: 23px; list-style: circle&#34;&gt;&lt;li id=&#34;u9f318767&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 16px&#34;&gt;未更新：返回 304，浏览器用本地缓存。&lt;/span&gt;&lt;/li&gt;&lt;li id=&#34;u5e212216&#34; data-lake-index-type=&#34;0&#34;&gt;&lt;span class=&#34;ne-text&#34; style=&#34;color: rgb(34, 34, 34); font-size: 16px&#34;&gt;已更新：返回 200 + 新资源，更新本地缓存。&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/ul&gt;&lt;/details&gt;
 &lt;p&gt;&lt;strong&gt;lastmodified是请求一次还是两次？&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;一次，强缓存过期之后，浏览器会携带if&amp;hellip;..，请求服务器，服务器比对last&amp;hellip;.，返回304或者200以及新数据。&lt;/strong&gt;&lt;/p&gt;
@@ -258,20 +245,7 @@
 &lt;p&gt;&lt;strong&gt;last：精确度是秒级的，无法识别秒内对内容的修改，他的优先级也比etag更低，更适用于对内容变化敏感度低、修改频率低的资源。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;etag：是资源内容的唯一哈希值，精确度更高，优先级更高，适用于那些对内容变化敏感的场景。但是由于哈希计算，会额外增加服务器计算成本。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;etag底层怎么判断两个文件相同？&lt;/strong&gt;
-&lt;img src=&#34;https://thvvvchen.github.io/p/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/bodyImage3.png&#34;
-	width=&#34;1261&#34;
-	height=&#34;442&#34;
-	srcset=&#34;https://thvvvchen.github.io/p/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/bodyImage3_hu_1abbd7947893ff5e.png 480w, https://thvvvchen.github.io/p/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/bodyImage3_hu_9e5dbc2460fe960a.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;图3&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;285&#34;
-		data-flex-basis=&#34;684px&#34;
-	
-&gt;&lt;/p&gt;
+![图3]（bodyImage3.png）&lt;/p&gt;
 &lt;h1 id=&#34;网络攻击和攻击的方式&#34;&gt;网络攻击和攻击的方式
 &lt;/h1&gt;&lt;h3 id=&#34;1-跨站脚本攻击xss&#34;&gt;1. &lt;strong&gt;跨站脚本攻击（XSS）&lt;/strong&gt;
 &lt;/h3&gt;&lt;ul&gt;
@@ -341,237 +315,6 @@
         
         <guid>https://thvvvchen.github.io/p/test6/</guid>
         <description></description>
-        </item>
-        <item>
-        <title>FirstBlog</title>
-        <link>https://thvvvchen.github.io/p/firstblog/</link>
-        <pubDate>Wed, 31 Dec 2025 17:17:07 +0800</pubDate>
-        
-        <guid>https://thvvvchen.github.io/p/firstblog/</guid>
-        <description>&lt;h1 id=&#34;华顺&#34;&gt;华顺
-&lt;/h1&gt;&lt;h1 id=&#34;一基础类&#34;&gt;一、基础类
-&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;自我介绍（重复考）&lt;/li&gt;
-&lt;li&gt;基本情况询问&lt;/li&gt;
-&lt;li&gt;学习方式/如何学前端/如何学习新技术&lt;/li&gt;
-&lt;li&gt;最近学习的前端知识&lt;/li&gt;
-&lt;li&gt;成绩、大学相关问题&lt;/li&gt;
-&lt;li&gt;爱好&lt;/li&gt;
-&lt;li&gt;为什么选择前端&lt;/li&gt;
-&lt;li&gt;未来职业规划&lt;/li&gt;
-&lt;li&gt;项目介绍+开发中难解决的问题&lt;/li&gt;
-&lt;li&gt;从需求到页面开发+测试的完整流程&lt;/li&gt;
-&lt;li&gt;给定设计稿的开发思路&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;​		技术选型、整合设计稿得出共性与个性、状态管理选择（哪些数据、哪些方法）、定义响应格式和请求格式并且熟悉后端接口文档&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;git常用指令&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;C:%5cUsers%5cchenchae%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20251209005459683.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20251209005459683&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;git图形化插件及优势&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;参考优秀开源项目的情况&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;使用AI的情况+AI新技术了解（如服务器主动向客户端推送消息）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;不同角色用户的页面权限控制&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;用户页面权限突然消失的处理方案&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;下拉框多选项（分布在多页）的完整显示方案&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;简历项目时间相关的补充项目说明&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;为何选择学Vue&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;前端趋势及未来学习计划&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;二htmlcss&#34;&gt;二、HTML/CSS
-&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;CSS3新特性（如box-shadow具体值）&lt;/li&gt;
-&lt;li&gt;盒模型（重复考）&lt;/li&gt;
-&lt;li&gt;动画相关经验&lt;/li&gt;
-&lt;li&gt;行内元素与块级元素有哪些&lt;/li&gt;
-&lt;li&gt;重绘和重排的区别（重复考）&lt;/li&gt;
-&lt;li&gt;项目添加白天黑夜模式的实现方式&lt;/li&gt;
-&lt;li&gt;浏览器白天黑夜模式的实现原理&lt;/li&gt;
-&lt;li&gt;CSS样式变量&lt;/li&gt;
-&lt;li&gt;flex: 1与flex: auto的含义&lt;/li&gt;
-&lt;li&gt;BFC&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;三javascript&#34;&gt;三、JavaScript
-&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;统计数组每个元素出现的次数（map/object实现）&lt;/li&gt;
-&lt;li&gt;ES6新特性（重复考）&lt;/li&gt;
-&lt;li&gt;Map与WeakMap的区别（重复考）&lt;/li&gt;
-&lt;li&gt;Map和Object的区别（重复考）&lt;/li&gt;
-&lt;li&gt;事件循环（含输出题）（重复考）&lt;/li&gt;
-&lt;li&gt;原型链（含输出题）（重复考）&lt;/li&gt;
-&lt;li&gt;堆和栈（如对象引用赋值后的输出）&lt;/li&gt;
-&lt;li&gt;Promise是同步还是异步&lt;/li&gt;
-&lt;li&gt;用类设计Promise的思路&lt;/li&gt;
-&lt;li&gt;数据类型检测方法及区别&lt;/li&gt;
-&lt;li&gt;数组去重（不允许用Set）&lt;/li&gt;
-&lt;li&gt;JS数组方法：哪些会改变原数组、哪些不会&lt;/li&gt;
-&lt;li&gt;const声明对象后，属性能否修改&lt;/li&gt;
-&lt;li&gt;async不写await的输出结果&lt;/li&gt;
-&lt;li&gt;如何实现属性私有（重复考）：#、symbol、闭包、weakmap&lt;/li&gt;
-&lt;li&gt;JS数据类型&lt;/li&gt;
-&lt;li&gt;Map的特性及遍历方式&lt;/li&gt;
-&lt;li&gt;JS中new一个对象的内部过程（对象实例化过程）&lt;/li&gt;
-&lt;li&gt;reactive能否定义基本数据类型&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;四框架类vue为主含其他框架&#34;&gt;四、框架类（Vue为主，含其他框架）
-&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;Vue生命周期（重复考）&lt;/li&gt;
-&lt;li&gt;Vue组件通信的分类及具体方法（重复考）&lt;/li&gt;
-&lt;li&gt;Vuex的模块&lt;/li&gt;
-&lt;li&gt;ref和reactive的区别+底层实现（重复考）&lt;/li&gt;
-&lt;li&gt;Vue响应式原理（重复考）&lt;/li&gt;
-&lt;li&gt;Vue3和Vue2的区别（重复考）&lt;/li&gt;
-&lt;li&gt;Vue Diff算法具体实现&lt;/li&gt;
-&lt;li&gt;computed和watch的区别（重复考）&lt;/li&gt;
-&lt;li&gt;Vue Router路由守卫（重复考）&lt;/li&gt;
-&lt;li&gt;Vue插槽的类型及用法：默认插槽、具名插槽、作用域插槽&lt;/li&gt;
-&lt;li&gt;Electron的进程类型及通信方式&lt;/li&gt;
-&lt;li&gt;Vue3相较于Vue2的性能优化&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;五工程化工具&#34;&gt;五、工程化/工具
-&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Webpack的功能（如loader、plugin）（重复考）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Webpack和Vite的区别（重复考）（构建与打包、热更新、配置、使用场景）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;pnpm和npm的区别(依赖管理、磁盘占用、存储方式、使用场景)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;自定义类型的抛出+打包时的处理方式&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Vitest相关代码&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;three.js相关知识&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;六网络&#34;&gt;六、网络
-&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;TCP/UDP所在层+区别+应用场景（重复考）&lt;/li&gt;
-&lt;li&gt;浏览器缓存机制（重复考）&lt;/li&gt;
-&lt;li&gt;HTML解析过程&lt;/li&gt;
-&lt;li&gt;输入URL后发生的过程（重复考）&lt;/li&gt;
-&lt;li&gt;localStorage、sessionStorage和cookie的区别（重复考）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;七项目相关&#34;&gt;七、项目相关
-&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;大文件上传（重复考）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;断点续传（重复考）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Markdown编辑器：粘贴本地图片的做法+解析器实现&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;缓存输入的需求来源&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;音频可视化&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Echarts封装&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;项目部署（如VitePress部署到Vercel）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;大文件上传+断网后的状态保留与恢复&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;实习项目的重点细节及场景题&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;组件懒加载的实现方式&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;路由鉴权的实现+路由鉴权场景题（重复考）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;项目中组件（如Message、Form、Select）的实现细节&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;Form表单验证逻辑及代码实现&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;Select组件：下拉箭头设定、悬浮框定位（左/右对齐）、挂载方式&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        </item>
-        <item>
-        <title>newnewnew</title>
-        <link>https://thvvvchen.github.io/p/newnewnew/</link>
-        <pubDate>Wed, 31 Dec 2025 00:00:00 +0000</pubDate>
-        
-        <guid>https://thvvvchen.github.io/p/newnewnew/</guid>
-        <description>&lt;img src="https://thvvvchen.github.io/p/newnewnew/HeaderImage.jpg" alt="Featured image of post newnewnew" /&gt;&lt;h2 id=&#34;图片测试&#34;&gt;图片测试
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/newnewnew/bodyImage1.jpg&#34;
-	width=&#34;2268&#34;
-	height=&#34;4032&#34;
-	srcset=&#34;https://thvvvchen.github.io/p/newnewnew/bodyImage1_hu_3ef28437ef2b2568.jpg 480w, https://thvvvchen.github.io/p/newnewnew/bodyImage1_hu_5743055430d603d8.jpg 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;Photo 1&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;56&#34;
-		data-flex-basis=&#34;135px&#34;
-	
-&gt;
-&lt;img src=&#34;https://thvvvchen.github.io/p/newnewnew/bodyImage2.jpg&#34;
-	width=&#34;2688&#34;
-	height=&#34;4032&#34;
-	srcset=&#34;https://thvvvchen.github.io/p/newnewnew/bodyImage2_hu_411c68a18656b2ae.jpg 480w, https://thvvvchen.github.io/p/newnewnew/bodyImage2_hu_cddd9baef1e4b59a.jpg 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;Photo 2&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;66&#34;
-		data-flex-basis=&#34;160px&#34;
-	
-&gt;&lt;/p&gt;
-</description>
         </item>
         <item>
         <title>归档</title>
@@ -680,42 +423,45 @@
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
         <guid>https://thvvvchen.github.io/%E5%85%B3%E8%81%94/</guid>
-        <description>&lt;p&gt;To use this feature, add &lt;code&gt;links&lt;/code&gt; section to frontmatter.&lt;/p&gt;
-&lt;p&gt;This page&amp;rsquo;s frontmatter:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;links&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;- &lt;span class=&#34;nt&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;GitHub&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;description&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;GitHub is the world&amp;#39;s largest software development platform.&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;website&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;https://github.com&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;- &lt;span class=&#34;nt&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;TypeScript&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;description&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;website&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;https://www.typescriptlang.org&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;ts-logo-128.jpg&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;code&gt;image&lt;/code&gt; field accepts both local and external images.&lt;/p&gt;
-</description>
+        <description></description>
         </item>
         <item>
-        <title>关于</title>
-        <link>https://thvvvchen.github.io/%E5%85%B3%E4%BA%8E/</link>
+        <title>作者</title>
+        <link>https://thvvvchen.github.io/%E4%BD%9C%E8%80%85/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://thvvvchen.github.io/%E5%85%B3%E4%BA%8E/</guid>
-        <description>&lt;p&gt;This is a test page for i18n support.&lt;/p&gt;
+        <guid>https://thvvvchen.github.io/%E4%BD%9C%E8%80%85/</guid>
+        <description>&lt;h1 id=&#34;前端开发实习生&#34;&gt;前端开发实习生
+&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;广东医科大学(2023.9-2027.6)                      &lt;br&gt;
+专业：数据科学与大数据技术&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;项目经历&#34;&gt;项目经历：
+&lt;/h2&gt;&lt;h3 id=&#34;导师实验室项目内部系统模型-陪诊系统&#34;&gt;&lt;em&gt;导师实验室项目（内部系统模型）-陪诊系统&lt;/em&gt;
+&lt;/h3&gt;&lt;p&gt;项⽬简介：⾯向实验室数据管理场景，实现陪诊师档案、患者信息及相关业务数据的统⼀展示与维护。项⽬聚焦于系统&lt;/p&gt;
+&lt;p&gt;安全性、权限控制、模块化架构及⼤数据量前端性能优化。&lt;/p&gt;
+&lt;p&gt;技术栈：Vue + Vite + Pinia + Vue-Router + Element Plus&lt;/p&gt;
+&lt;p&gt;项⽬⼯作：&lt;/p&gt;
+&lt;p&gt;基于 Vue3 搭建模块化前端⼯程，并通过 Vue Router 实现路由懒加载与动态权限控制，保障不同⻆⾊的数据访问安全。&lt;/p&gt;
+&lt;p&gt;将状态管理从 Vuex 迁移⾄ Pinia，利⽤其强类型⽀持和模块化设计提升代码可维护性，并减少模板代码量。&lt;/p&gt;
+&lt;p&gt;封装 Axios 请求层，实现 Token ⾃动注⼊、统⼀错误处理与接⼝重试机制，同时结合异步请求缓存策略优化⼤数据量下的接⼝调⽤性能。&lt;/p&gt;
+&lt;p&gt;针对患者任务、陪诊记录及数据列表等⾼数据量场景，基于 Composition API 封装useVirtualList Hook，通过动态计算滚动视窗与元素位置关系，仅渲染可见区域，提⾼渲染效率和交互流畅性。&lt;/p&gt;
+&lt;p&gt;通过图⽚压缩、资源 CDN、异步缓存请求等⼿段优化⻚⾯⾸屏加载速度，将 LCP 指标由3.5s优化⾄1.8s。&lt;/p&gt;
+&lt;p&gt;构建通⽤业务组件库，如状态图表、计时器组件，实现配置化、可复⽤和可扩展的前端模块，提升迭代效率与项⽬复⽤性。&lt;/p&gt;
+&lt;h3 id=&#34;nebula-ui-企业级中后台组件库&#34;&gt;&lt;em&gt;Nebula UI 企业级中后台组件库&lt;/em&gt;
+&lt;/h3&gt;&lt;p&gt;项目简介：基于 Vue 3 + TypeScript 的企业级组件库，专为中后台产品设计，提供丰富的基础组件、按需加载和主题定制功能，支持完整文档与示例，助力快速搭建高质量 UI 界面并提升开发效率。&lt;/p&gt;
+&lt;p&gt;技术栈：Vue 3 + TypeScript + Vite + Storybook&lt;/p&gt;
+&lt;p&gt;项目工作：&lt;/p&gt;
+&lt;p&gt;构建完整 Monorepo 工程结构，实现组件包独立开发、构建、测试和发布流程，配置自动化脚本支持增量打包，提升团队协作和版本管理效率。&lt;/p&gt;
+&lt;p&gt;根据组件功能进行分类，分别实现了例如 Message、Select、Tooltip、Collapse 等核心组件，组件具备响应式布局、主题定制和高复用性。&lt;/p&gt;
+&lt;p&gt;集成 Storybook 实现组件文档、示例预览和交互式测试，统一组件展示风格，并提供丰富示例与状态演示，方便前端开发人员快速接入使用。&lt;/p&gt;
+&lt;p&gt;配置 Vite + ESLint + Prettier 开发环境，制定严格代码规范，支持按需引入和 Tree-shaking，提升项目构建速度和运行性能。&lt;/p&gt;
+&lt;p&gt;编写组件单元测试，使用 Vitest + Vue Test Utils 对核心组件进行功能和交互验证，覆盖常用状态和异常场景，确保组件稳定可靠。&lt;/p&gt;
+&lt;h2 id=&#34;专业技能&#34;&gt;专业技能
+&lt;/h2&gt;&lt;p&gt;熟悉常⽤ HTML/HTML5 标签语义与结构，掌握 CSS/CSS3 语法与布局⽅式，具备较强的设计稿还原能⼒。&lt;/p&gt;
+&lt;p&gt;熟练掌握 JavaScript 及 ES6+ 语法特性，深⼊理解 this 指向、作⽤域、原型链、箭头函数、Promise 等核⼼概念与使⽤场景。&lt;/p&gt;
+&lt;p&gt;熟悉 Vue 框架及其原理，并掌握相关⽣态，能够结合 Element Plus 等主流组件库进⾏⾼效开发。&lt;/p&gt;
+&lt;p&gt;了解 HTTP 协议、TCP/IP 协议及常⻅ HTTP 状态码，具备基本的计算机⽹络知识。&lt;/p&gt;
+&lt;p&gt;掌握 Vite、Webpack 等主流前端构建⼯具的配置与使⽤，熟悉 Git 代码版本管理流程。&lt;/p&gt;
+&lt;p&gt;了解Java语法，对mysql、redis、springboot有使用经验。&lt;/p&gt;
 </description>
         </item>
         

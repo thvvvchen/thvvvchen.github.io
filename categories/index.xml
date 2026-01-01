@@ -8,20 +8,20 @@
         <language>en-us</language>
         <copyright>陈梓锋</copyright>
         <lastBuildDate>Thu, 01 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://thvvvchen.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>JavaScript</title>
+        <link>https://thvvvchen.github.io/categories/javascript/</link>
+        <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
+        
+        <guid>https://thvvvchen.github.io/categories/javascript/</guid>
+        <description>&lt;img src="https://thvvvchen.github.io/categories/javascript/background.jpg" alt="Featured image of post JavaScript" /&gt;</description>
+        </item>
+        <item>
         <title>Test</title>
         <link>https://thvvvchen.github.io/categories/test/</link>
         <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
         
         <guid>https://thvvvchen.github.io/categories/test/</guid>
-        <description>&lt;img src="https://thvvvchen.github.io/categories/test/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post Test" /&gt;</description>
-        </item>
-        <item>
-        <title>测试</title>
-        <link>https://thvvvchen.github.io/categories/%E6%B5%8B%E8%AF%95/</link>
-        <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
-        
-        <guid>https://thvvvchen.github.io/categories/%E6%B5%8B%E8%AF%95/</guid>
-        <description></description>
+        <description>&lt;img src="https://thvvvchen.github.io/categories/test/background.jpg" alt="Featured image of post Test" /&gt;</description>
         </item>
         <item>
         <title>计算机基础知识</title>
@@ -29,7 +29,23 @@
         <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
         
         <guid>https://thvvvchen.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid>
-        <description></description>
+        <description>&lt;img src="https://thvvvchen.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/background.jpg" alt="Featured image of post 计算机基础知识" /&gt;</description>
+        </item>
+        <item>
+        <title>HTML/CSS</title>
+        <link>https://thvvvchen.github.io/categories/html%E5%92%8Ccss/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://thvvvchen.github.io/categories/html%E5%92%8Ccss/</guid>
+        <description>&lt;img src="https://thvvvchen.github.io/categories/html%E5%92%8Ccss/background.jpg" alt="Featured image of post HTML/CSS" /&gt;</description>
+        </item>
+        <item>
+        <title>Project</title>
+        <link>https://thvvvchen.github.io/categories/project/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://thvvvchen.github.io/categories/project/</guid>
+        <description>&lt;img src="https://thvvvchen.github.io/categories/project/background.jpg" alt="Featured image of post Project" /&gt;</description>
         </item>
         
     </channel>
