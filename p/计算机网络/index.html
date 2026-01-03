@@ -289,24 +289,16 @@
     <li><a href="#五层协议">五层协议</a></li>
     <li><a href="#为什么是三次握手四次挥手">为什么是三次握手四次挥手？</a>
       <ol>
-        <li>
-          <ol>
-            <li><a href="#-tcp-是全双工的">✅ <strong>TCP 是全双工的</strong></a></li>
-          </ol>
-        </li>
+        <li><a href="#tcp-是全双工的"><strong>TCP 是全双工的</strong></a></li>
       </ol>
     </li>
     <li><a href="#4开头状态码">4开头状态码</a></li>
     <li><a href="#强缓存和协商缓存">强缓存和协商缓存</a></li>
     <li><a href="#网络攻击和攻击的方式">网络攻击和攻击的方式</a>
       <ol>
-        <li>
-          <ol>
-            <li><a href="#1-跨站脚本攻击xss">1. <strong>跨站脚本攻击（XSS）</strong></a></li>
-            <li><a href="#2-跨站请求伪造csrf">2. <strong>跨站请求伪造（CSRF）</strong></a></li>
-            <li><a href="#3-网络钓鱼phishing">3. <strong>网络钓鱼（Phishing）</strong></a></li>
-          </ol>
-        </li>
+        <li><a href="#1-跨站脚本攻击xss">1. <strong>跨站脚本攻击（XSS）</strong></a></li>
+        <li><a href="#2-跨站请求伪造csrf">2. <strong>跨站请求伪造（CSRF）</strong></a></li>
+        <li><a href="#3-网络钓鱼phishing">3. <strong>网络钓鱼（Phishing）</strong></a></li>
       </ol>
     </li>
   </ol>
@@ -324,10 +316,10 @@
     <header class="article-header">
         <div class="article-image">
             <a href="/p/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
-                <img src="/p/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HeaderImage_hu_7f3f615f9b40943d.png"
-                        srcset="/p/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HeaderImage_hu_7f3f615f9b40943d.png 800w, /p/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HeaderImage_hu_16b865ab19d43b94.png 1600w"
+                <img src="/p/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HeaderImage_hu_a2c9f470f0abc2fc.png"
+                        srcset="/p/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HeaderImage_hu_a2c9f470f0abc2fc.png 800w, /p/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HeaderImage_hu_5bfdcb57ac961d1f.png 1600w"
                         width="800" 
-                        height="265" 
+                        height="434" 
                         loading="lazy"
                         alt="Featured image of post 计算机网络" />
                 
@@ -560,8 +552,8 @@
 <p>👉 所以：
 <strong>两次不够确认双方状态，三次是确保双方都“明确在线、序列号同步”的最少次数。</strong></p>
 <p><strong>挥手：</strong></p>
-<h3 id="-tcp-是全双工的">✅ <strong>TCP 是全双工的</strong>
-</h3><ul>
+<h2 id="tcp-是全双工的"><strong>TCP 是全双工的</strong>
+</h2><ul>
 <li>
 <p><strong>一条 TCP 连接里，有两条独立的方向：</strong></p>
 </li>
@@ -621,8 +613,8 @@
 <p><strong>etag底层怎么判断两个文件相同？</strong>
 ![图3]（bodyImage3.png）</p>
 <h1 id="网络攻击和攻击的方式">网络攻击和攻击的方式
-</h1><h3 id="1-跨站脚本攻击xss">1. <strong>跨站脚本攻击（XSS）</strong>
-</h3><ul>
+</h1><h2 id="1-跨站脚本攻击xss">1. <strong>跨站脚本攻击（XSS）</strong>
+</h2><ul>
 <li>
 <p><strong>为什么需要了解</strong>：XSS 攻击是针对前端的常见攻击，攻击者通过在网页中注入恶意的 JavaScript 代码，窃取用户的敏感信息（如 Cookies、token）或篡改页面内容。</p>
 </li>
@@ -649,8 +641,8 @@
 </ul>
 </li>
 </ul>
-<h3 id="2-跨站请求伪造csrf">2. <strong>跨站请求伪造（CSRF）</strong>
-</h3><ul>
+<h2 id="2-跨站请求伪造csrf">2. <strong>跨站请求伪造（CSRF）</strong>
+</h2><ul>
 <li>
 <p><strong>攻击方式</strong>：攻击者诱使用户在已登录的情况下，点击恶意链接或加载恶意页面，自动向服务器发起请求。</p>
 </li>
@@ -664,8 +656,8 @@
 </ul>
 </li>
 </ul>
-<h3 id="3-网络钓鱼phishing">3. <strong>网络钓鱼（Phishing）</strong>
-</h3><ul>
+<h2 id="3-网络钓鱼phishing">3. <strong>网络钓鱼（Phishing）</strong>
+</h2><ul>
 <li>
 <p><strong>攻击方式</strong>： 钓鱼攻击通过伪装成合法网站或应用诱导用户输入个人信息，前端需要时刻关注用户交互界面的安全性，防止用户误入假网站、点击恶意链接。</p>
 </li>
@@ -696,6 +688,39 @@
     
 
     
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/HeaderImage.4d38734d2a9a8a55cbd82560bb96938b_hu_71f5c8ba80dac5a0.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 浏览器缓存"
+                        
+                        data-hash="md5-TThzTSqailXL2CVgu5aTiw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">浏览器缓存</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
 
      
     

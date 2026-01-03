@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Cookie和Session登录的区别">
+<title>Cookie和Session</title>
+
+<link rel='canonical' href='https://thvvvchen.github.io/p/cookie%E5%92%8Csession/'>
+
+<link rel="stylesheet" href="/scss/style.min.833d6eed45de56f48306bf57268d5b8cdfc8a60e8e7bdc99810464fcd033f7c6.css"><meta property='og:title' content="Cookie和Session">
+<meta property='og:description' content="Cookie和Session登录的区别">
+<meta property='og:url' content='https://thvvvchen.github.io/p/cookie%E5%92%8Csession/'>
+<meta property='og:site_name' content='陈梓锋'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-01-01T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-01-01T00:00:00&#43;00:00'/><meta property='og:image' content='https://thvvvchen.github.io/p/cookie%E5%92%8Csession/HeaderImage.png' />
+<meta name="twitter:title" content="Cookie和Session">
+<meta name="twitter:description" content="Cookie和Session登录的区别"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://thvvvchen.github.io/p/cookie%E5%92%8Csession/HeaderImage.png' />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_773b889da9d1e3e9.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">😔</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">陈梓锋</a></h1>
+            <h2 class="site-description">我的个人空间</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.doubao.com/chat/34464154873104130'
+                        target="_blank"
+                        title="Wechat"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-wechat"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M16.5 10c3.038 0 5.5 2.015 5.5 4.5c0 1.397 -.778 2.645 -2 3.47l0 2.03l-1.964 -1.178a6.649 6.649 0 0 1 -1.536 .178c-3.038 0 -5.5 -2.015 -5.5 -4.5s2.462 -4.5 5.5 -4.5z" /><path d="M11.197 15.698c-.69 .196 -1.43 .302 -2.197 .302a8.008 8.008 0 0 1 -2.612 -.432l-2.388 1.432v-2.801c-1.237 -1.082 -2 -2.564 -2 -4.199c0 -3.314 3.134 -6 7 -6c3.782 0 6.863 2.57 7 5.785l0 .233" /><path d="M10 8h.01" /><path d="M7 8h.01" /><path d="M15 14h.01" /><path d="M18 14h.01" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.yuque.com/dashboard'
+                        target="_blank"
+                        title="Yuque"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-file-text-spark"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M12 21h-5a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v3.5" /><path d="M9 9h1" /><path d="M9 13h6" /><path d="M9 17h3" /><path d="M19 22.5a4.75 4.75 0 0 1 3.5 -3.5a4.75 4.75 0 0 1 -3.5 -3.5a4.75 4.75 0 0 1 -3.5 3.5a4.75 4.75 0 0 1 3.5 3.5" /></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E4%BD%9C%E8%80%85/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>作者</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>查找</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E8%81%94/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>关联</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#1-session-登录基于服务端状态">1. Session 登录（基于服务端状态）</a></li>
+    <li><a href="#2-token-登录基于无状态令牌">2. Token 登录（基于无状态令牌）</a>
+      <ol>
+        <li><a href="#场景-1单体应用-vs-分布式应用核心状态存储">场景 1：单体应用 vs 分布式应用（核心：状态存储）</a></li>
+        <li><a href="#场景-2前后端分离跨域核心跨域适配">场景 2：前后端分离跨域（核心：跨域适配）</a></li>
+        <li><a href="#场景-3移动端-app-登录核心客户端存储">场景 3：移动端 APP 登录（核心：客户端存储）</a></li>
+        <li><a href="#场景-4安全攻击防御核心风险差异">场景 4：安全攻击防御（核心：风险差异）</a></li>
+        <li><a href="#场景-5登录态刷新与注销核心生命周期管理">场景 5：登录态刷新与注销（核心：生命周期管理）</a></li>
+        <li><a href="#验证关键点你是否真正理解">验证关键点（你是否真正理解）</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/cookie%E5%92%8Csession/">
+                <img src="/p/cookie%E5%92%8Csession/HeaderImage_hu_a2b3086188e1ad01.png"
+                        srcset="/p/cookie%E5%92%8Csession/HeaderImage_hu_a2b3086188e1ad01.png 800w, /p/cookie%E5%92%8Csession/HeaderImage_hu_ff77a843da614d2d.png 1600w"
+                        width="800" 
+                        height="943" 
+                        loading="lazy"
+                        alt="Featured image of post Cookie和Session" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E9%A1%B9%E7%9B%AE/" >
+                项目
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/cookie%E5%92%8Csession/">Cookie和Session</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Cookie和Session登录的区别
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published" datetime='2026-01-01T00:00:00Z'>Jan 01, 2026</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 6 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="1-session-登录基于服务端状态">1. Session 登录（基于服务端状态）
+</h1><p>Session 是服务端为每个用户创建的「状态会话」，核心流程：</p>
+<ol>
+<li>用户提交账号密码，服务端验证通过后，创建 <code>Session</code>（包含用户信息、过期时间等），并生成唯一的 <code>SessionID</code>；</li>
+<li>服务端将 <code>Session</code> 存储在内存 / Redis / 数据库中，同时把 <code>SessionID</code> 通过 Cookie 返给客户端；</li>
+<li>客户端后续请求时，自动携带 Cookie 中的 <code>SessionID</code>，服务端通过 <code>SessionID</code> 查找对应的 <code>Session</code>，验证身份。</li>
+</ol>
+<h1 id="2-token-登录基于无状态令牌">2. Token 登录（基于无状态令牌）
+</h1><p><strong>Token 是服务端生成的「加密令牌」，核心流程：</strong></p>
+<ol>
+<li>用户提交账号密码，服务端验证通过后，生成包含用户信息（如 uid、权限）、过期时间的 Token（通常为 JWT 格式），直接返回给客户端；</li>
+<li>客户端将 Token 存储在 localStorage/sessionStorage/Cookie 中，后续请求通过 Header（如 <code>Authorization: Bearer &lt;Token&gt;</code>）携带 Token；</li>
+<li>服务端接收请求后，解密 / 验证 Token 的合法性（签名、过期时间），无需存储状态，直接从 Token 中提取用户信息完成认证。</li>
+</ol>
+<p><strong>跨域支持：</strong></p>
+<p>Session：弱（Cookie 跨域需配置 CORS + SameSite）</p>
+<p>Token：强（Header 携带 Token 无跨域限制）</p>
+<p><strong>安全性：</strong></p>
+<p>Session：依赖 Cookie 安全配置（防 XSS/CSRF）</p>
+<p>Token：防 XSS（避免存 localStorage），无 CSRF 风险</p>
+<p><strong>性能：</strong></p>
+<p>Session：服务端需查询 Session，略耗资源</p>
+<p>Token：服务端仅验证 Token，性能更高</p>
+<h2 id="场景-1单体应用-vs-分布式应用核心状态存储">场景 1：单体应用 vs 分布式应用（核心：状态存储）
+</h2><p><strong>背景</strong>：</p>
+<ul>
+<li>场景 A：某公司内部管理系统，部署在单台服务器上，仅公司内网访问，用户量小（&lt;100 人）。</li>
+<li>场景 B：同系统后期用户量增长，部署为 3 台服务器 + 负载均衡（用户请求随机分配到任意服务器）。</li>
+</ul>
+<p><strong>思考问题</strong>：</p>
+<ol>
+<li>场景 A 用 Session 登录是否可行？为什么？</li>
+<li>场景 B 用 Session 登录会出现什么问题？如何解决？</li>
+<li>场景 B 用 Token 登录是否需要解决上述问题？为什么？</li>
+</ol>
+<p><strong>参考分析：</strong></p>
+<ol>
+<li>场景 A 用 Session 完全可行：单服务器下，Session 存储在服务器内存，用户请求始终命中同一服务器，Session ID 对应的用户信息可直接查询，开发简单、无额外成本。</li>
+<li>场景 B 用 Session 会出现「登录态丢失」：用户登录时请求到服务器 1，Session 存储在服务器 1；下一次请求被分配到服务器 2/3，服务器 2/3 无该 Session ID 的数据，提示「未登录」。解决方式：需将 Session 集中存储（如 Redis），所有服务器共享 Session 数据（本质是「有状态」的折中方案），但增加了 Redis 运维和 IO 开销。</li>
+<li>场景 B 用 Token 无需解决该问题：Token 是无状态的，任意服务器均可独立解密验签，无需共享数据，天然适配分布式架构。</li>
+</ol>
+<h2 id="场景-2前后端分离跨域核心跨域适配">场景 2：前后端分离跨域（核心：跨域适配）
+</h2><p><strong>背景</strong>：某电商网站采用「前端（域名：<a class="link" href="https://www.shop.com/"  target="_blank" rel="noopener"
+    >www.shop.com</a>）+ 后端接口（域名：<a class="link" href="https://api.shop.com/"  target="_blank" rel="noopener"
+    >api.shop.com</a>）」架构，用户在前端页面登录后，需调用后端接口获取订单数据。</p>
+<p><strong>思考问题</strong>：</p>
+<ol>
+<li>用 Session 登录时，前端请求后端接口会遇到什么问题？（提示：Cookie 同源策略）</li>
+<li>要让 Session 支持跨域，需要做哪些配置？存在什么风险？</li>
+<li>用 Token 登录如何解决跨域问题？为什么更简单？</li>
+</ol>
+<p><strong>参考分析：</strong></p>
+<ol>
+<li>Session 核心问题：Cookie 受同源策略限制，<a class="link" href="https://www.shop.com/"  target="_blank" rel="noopener"
+    >www.shop.com</a> 下的 Cookie（存储 Session ID）无法自动携带到 <a class="link" href="https://api.shop.com/"  target="_blank" rel="noopener"
+    >api.shop.com</a>，后端无法获取 Session ID，判定用户未登录。</li>
+<li>Session 跨域配置：</li>
+</ol>
+<ul>
+<li>
+<ul>
+<li>后端开启 CORS，设置 <code>Access-Control-Allow-Origin: www.shop.com</code>、<code>Access-Control-Allow-Credentials: true</code>；</li>
+<li>前端请求时设置 <code>withCredentials: true</code>；</li>
+<li>Cookie 配置 <code>SameSite=None</code> + <code>Secure</code>（仅 HTTPS 生效）。风险：<code>SameSite=None</code> 会增加 CSRF 攻击风险，需额外配置 CSRF Token 防御。</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>Token 跨域方案：前端将 Token 放在请求头（如 <code>Authorization: Bearer &lt;Token&gt;</code>），后端解析 Header 即可验证身份。原因：请求头不受同源策略限制，无需复杂配置，天然支持跨域。</li>
+</ol>
+<h2 id="场景-3移动端-app-登录核心客户端存储">场景 3：移动端 APP 登录（核心：客户端存储）
+</h2><p><strong>背景</strong>：某外卖平台开发了 iOS/Android APP，用户在 APP 内登录后，需持续调用接口获取商家、订单信息。</p>
+<p><strong>思考问题</strong>：</p>
+<ol>
+<li>用 Session 登录是否适合 APP？为什么？</li>
+<li>用 Token 登录的优势是什么？客户端该如何存储 Token？</li>
+</ol>
+<p><strong>参考分析：</strong></p>
+<ol>
+<li>Session 不适合 APP：Session 依赖 Cookie，但移动端 APP 无「Cookie」概念（Cookie 是浏览器特性），无法自动携带 Session ID；若强行模拟（如 APP 手动存储 Session ID 并每次请求携带），开发成本高，且失去 Session 「自动携带」的优势。</li>
+<li>Token 优势：客户端可将 Token 存储在 APP 的「本地存储」（如 iOS 的 Keychain、Android 的 SharedPreferences），每次请求时手动添加到 Header 中，适配所有移动端场景；存储建议：敏感 Token 需加密存储，避免明文；短期 Token + 长期 Refresh Token 分离存储（Refresh Token 更安全）。</li>
+</ol>
+<h2 id="场景-4安全攻击防御核心风险差异">场景 4：安全攻击防御（核心：风险差异）
+</h2><p><strong>背景</strong>：</p>
+<ul>
+<li>场景 A：某网站用 Session 登录，仅配置了基本 Cookie（未设置 HttpOnly、SameSite）。</li>
+<li>场景 B：同网站改用 Token 登录，将 Token 存储在 LocalStorage 中。</li>
+</ul>
+<p><strong>思考问题</strong>：</p>
+<ol>
+<li>场景 A 可能遭遇什么攻击？如何防御？</li>
+<li>场景 B 可能遭遇什么攻击？如何防御？</li>
+<li>哪种方案的安全配置更简单？</li>
+</ol>
+<p><strong>参考分析：</strong></p>
+<ol>
+<li>场景 A 风险：CSRF 攻击（攻击者诱导用户点击恶意链接，利用 Cookie 自动携带特性发起请求）；XSS 攻击（窃取 Cookie，若未设置 HttpOnly）。防御：Cookie 配置 <code>HttpOnly</code>（防 XSS）、<code>SameSite=Strict/Lax</code>（防 CSRF）、开启 HTTPS；额外添加 CSRF Token 验证。</li>
+<li>场景 B 风险：XSS 攻击（LocalStorage 可被 JS 读取，攻击者注入恶意脚本盗取 Token）；Token 泄露后无过期机制的话，风险持续。防御：缩短 Token 过期时间（如 30 分钟）、使用 Refresh Token 无感刷新；Token 存储在 HttpOnly Cookie 中（而非 LocalStorage）；开启 HTTPS；输入过滤防 XSS。</li>
+<li>安全配置复杂度：Session 需同时防御 CSRF + XSS，Token 只需重点防御 XSS（无 CSRF 风险），但 Token 需设计过期 / 刷新机制。折中方案：Token 存储在 HttpOnly Cookie 中（防 XSS）+ SameSite（兜底），兼顾两种优势。</li>
+</ol>
+<h2 id="场景-5登录态刷新与注销核心生命周期管理">场景 5：登录态刷新与注销（核心：生命周期管理）
+</h2><p><strong>背景</strong>：某社交平台要求：</p>
+<ul>
+<li>用户登录后，若 2 小时无操作则自动登出；</li>
+<li>用户手动点击「注销」后，需立即失效登录态。</li>
+</ul>
+<p><strong>思考问题</strong>：</p>
+<ol>
+<li>用 Session 实现「自动登出」和「注销」的逻辑是什么？</li>
+<li>用 Token 实现「自动登出」和「注销」的难点是什么？如何解决？</li>
+</ol>
+<p><strong>参考分析：</strong></p>
+<ol>
+<li>Session 实现逻辑：</li>
+</ol>
+<ul>
+<li>
+<ul>
+<li>自动登出：服务端给 Session 设置过期时间（如 2 小时），每次用户操作时刷新过期时间；若超时，服务端直接销毁 Session。</li>
+<li>注销：服务端接收注销请求后，立即删除该 Session ID 对应的存储数据，后续请求无法验证。优势：服务端可「主动控制」登录态，逻辑简单。</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>Token 实现难点：Token 是无状态的，一旦生成，服务端无法主动销毁（除非 Token 本身过期）。解决方式：</li>
+</ol>
+<ul>
+<li>
+<ul>
+<li>自动登出：Token 中内置过期时间（exp 字段），缩短有效期（如 2 小时），过期后自动失效；</li>
+<li>注销：需额外维护「Token 黑名单」（如 Redis 存储已注销的 Token），验证 Token 时先查黑名单；折中：Refresh Token 机制（短期 Access Token 负责接口访问，长期 Refresh Token 负责刷新 Access Token），注销时仅拉黑 Refresh Token，兼顾体验和可控性。</li>
+</ul>
+</li>
+</ul>
+<h2 id="验证关键点你是否真正理解">验证关键点（你是否真正理解）
+</h2><ol>
+<li>核心区别不是「Cookie vs Header」，而是「服务端是否存储状态」；</li>
+<li>Session 的痛点是「跨域、分布式、多端适配」，Token 的痛点是「主动注销、XSS 防护」；</li>
+<li>选型不是「非此即彼」，而是「场景适配」：单体 / 内网用 Session 更简单，分布式 / 跨域 / 多端用 Token 更适配。</li>
+</ol>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2026 陈梓锋
+    </section>
+    
+    <section class="powerby">
+        
+            给我offer！！ <br/>
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.33.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+    
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.c922af694cc257bf1ecc41c0dd7b0430f9114ec280ccf67cd2c6ad55f5316c4e.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

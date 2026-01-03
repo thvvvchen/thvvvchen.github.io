@@ -8,12 +8,1550 @@
         <language>en-us</language>
         <copyright>陈梓锋</copyright>
         <lastBuildDate>Thu, 01 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://thvvvchen.github.io/categories/javascript/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>js相关</title>
-        <link>https://thvvvchen.github.io/p/js%E7%9B%B8%E5%85%B3/</link>
+        <title>JavaScript高级</title>
+        <link>https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/</link>
         <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
         
-        <guid>https://thvvvchen.github.io/p/js%E7%9B%B8%E5%85%B3/</guid>
-        <description>&lt;p&gt;#JavaScript&lt;/p&gt;
+        <guid>https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/</guid>
+        <description>&lt;img src="https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/HeaderImage.png" alt="Featured image of post JavaScript高级" /&gt;&lt;h1 id=&#34;事件循环&#34;&gt;事件循环：
+&lt;/h1&gt;&lt;p&gt;执行栈与任务队列&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage1.png&#34;
+	width=&#34;558&#34;
+	height=&#34;362&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage1_hu_8292f7d475b13da.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage1_hu_89de459fc5bb04c5.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图1&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;154&#34;
+		data-flex-basis=&#34;369px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;JS单线程，&lt;strong&gt;黄色框&lt;/strong&gt;的都是交给浏览器线程帮js执行，然后将回调放到&lt;strong&gt;任务队列&lt;/strong&gt;，等待执行栈空之后再依次执行任务队列的任务。&lt;/p&gt;
+&lt;p&gt;promise在事件循环中&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage2.png&#34;
+	width=&#34;419&#34;
+	height=&#34;229&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage2_hu_f75efbb6a505c81.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage2_hu_2ebfa4148fb4a57.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图2&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;182&#34;
+		data-flex-basis=&#34;439px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;不影响，promise是直接在上下文栈中执行的&lt;/p&gt;
+&lt;p&gt;但是promise中then又是另外执行的，也就是在浏览器线程中执行&lt;/p&gt;
+&lt;h2 id=&#34;宏任务微任务&#34;&gt;宏任务、微任务
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage3.png&#34;
+	width=&#34;1035&#34;
+	height=&#34;233&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage3_hu_261aaf584f90e437.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage3_hu_14226bf280b612f2.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图3&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;444&#34;
+		data-flex-basis=&#34;1066px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Promise面试题&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;求执行顺序&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage4.png&#34;
+	width=&#34;725&#34;
+	height=&#34;603&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage4_hu_6b3229c292e0b789.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage4_hu_d817b88f75a6c50d.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图4&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;120&#34;
+		data-flex-basis=&#34;288px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Promise.resolve()&lt;/code&gt; 创建一个已完成的 Promise；&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.then(...)&lt;/code&gt; 的回调被放进 &lt;strong&gt;微任务队列&lt;/strong&gt;；&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;求执行顺序&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage5.png&#34;
+	width=&#34;374&#34;
+	height=&#34;616&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage5_hu_b61cbe174f8a3523.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage5_hu_35974a98f63b95c2.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图5&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;60&#34;
+		data-flex-basis=&#34;145px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;V8引擎&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage6.png&#34;
+	width=&#34;1183&#34;
+	height=&#34;246&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage6_hu_e06dd6aba19262c9.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage6_hu_cd303f9bb1eba8bd.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图6&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;480&#34;
+		data-flex-basis=&#34;1154px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage7.png&#34;
+	width=&#34;1231&#34;
+	height=&#34;299&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage7_hu_d8e650ddbd69655b.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage7_hu_6955d6d477a4c40e.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图7&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;411&#34;
+		data-flex-basis=&#34;988px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage8.png&#34;
+	width=&#34;1161&#34;
+	height=&#34;541&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage8_hu_ba7e063459cf471e.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage8_hu_db1187fb7141f8de.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图8&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;214&#34;
+		data-flex-basis=&#34;515px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h1 id=&#34;js代码执行流程&#34;&gt;JS代码执行流程
+&lt;/h1&gt;&lt;h2 id=&#34;行开始之前&#34;&gt;行开始之前：
+&lt;/h2&gt;&lt;p&gt;**GO：**堆中创建全局对象&lt;/p&gt;
+&lt;p&gt;​	**VO：**堆中创建变量对象，存放变量，执行上下文必须关联一个&lt;/p&gt;
+&lt;p&gt;**上下文执行栈：**先进后出&lt;/p&gt;
+&lt;p&gt;​				关联VO、scope chain、 this&lt;/p&gt;
+&lt;p&gt;**FO：**函数对象，存放函数&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage9.png&#34;
+	width=&#34;1292&#34;
+	height=&#34;656&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage9_hu_3c98eb3ae04c40b4.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage9_hu_56daaa535462fb3c.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图9&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;196&#34;
+		data-flex-basis=&#34;472px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;代码执行开始&#34;&gt;代码执行开始：
+&lt;/h2&gt;&lt;p&gt;执行全局上下文，从第一行代码上往下开始执行&lt;/p&gt;
+&lt;h3 id=&#34;函数中途调用如何执行&#34;&gt;函数中途调用如何执行：
+&lt;/h3&gt;&lt;p&gt;函数的局部变量也要存放到一个AO当中，另外的！执行函数的时候才有新的函数执行上下文，关联一个AO&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage10.png&#34;
+	width=&#34;1116&#34;
+	height=&#34;587&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage10_hu_66793e28996224f8.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage10_hu_642af05cf3915e52.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图10&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;190&#34;
+		data-flex-basis=&#34;456px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;如果创建了对象&#34;&gt;如果创建了对象：
+&lt;/h3&gt;&lt;p&gt;在堆中单独创建一个obj对象&lt;/p&gt;
+&lt;h3 id=&#34;函数嵌套调用&#34;&gt;函数嵌套调用：
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage11.png&#34;
+	width=&#34;1266&#34;
+	height=&#34;570&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage11_hu_215d4cab45ef83d7.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage11_hu_6bc6fcb059aba3ea.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图11&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;222&#34;
+		data-flex-basis=&#34;533px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;总结：在函数执行过程中，如果没有调用函数，则从上到下正常执行，执行完毕后将全局上下文对象弹出；如果有函数调用，那么在上下文执行栈中会创建出一个函数上下文对象，上下文对象必须关联一个VO，所以此时会在堆中创建一个AO对象，用来存放函数调用结果，里面存放argument（存传入的参数）以及函数内部局部变量，执行完毕后AO里面的局部变量会被赋值成对应的值，然后栈弹出函数上下文；如果是函数嵌套调用，那么会新创建一个函数上下文压入栈中，然后继续刚才的操作，最后弹出栈，继续执行上一层函数的逻辑，最后执行全局上下文。&lt;/p&gt;
+&lt;h1 id=&#34;作用域和作用域链&#34;&gt;作用域和作用域链
+&lt;/h1&gt;&lt;h2 id=&#34;作用域&#34;&gt;作用域
+&lt;/h2&gt;&lt;p&gt;全局作用域&lt;/p&gt;
+&lt;p&gt;函数作用域&lt;/p&gt;
+&lt;p&gt;块级作用域&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage12.png&#34;
+	width=&#34;838&#34;
+	height=&#34;530&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage12_hu_c68bcec6da455001.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage12_hu_25c9258f315e7e9c.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图12&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;158&#34;
+		data-flex-basis=&#34;379px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;变量查找顺序：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage13.png&#34;
+	width=&#34;416&#34;
+	height=&#34;148&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage13_hu_d7d8aea5a00e3b2.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage13_hu_a0bdc4cc11e95528.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图13&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;281&#34;
+		data-flex-basis=&#34;674px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage14.png&#34;
+	width=&#34;1094&#34;
+	height=&#34;507&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage14_hu_2ea1516a8037f0b6.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage14_hu_74bd382e9b03d367.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图14&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;215&#34;
+		data-flex-basis=&#34;517px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage15.png&#34;
+	width=&#34;1033&#34;
+	height=&#34;522&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage15_hu_4721cb589516fc7d.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage15_hu_5784f6573fc107d3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图15&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;197&#34;
+		data-flex-basis=&#34;474px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;函数情况（有定义变量）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage16.png&#34;
+	width=&#34;1139&#34;
+	height=&#34;527&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage16_hu_3a495d6e0fb51a66.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage16_hu_4f78841f11fa9e91.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图16&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;216&#34;
+		data-flex-basis=&#34;518px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;优先在自己的作用域中找&lt;/p&gt;
+&lt;p&gt;去上一层作用域找变量&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage17.png&#34;
+	width=&#34;1096&#34;
+	height=&#34;534&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage17_hu_738fec012d041aaa.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage17_hu_87c9fc927c60bb94.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图17&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;205&#34;
+		data-flex-basis=&#34;492px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;作用域链&#34;&gt;作用域链:
+&lt;/h2&gt;&lt;p&gt;进入执行上下文就会创建，根据代码类型创建&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;函数作用域链&lt;/strong&gt;：函数解析的时候就创建作用域链，也就是在解析代码的时候，堆中还有一个scope，这个就是函数的作用域链，里面保存有GO对象的地址，&lt;strong&gt;所以在自己的AO作用域中找不到的时候，就会去到GO当中找！&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage18.png&#34;
+	width=&#34;684&#34;
+	height=&#34;526&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage18_hu_d09118b7e8833503.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage18_hu_81cbe017b1f9e6f1.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图18&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;130&#34;
+		data-flex-basis=&#34;312px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;函数嵌套作用域链：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage19.png&#34;
+	width=&#34;374&#34;
+	height=&#34;378&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage19_hu_f6c7a9d765ff1037.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage19_hu_fe98e29c43285399.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图19&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;98&#34;
+		data-flex-basis=&#34;237px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage20.png&#34;
+	width=&#34;911&#34;
+	height=&#34;787&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage20_hu_eafadd00b8b4814c.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage20_hu_9db132d13d8a7d49.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图20&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;115&#34;
+		data-flex-basis=&#34;277px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;总结一下：多层函数嵌套：&lt;/p&gt;
+&lt;p&gt;代码解析&amp;mdash;&amp;gt;GO对象&amp;mdash;&amp;gt;有函数&amp;mdash;&amp;gt;FO对象&amp;mdash;&amp;gt;开始调用&amp;mdash;&amp;gt;创建上下文对象&amp;mdash;&amp;gt;函数调用&amp;mdash;&amp;gt;创建&lt;strong&gt;函数上下文对象&lt;/strong&gt;&amp;mdash;&amp;gt;FO生成作用域链指向GO&amp;mdash;&amp;gt;需要AO，创建AO，保存函数内部变量以及传入参数&amp;mdash;&amp;gt;函数嵌套再调用&amp;mdash;&amp;gt;需要新AO，创建AO，保存函数内部变量和传入参数&amp;mdash;&amp;gt;调用函数，创建新函数上下文对象&amp;mdash;&amp;gt;生成新AO作用域链，指向1：第一层函数AO，指向2：GO&amp;mdash;&amp;gt;打印值&amp;mdash;&amp;gt;在当前作用域中找&amp;mdash;&amp;gt;没有，沿着作用域链找，也就是第一层函数AO&amp;mdash;&amp;gt;发现变量（如果没有发现则继续向前，也就是在GO去寻找）&amp;mdash;&amp;gt;打印（若没有则报错）&lt;/p&gt;
+&lt;h2 id=&#34;面试提升&#34;&gt;面试提升
+&lt;/h2&gt;&lt;p&gt;1、n打印结果&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage21.png&#34;
+	width=&#34;309&#34;
+	height=&#34;222&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage21_hu_fa227029bb35bac9.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage21_hu_a5d1bbadfc6427a7.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图21&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;139&#34;
+		data-flex-basis=&#34;334px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;2、打印结果&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage22.png&#34;
+	width=&#34;258&#34;
+	height=&#34;250&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage22_hu_9e30654bd96f957c.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage22_hu_8b6240bda3f200f3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图22&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;103&#34;
+		data-flex-basis=&#34;247px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;3、打印结果&lt;/p&gt;
+&lt;p&gt;函数查找变量是沿着“定义时”的作用域链”而不是“调用位置”&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage23.png&#34;
+	width=&#34;285&#34;
+	height=&#34;324&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage23_hu_59989836ce80b45b.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage23_hu_609fd8089c5d82b6.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图23&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;87&#34;
+		data-flex-basis=&#34;211px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;4、&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage24.png&#34;
+	width=&#34;301&#34;
+	height=&#34;266&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage24_hu_77d423cbd335eed.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage24_hu_31b27b931e9fe65a.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图24&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;113&#34;
+		data-flex-basis=&#34;271px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h1 id=&#34;js内存管理和闭包&#34;&gt;JS内存管理和闭包
+&lt;/h1&gt;&lt;h2 id=&#34;内存管理&#34;&gt;内存管理：
+&lt;/h2&gt;&lt;p&gt;1、分配&lt;/p&gt;
+&lt;p&gt;2、使用&lt;/p&gt;
+&lt;p&gt;3、销毁&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage25.png&#34;
+	width=&#34;702&#34;
+	height=&#34;228&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage25_hu_e245eab7bed86e10.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage25_hu_936c516296da99df.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图25&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;307&#34;
+		data-flex-basis=&#34;738px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;闭包&#34;&gt;闭包
+&lt;/h2&gt;&lt;p&gt;编程语言中：一个函数和一个环境共同组成的结构体&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage26.png&#34;
+	width=&#34;688&#34;
+	height=&#34;360&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage26_hu_ec4a2644e19e77c8.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage26_hu_1996740f2a468e14.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图26&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;191&#34;
+		data-flex-basis=&#34;458px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;js中：实现外层作用域访问，之所以能够沿着作用域链寻找外层作用域变量，是因为底层实现了闭包&lt;/p&gt;
+&lt;p&gt;因此只要是JS函数，那就形成一个闭包，那就是一个闭包&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage27.png&#34;
+	width=&#34;793&#34;
+	height=&#34;118&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage27_hu_4c1b26c8772aa17c.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage27_hu_7105780b76d52296.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图27&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;672&#34;
+		data-flex-basis=&#34;1612px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage28.png&#34;
+	width=&#34;371&#34;
+	height=&#34;363&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage28_hu_271af79caca2ad3e.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage28_hu_664482b330cf3ea6.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图28&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;102&#34;
+		data-flex-basis=&#34;245px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage29.png&#34;
+	width=&#34;697&#34;
+	height=&#34;550&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage29_hu_95732d96d5ad347d.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage29_hu_f02f6aa94c9a4ac7.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图29&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;126&#34;
+		data-flex-basis=&#34;304px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;所有堆内存中的对象都是有引用的，所以不存在内存泄漏，&lt;/p&gt;
+&lt;p&gt;但是，如果永远不再用adder8了，就会存在内存泄漏&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;闭包内存泄漏问题：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;其实就是外层作用域的变量被持续引用，导致无法GC回收。如果这些长期引用没有被关闭，那就会存在内存泄漏的问题。&lt;/p&gt;
+&lt;p&gt;常见的场景：&lt;/p&gt;
+&lt;p&gt;比如：&lt;/p&gt;
+&lt;p&gt;1、循环闭包中的大数据，也就是1000次循环都引用了同一个Object，那如果没有去手动释放的话就会导致内存泄漏&lt;/p&gt;
+&lt;p&gt;2、DOM事件的监听，我的监听事件引用了外层作用域的变量，当DOM删除，监听消失，我这个引用在内存中还存在，因为没有手动removeEventListener,也就是移除监听。&lt;/p&gt;
+&lt;p&gt;解决方案：&lt;/p&gt;
+&lt;p&gt;1、主动给不再需要的变量赋值null，就是释放引用&lt;/p&gt;
+&lt;p&gt;2、使用{}块级作用域或者let/const限制引用范围&lt;/p&gt;
+&lt;p&gt;3、对定时器，监听器做好清理。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;如何内存释放？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;adder8=null   仔细看，adder8的AO和adder的FO都不可达了，就会被GC回收掉&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage30.png&#34;
+	width=&#34;445&#34;
+	height=&#34;517&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage30_hu_31192a2cc4e27de0.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage30_hu_eb4dc088053a3303.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图30&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;86&#34;
+		data-flex-basis=&#34;206px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;AO当中不使用的属性就会自动被释放掉&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage31.png&#34;
+	width=&#34;660&#34;
+	height=&#34;676&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage31_hu_e8d891d2516a348f.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage31_hu_177985506c2d46ff.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图31&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;97&#34;
+		data-flex-basis=&#34;234px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h1 id=&#34;异步编程&#34;&gt;异步编程
+&lt;/h1&gt;&lt;h2 id=&#34;promise&#34;&gt;Promise
+&lt;/h2&gt;&lt;h3 id=&#34;promise的使用&#34;&gt;Promise的使用
+&lt;/h3&gt;&lt;p&gt;异步执行&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage32.png&#34;
+	width=&#34;455&#34;
+	height=&#34;522&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage32_hu_5aeabfcf33b62be8.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage32_hu_c4665f1d5b8acb54.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图32&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;87&#34;
+		data-flex-basis=&#34;209px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage33.png&#34;
+	width=&#34;699&#34;
+	height=&#34;533&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage33_hu_c6a6d96bb4d6f47f.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage33_hu_4758a90ded8373ac.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图33&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;131&#34;
+		data-flex-basis=&#34;314px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;什么是promise？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage34.png&#34;
+	width=&#34;1030&#34;
+	height=&#34;303&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage34_hu_25ede68cfbf26d99.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage34_hu_83114ddbd8ac5a24.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图34&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;339&#34;
+		data-flex-basis=&#34;815px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;promise编写：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage35.png&#34;
+	width=&#34;548&#34;
+	height=&#34;546&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage35_hu_4e4c3ff12d78f41f.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage35_hu_36e1a1d7f853683b.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图35&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;100&#34;
+		data-flex-basis=&#34;240px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;promise使用：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage36.png&#34;
+	width=&#34;336&#34;
+	height=&#34;200&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage36_hu_d9aa9dd0fee91f30.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage36_hu_fcd18c30cd4db6ff.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图36&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;168&#34;
+		data-flex-basis=&#34;403px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;promise状态&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage37.png&#34;
+	width=&#34;594&#34;
+	height=&#34;264&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage37_hu_e711199fb1b2a148.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage37_hu_9a026c86025226b5.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图37&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;225&#34;
+		data-flex-basis=&#34;540px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;executor&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage38.png&#34;
+	width=&#34;1028&#34;
+	height=&#34;294&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage38_hu_d2c80ae67df5bd1e.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage38_hu_b1000504377b0270.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图38&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;349&#34;
+		data-flex-basis=&#34;839px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;resolve的不同值&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage39.png&#34;
+	width=&#34;1604&#34;
+	height=&#34;329&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage39_hu_78a4e3c2ee4ec931.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage39_hu_61bb57fdb8221cc1.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图39&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;487&#34;
+		data-flex-basis=&#34;1170px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;then&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;可以传递两个参数&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage40.png&#34;
+	width=&#34;483&#34;
+	height=&#34;210&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage40_hu_3d95aebcf7d30386.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage40_hu_f20a9dd3ad9e4fc1.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图40&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;230&#34;
+		data-flex-basis=&#34;552px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;而可以进行多次调用,并且回调函数都会执行&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage41.png&#34;
+	width=&#34;351&#34;
+	height=&#34;298&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage41_hu_4252aee58916e6be.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage41_hu_66b8232431668929.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图41&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;117&#34;
+		data-flex-basis=&#34;282px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;catch&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage42.png&#34;
+	width=&#34;297&#34;
+	height=&#34;514&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage42_hu_322938fd1083f551.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage42_hu_864239467e837361.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图42&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;138px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage43.png&#34;
+	width=&#34;565&#34;
+	height=&#34;151&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage43_hu_6e2cb9804f537d78.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage43_hu_2d9b37509e3dd3bf.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图43&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;374&#34;
+		data-flex-basis=&#34;898px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;实例方法：&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;then方法返回值&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage44.png&#34;
+	width=&#34;718&#34;
+	height=&#34;408&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage44_hu_85f68822430d92c2.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage44_hu_50cd581291a7624d.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图44&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;175&#34;
+		data-flex-basis=&#34;422px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;方法传入回调函数的返回值类型，对于这种多个then，下一个then的执行取决于上一个then的返回值，其实他就是新创建了一个promise&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage45.png&#34;
+	width=&#34;955&#34;
+	height=&#34;597&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage45_hu_90182034a71f09da.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage45_hu_5c0a8d37651682c5.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图45&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;159&#34;
+		data-flex-basis=&#34;383px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;catch方法返回值&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;catch也有返回值，也会返回新promise，可以实现链式调用&lt;/p&gt;
+&lt;p&gt;很少见的写法，逻辑是和then一样的。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage46.png&#34;
+	width=&#34;563&#34;
+	height=&#34;336&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage46_hu_7f04c26591fbd776.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage46_hu_86b7d501e00b9d38.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图46&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;167&#34;
+		data-flex-basis=&#34;402px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage47.png&#34;
+	width=&#34;467&#34;
+	height=&#34;638&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage47_hu_f914fa24c98b7233.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage47_hu_889cceb5e385da46.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图47&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;73&#34;
+		data-flex-basis=&#34;175px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;如果想要实现调用中途reject的话，那就在then执行过程中&lt;strong&gt;抛出异常&lt;/strong&gt;，就会跳过后续的then，找到最近的catch进行执行。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;总结：then和catch的执行时机&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;finally方法&lt;/strong&gt;：无论promise对象是完成还是失败最终都会执行的代码&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;类方法：&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;reject和resolve：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Promise直接调用reject或者resolve，然后调用then或者catch即可。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;实例方法：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;all方法:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage48.png&#34;
+	width=&#34;1185&#34;
+	height=&#34;253&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage48_hu_fe8b4bda22c7609d.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage48_hu_6df2924407a3b03e.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图48&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;468&#34;
+		data-flex-basis=&#34;1124px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;**allselected方法：**等待所有promise都在执行完成，并且返回的一定是fulfill&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;race方法&lt;/strong&gt;：只要有结果了就立马返回，不需要等待。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;any方法：&lt;/strong&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage49.png&#34;
+	width=&#34;823&#34;
+	height=&#34;74&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage49_hu_519f584121a2af8c.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage49_hu_8a3f77dcc45923b4.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图49&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;1112&#34;
+		data-flex-basis=&#34;2669px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;到676&lt;/p&gt;
+&lt;h2 id=&#34;iterator迭代器&#34;&gt;Iterator迭代器
+&lt;/h2&gt;&lt;p&gt;写单个迭代器其实就是创建一个对象，然后添加上图中函数内部的逻辑。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage50.png&#34;
+	width=&#34;538&#34;
+	height=&#34;565&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage50_hu_17d4ce6b8e62062b.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage50_hu_b2cacb7b7ce1a542.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图50&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;95&#34;
+		data-flex-basis=&#34;228px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;封装迭代器&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage51.png&#34;
+	width=&#34;533&#34;
+	height=&#34;558&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage51_hu_b0b231ff698125f.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage51_hu_e09a37e4407f8494.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图51&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;95&#34;
+		data-flex-basis=&#34;229px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;可迭代对象：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;其实就是一个对象内部带有迭代器的对象，就是可迭代对象，二原本不可以迭代的对象可以通过特定方式让其变得可迭代。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage52.png&#34;
+	width=&#34;629&#34;
+	height=&#34;425&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage52_hu_4a2d42de6d0e309f.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage52_hu_40a02f0052c745c0.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图52&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;148&#34;
+		data-flex-basis=&#34;355px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;可迭代对象可以进行for of操作！&lt;/p&gt;
+&lt;p&gt;优化：&lt;/p&gt;
+&lt;p&gt;1、将对象变为可迭代对象的接口的名字不能变&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage53.png&#34;
+	width=&#34;338&#34;
+	height=&#34;39&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage53_hu_b9606cf6f868f097.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage53_hu_6486e24941b55d30.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图53&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;866&#34;
+		data-flex-basis=&#34;2080px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;2、在对象内部写的迭代器不单单可以迭代对象，还可以迭代key和value。&lt;/p&gt;
+&lt;p&gt;3、迭代器中可以用this代替对象名字，因为this的指向是层层往上的。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage54.png&#34;
+	width=&#34;541&#34;
+	height=&#34;546&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage54_hu_df692ecc2139d6e2.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage54_hu_6a20981f722286fc.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图54&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;99&#34;
+		data-flex-basis=&#34;237px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;可迭代对象的应用场景&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage55.png&#34;
+	width=&#34;1162&#34;
+	height=&#34;241&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage55_hu_e42fe2a8ba679d27.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage55_hu_903a0b93b86aee0e.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图55&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;482&#34;
+		data-flex-basis=&#34;1157px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;generator生成器&#34;&gt;Generator生成器
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage56.png&#34;
+	width=&#34;1084&#34;
+	height=&#34;51&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage56_hu_62d579568cc03468.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage56_hu_7410ef123c9945c4.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图56&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;2125&#34;
+		data-flex-basis=&#34;5101px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;基本使用：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage57.png&#34;
+	width=&#34;294&#34;
+	height=&#34;390&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage57_hu_8781445e605b0e74.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage57_hu_d5c1339342791e5a.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图57&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;75&#34;
+		data-flex-basis=&#34;180px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;生成器的执行：生成器的执行需要用next方法&lt;/p&gt;
+&lt;p&gt;生成器参数返回值：&lt;/p&gt;
+&lt;p&gt;所有yield执行完了，done返回值才会变true。&lt;/p&gt;
+&lt;p&gt;返回值就是和迭代器的返回值一致的:&lt;/p&gt;
+&lt;p&gt;1、当下一行代码还是yield的时候&lt;/p&gt;
+&lt;p&gt;2、当下一行代码没有继续执行的代码时&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage58.png&#34;
+	width=&#34;306&#34;
+	height=&#34;122&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage58_hu_9b780ff160984fb2.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage58_hu_57b55b9b73f195b5.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图58&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;250&#34;
+		data-flex-basis=&#34;601px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;返回值：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;1、可以通过yield返回&lt;/p&gt;
+&lt;p&gt;2、也可以通过return返回，但是一旦遇到return，后面的代码都不会执行了&lt;/p&gt;
+&lt;p&gt;3、返回值可以被一个变量接收，接收到之后可以进行打印&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage59.png&#34;
+	width=&#34;427&#34;
+	height=&#34;451&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage59_hu_aac57243f654f4ef.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage59_hu_97a24bc9299cd0d3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图59&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;94&#34;
+		data-flex-basis=&#34;227px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;return提前结束：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage60.png&#34;
+	width=&#34;500&#34;
+	height=&#34;564&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage60_hu_24053a2463125b8a.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage60_hu_a66c9dab47987b72.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图60&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;88&#34;
+		data-flex-basis=&#34;212px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;直接调用return，后续代码都没有执行，调用return的代码都不会执行，因为没有用next，直接返回结果，done就是true了，value就是undefined&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage61.png&#34;
+	width=&#34;379&#34;
+	height=&#34;226&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage61_hu_aa09f5a0a8f11aa5.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage61_hu_3ee5d6f6db8bd597.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图61&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;167&#34;
+		data-flex-basis=&#34;402px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;throw向函数抛出一个异常&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage62.png&#34;
+	width=&#34;592&#34;
+	height=&#34;164&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage62_hu_93f0bdb835bafd1a.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage62_hu_4218310f63dae419.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图62&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;360&#34;
+		data-flex-basis=&#34;866px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;直接会报错，就来拿我调用的这次也不会执行，因为生成器的执行需要next，停止执行&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;生成器替代迭代器：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage63.png&#34;
+	width=&#34;508&#34;
+	height=&#34;561&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage63_hu_312035d426a1fdd1.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage63_hu_d2e775547a61476d.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图63&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;90&#34;
+		data-flex-basis=&#34;217px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;简写模式: yield*，这个语法糖就相当于用for循环遍历数组&lt;/p&gt;
+&lt;p&gt;这是类的实现&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage64.png&#34;
+	width=&#34;636&#34;
+	height=&#34;500&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage64_hu_1277107c7ce6c63a.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage64_hu_55addb1c70ff3724.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图64&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;127&#34;
+		data-flex-basis=&#34;305px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage65.png&#34;
+	width=&#34;555&#34;
+	height=&#34;386&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage65_hu_fd83d008bf2bc9f.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage65_hu_1ca6185bab7f9bb9.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图65&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;143&#34;
+		data-flex-basis=&#34;345px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;使用promise解决回调地狱（链式调用）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage66.png&#34;
+	width=&#34;448&#34;
+	height=&#34;297&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage66_hu_d6050658e70abae.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage66_hu_d32d4a5579d7e11e.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图66&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;150&#34;
+		data-flex-basis=&#34;362px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;优化：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage67.png&#34;
+	width=&#34;559&#34;
+	height=&#34;477&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage67_hu_f8db5f0d137283ec.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage67_hu_6babbe9dbb8c56a5.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图67&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;117&#34;
+		data-flex-basis=&#34;281px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;优优化：异步函数！就是生成器的语法糖&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage68.png&#34;
+	width=&#34;524&#34;
+	height=&#34;363&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage68_hu_70d2939e47e9e622.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage68_hu_6253de628700e680.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图68&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;144&#34;
+		data-flex-basis=&#34;346px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;自动化执行（了解）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage69.png&#34;
+	width=&#34;574&#34;
+	height=&#34;433&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage69_hu_b25ca545fb73a5e1.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage69_hu_659ae63bbf8d81b7.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图69&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;132&#34;
+		data-flex-basis=&#34;318px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;asyncawait&#34;&gt;async/await
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;异步函数写法：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage70.png&#34;
+	width=&#34;317&#34;
+	height=&#34;183&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage70_hu_9baea5635070710a.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage70_hu_3c471d1525fbfea8.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图70&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;173&#34;
+		data-flex-basis=&#34;415px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;执行流程：与普通函数一样，返回值有区别&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;返回值：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;三种返回值:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage71.png&#34;
+	width=&#34;426&#34;
+	height=&#34;585&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage71_hu_ddb1c01e126210cb.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage71_hu_b4a3af29aecef2aa.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图71&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;72&#34;
+		data-flex-basis=&#34;174px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;与普通函数的区别：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;1、如果异步函数抛出异常，不会立刻像普通函数一样报错，而是会作为Promise的reject来传递，也就是被catch捕获&lt;/p&gt;
+&lt;p&gt;2、可以使用await关键字：await和async其实就是生成器的演化，核心都是等待promise返回，再继续执行代码&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage72.png&#34;
+	width=&#34;515&#34;
+	height=&#34;495&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage72_hu_c0d4202859cf4aac.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage72_hu_4e03b18e7c7148ca.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图72&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;104&#34;
+		data-flex-basis=&#34;249px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;当他resolve的时候，以及当他reject的时候，两种情况怎么处理&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;async中使用await：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage73.png&#34;
+	width=&#34;400&#34;
+	height=&#34;116&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage73_hu_a866a700cae1dce.png 480w, https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/bodyImage73_hu_9cfc6f8785869f2a.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图73&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;344&#34;
+		data-flex-basis=&#34;827px&#34;
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>JS 闭包深度解析 —— 从作用域到内存回收</title>
+        <link>https://thvvvchen.github.io/p/js-%E9%97%AD%E5%8C%85%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90-%E4%BB%8E%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%88%B0%E5%86%85%E5%AD%98%E5%9B%9E%E6%94%B6/</link>
+        <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
+        
+        <guid>https://thvvvchen.github.io/p/js-%E9%97%AD%E5%8C%85%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90-%E4%BB%8E%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%88%B0%E5%86%85%E5%AD%98%E5%9B%9E%E6%94%B6/</guid>
+        <description>&lt;img src="https://thvvvchen.github.io/p/js-%E9%97%AD%E5%8C%85%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90-%E4%BB%8E%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%88%B0%E5%86%85%E5%AD%98%E5%9B%9E%E6%94%B6/HeaderImage.png" alt="Featured image of post JS 闭包深度解析 —— 从作用域到内存回收" /&gt;&lt;h1 id=&#34;121-闭包的形成原理&#34;&gt;1.2.1 闭包的形成原理
+&lt;/h1&gt;&lt;h2 id=&#34;1-作用域与作用域链&#34;&gt;1. 作用域与作用域链
+&lt;/h2&gt;&lt;p&gt;JavaScript 采用词法作用域（Lexical Scope）规则：&lt;/p&gt;
+&lt;p&gt;函数的作用域在&lt;strong&gt;定义阶段&lt;/strong&gt;就已确定，而不是在调用阶段。&lt;/p&gt;
+&lt;p&gt;当一个函数被创建时，JS 引擎会：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;为该函数保存一份&lt;strong&gt;外部词法环境的引用&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;形成一条从当前环境指向外部环境的 &lt;strong&gt;作用域链&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-plain&#34; data-lang=&#34;plain&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;当前执行环境 → 外层函数环境 → 全局环境
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;2-闭包的本质定义&#34;&gt;2. 闭包的本质定义
+&lt;/h2&gt;&lt;p&gt;闭包并不是某种特殊语法，而是一种结果：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;函数 + 创建时所捕获的词法环境 = 闭包&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;只要函数能够在其定义环境之外访问外部变量，这个函数就形成了闭包。&lt;/p&gt;
+&lt;h2 id=&#34;3-闭包形成的必要条件&#34;&gt;3. 闭包形成的必要条件
+&lt;/h2&gt;&lt;p&gt;闭包通常需要同时满足以下三个条件：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;函数嵌套&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;内部函数引用外部函数变量&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;内部函数在外部函数作用域之外被调用&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-jsx&#34; data-lang=&#34;jsx&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;outer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kd&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;inner&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;fn&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;outer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;fn&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 10
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;outer 已经执行完毕，但 inner 仍然可以访问 x —— 这正是闭包存在的体现。&lt;/p&gt;
+&lt;h1 id=&#34;122-内存模型与生命周期&#34;&gt;1.2.2 内存模型与生命周期
+&lt;/h1&gt;&lt;h2 id=&#34;1-javascript-的堆与栈模型&#34;&gt;1. JavaScript 的堆与栈模型
+&lt;/h2&gt;&lt;p&gt;在 JS 中，内存主要分为两类：&lt;/p&gt;
+&lt;h3 id=&#34;栈stack&#34;&gt;栈（Stack）
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;存储：&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;基本类型（number、string、boolean、null、undefined、symbol）&lt;/li&gt;
+&lt;li&gt;执行上下文（Execution Context）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;特点：&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;先进后出&lt;/li&gt;
+&lt;li&gt;生命周期短&lt;/li&gt;
+&lt;li&gt;自动回收&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;堆heap&#34;&gt;堆（Heap）
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;存储：&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;引用类型（Object、Array、Function）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;特点：&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;动态分配&lt;/li&gt;
+&lt;li&gt;需要垃圾回收机制管理&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;函数对象本身存在于堆中，而执行上下文在栈中&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;2-活动对象ao与作用域链&#34;&gt;2. 活动对象（AO）与作用域链
+&lt;/h2&gt;&lt;p&gt;当函数执行时，会创建一个&lt;strong&gt;执行上下文&lt;/strong&gt;，其中包含一个 &lt;strong&gt;活动对象（AO）&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;AO 内部存储：&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;形参&lt;/li&gt;
+&lt;li&gt;局部变量&lt;/li&gt;
+&lt;li&gt;函数声明&lt;/li&gt;
+&lt;li&gt;this&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;多个执行上下文通过&lt;strong&gt;引用关系&lt;/strong&gt;构成作用域链。&lt;/p&gt;
+&lt;h2 id=&#34;3-闭包下的生命周期变化&#34;&gt;3. 闭包下的生命周期变化
+&lt;/h2&gt;&lt;p&gt;闭包对内存生命周期的最大影响在于：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;它打破了“函数执行完即可销毁变量”的直觉。&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;执行流程拆解&#34;&gt;执行流程拆解
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;外部函数调用&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;创建 AO&lt;/li&gt;
+&lt;li&gt;AO 入作用域链&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;内部函数创建&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;内部函数对象被分配到堆内存&lt;/li&gt;
+&lt;li&gt;保存对当前作用域链的引用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;外部函数执行结束&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;执行上下文出栈&lt;/li&gt;
+&lt;li&gt;⚠️ 但 AO 仍被内部函数引用 → 无法回收&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;内部函数执行&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;通过保存的作用域链访问外部变量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-plain&#34; data-lang=&#34;plain&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;堆（函数对象）
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   ↓
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;作用域链
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   ↓
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;外部 AO（未被销毁）
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;这正是闭包“持有外部变量”的根本原因。&lt;/strong&gt;&lt;/p&gt;
+&lt;h1 id=&#34;123-闭包的经典应用场景&#34;&gt;1.2.3 闭包的经典应用场景
+&lt;/h1&gt;&lt;h2 id=&#34;1-数据私有化封装状态&#34;&gt;1. 数据私有化（封装状态）
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-jsx&#34; data-lang=&#34;jsx&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;createCounter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kd&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;count&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nx&#34;&gt;increment&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nx&#34;&gt;decrement&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nx&#34;&gt;getCount&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;count&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;counter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;createCounter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;counter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;increment&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;counter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;getCount&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 1
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;count 不暴露到全局&lt;/li&gt;
+&lt;li&gt;只能通过受控 API 操作&lt;/li&gt;
+&lt;li&gt;是 JS 实现“私有变量”的核心手段&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;2-函数工厂--参数预置&#34;&gt;2. 函数工厂 / 参数预置
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-jsx&#34; data-lang=&#34;jsx&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;createAdder&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;num&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;num&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;add5&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;createAdder&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;add5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 8
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;应用场景：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;参数定制&lt;/li&gt;
+&lt;li&gt;业务策略封装&lt;/li&gt;
+&lt;li&gt;高阶函数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;3-防抖--节流状态持久化&#34;&gt;3. 防抖 / 节流（状态持久化）
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-jsx&#34; data-lang=&#34;jsx&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;debounce&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;fn&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;delay&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kd&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;timer&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(...&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;args&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nx&#34;&gt;clearTimeout&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;timer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nx&#34;&gt;timer&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;setTimeout&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nx&#34;&gt;fn&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;apply&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;args&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;delay&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;timer 能跨多次函数调用存在，本质原因正是闭包。&lt;/p&gt;
+&lt;h1 id=&#34;124-垃圾回收与内存泄漏风险&#34;&gt;1.2.4 垃圾回收与内存泄漏风险
+&lt;/h1&gt;&lt;h2 id=&#34;1-javascript-的垃圾回收机制&#34;&gt;1. JavaScript 的垃圾回收机制
+&lt;/h2&gt;&lt;p&gt;现代 JS 引擎（如 V8）主要采用：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;标记-清除（Mark &amp;amp; Sweep）算法&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;从根对象（全局对象、当前执行栈）开始&lt;/li&gt;
+&lt;li&gt;递归标记所有可达对象&lt;/li&gt;
+&lt;li&gt;未被标记的对象会被回收&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;闭包的影响：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;被闭包引用的 AO 是“可达对象”&lt;/li&gt;
+&lt;li&gt;即使函数执行完，也不会被回收&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;2-常见内存泄漏场景&#34;&gt;2. 常见内存泄漏场景
+&lt;/h2&gt;&lt;h3 id=&#34;1意外的全局变量&#34;&gt;1）意外的全局变量
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-jsx&#34; data-lang=&#34;jsx&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;foo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;bar&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 未声明，挂到全局
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;2闭包长期缓存大对象&#34;&gt;2）闭包长期缓存大对象
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-jsx&#34; data-lang=&#34;jsx&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;createCache&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;largeData&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;Array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1000000&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;largeData&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;3dom-事件未移除&#34;&gt;3）DOM 事件未移除
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-jsx&#34; data-lang=&#34;jsx&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;element&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;addEventListener&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;click&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;组件销毁但事件仍存在 → 闭包持有 DOM 与数据&lt;/p&gt;
+&lt;h2 id=&#34;3-优化与治理策略&#34;&gt;3. 优化与治理策略
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;及时解除引用&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-plain&#34; data-lang=&#34;plain&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;timer = null;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;使用 WeakMap / WeakSet&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;不阻止垃圾回收&lt;/li&gt;
+&lt;li&gt;适合缓存临时对象&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;组件卸载时清理副作用&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;定时器&lt;/li&gt;
+&lt;li&gt;事件监听&lt;/li&gt;
+&lt;li&gt;订阅&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         </item>
         

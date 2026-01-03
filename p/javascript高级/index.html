@@ -1,0 +1,1756 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="是笔记！！">
+<title>JavaScript高级</title>
+
+<link rel='canonical' href='https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/'>
+
+<link rel="stylesheet" href="/scss/style.min.833d6eed45de56f48306bf57268d5b8cdfc8a60e8e7bdc99810464fcd033f7c6.css"><meta property='og:title' content="JavaScript高级">
+<meta property='og:description' content="是笔记！！">
+<meta property='og:url' content='https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/'>
+<meta property='og:site_name' content='陈梓锋'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-01-01T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-01-01T00:00:00&#43;00:00'/><meta property='og:image' content='https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/HeaderImage.png' />
+<meta name="twitter:title" content="JavaScript高级">
+<meta name="twitter:description" content="是笔记！！"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://thvvvchen.github.io/p/javascript%E9%AB%98%E7%BA%A7/HeaderImage.png' />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_773b889da9d1e3e9.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">😔</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">陈梓锋</a></h1>
+            <h2 class="site-description">我的个人空间</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.doubao.com/chat/34464154873104130'
+                        target="_blank"
+                        title="Wechat"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-wechat"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M16.5 10c3.038 0 5.5 2.015 5.5 4.5c0 1.397 -.778 2.645 -2 3.47l0 2.03l-1.964 -1.178a6.649 6.649 0 0 1 -1.536 .178c-3.038 0 -5.5 -2.015 -5.5 -4.5s2.462 -4.5 5.5 -4.5z" /><path d="M11.197 15.698c-.69 .196 -1.43 .302 -2.197 .302a8.008 8.008 0 0 1 -2.612 -.432l-2.388 1.432v-2.801c-1.237 -1.082 -2 -2.564 -2 -4.199c0 -3.314 3.134 -6 7 -6c3.782 0 6.863 2.57 7 5.785l0 .233" /><path d="M10 8h.01" /><path d="M7 8h.01" /><path d="M15 14h.01" /><path d="M18 14h.01" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.yuque.com/dashboard'
+                        target="_blank"
+                        title="Yuque"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-file-text-spark"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M12 21h-5a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v3.5" /><path d="M9 9h1" /><path d="M9 13h6" /><path d="M9 17h3" /><path d="M19 22.5a4.75 4.75 0 0 1 3.5 -3.5a4.75 4.75 0 0 1 -3.5 -3.5a4.75 4.75 0 0 1 -3.5 3.5a4.75 4.75 0 0 1 3.5 3.5" /></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E4%BD%9C%E8%80%85/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>作者</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>查找</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E8%81%94/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>关联</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#事件循环">事件循环：</a>
+      <ol>
+        <li><a href="#宏任务微任务">宏任务、微任务</a></li>
+      </ol>
+    </li>
+    <li><a href="#js代码执行流程">JS代码执行流程</a>
+      <ol>
+        <li><a href="#行开始之前">行开始之前：</a></li>
+        <li><a href="#代码执行开始">代码执行开始：</a>
+          <ol>
+            <li><a href="#函数中途调用如何执行">函数中途调用如何执行：</a></li>
+            <li><a href="#如果创建了对象">如果创建了对象：</a></li>
+            <li><a href="#函数嵌套调用">函数嵌套调用：</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#作用域和作用域链">作用域和作用域链</a>
+      <ol>
+        <li><a href="#作用域">作用域</a></li>
+        <li><a href="#作用域链">作用域链:</a></li>
+        <li><a href="#面试提升">面试提升</a></li>
+      </ol>
+    </li>
+    <li><a href="#js内存管理和闭包">JS内存管理和闭包</a>
+      <ol>
+        <li><a href="#内存管理">内存管理：</a></li>
+        <li><a href="#闭包">闭包</a></li>
+      </ol>
+    </li>
+    <li><a href="#异步编程">异步编程</a>
+      <ol>
+        <li><a href="#promise">Promise</a>
+          <ol>
+            <li><a href="#promise的使用">Promise的使用</a></li>
+          </ol>
+        </li>
+        <li><a href="#iterator迭代器">Iterator迭代器</a></li>
+        <li><a href="#generator生成器">Generator生成器</a></li>
+        <li><a href="#asyncawait">async/await</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/javascript%E9%AB%98%E7%BA%A7/">
+                <img src="/p/javascript%E9%AB%98%E7%BA%A7/HeaderImage_hu_9f0edbab1c76e276.png"
+                        srcset="/p/javascript%E9%AB%98%E7%BA%A7/HeaderImage_hu_9f0edbab1c76e276.png 800w, /p/javascript%E9%AB%98%E7%BA%A7/HeaderImage_hu_6557175df12bb853.png 1600w"
+                        width="800" 
+                        height="383" 
+                        loading="lazy"
+                        alt="Featured image of post JavaScript高级" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/javascript/" >
+                JavaScript
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/javascript%E9%AB%98%E7%BA%A7/">JavaScript高级</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            是笔记！！
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published" datetime='2026-01-01T00:00:00Z'>Jan 01, 2026</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 7 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="事件循环">事件循环：
+</h1><p>执行栈与任务队列</p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage1.png"
+	width="558"
+	height="362"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage1_hu_8292f7d475b13da.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage1_hu_89de459fc5bb04c5.png 1024w"
+	loading="lazy"
+	
+		alt="图1"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="154"
+		data-flex-basis="369px"
+	
+></p>
+<p>JS单线程，<strong>黄色框</strong>的都是交给浏览器线程帮js执行，然后将回调放到<strong>任务队列</strong>，等待执行栈空之后再依次执行任务队列的任务。</p>
+<p>promise在事件循环中</p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage2.png"
+	width="419"
+	height="229"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage2_hu_f75efbb6a505c81.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage2_hu_2ebfa4148fb4a57.png 1024w"
+	loading="lazy"
+	
+		alt="图2"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="182"
+		data-flex-basis="439px"
+	
+></p>
+<p>不影响，promise是直接在上下文栈中执行的</p>
+<p>但是promise中then又是另外执行的，也就是在浏览器线程中执行</p>
+<h2 id="宏任务微任务">宏任务、微任务
+</h2><p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage3.png"
+	width="1035"
+	height="233"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage3_hu_261aaf584f90e437.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage3_hu_14226bf280b612f2.png 1024w"
+	loading="lazy"
+	
+		alt="图3"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="444"
+		data-flex-basis="1066px"
+	
+></p>
+<p><strong>Promise面试题</strong></p>
+<p><strong>求执行顺序</strong></p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage4.png"
+	width="725"
+	height="603"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage4_hu_6b3229c292e0b789.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage4_hu_d817b88f75a6c50d.png 1024w"
+	loading="lazy"
+	
+		alt="图4"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="120"
+		data-flex-basis="288px"
+	
+></p>
+<p><code>Promise.resolve()</code> 创建一个已完成的 Promise；</p>
+<p><code>.then(...)</code> 的回调被放进 <strong>微任务队列</strong>；</p>
+<p><strong>求执行顺序</strong></p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage5.png"
+	width="374"
+	height="616"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage5_hu_b61cbe174f8a3523.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage5_hu_35974a98f63b95c2.png 1024w"
+	loading="lazy"
+	
+		alt="图5"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="60"
+		data-flex-basis="145px"
+	
+></p>
+<p>V8引擎</p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage6.png"
+	width="1183"
+	height="246"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage6_hu_e06dd6aba19262c9.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage6_hu_cd303f9bb1eba8bd.png 1024w"
+	loading="lazy"
+	
+		alt="图6"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="480"
+		data-flex-basis="1154px"
+	
+></p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage7.png"
+	width="1231"
+	height="299"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage7_hu_d8e650ddbd69655b.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage7_hu_6955d6d477a4c40e.png 1024w"
+	loading="lazy"
+	
+		alt="图7"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="411"
+		data-flex-basis="988px"
+	
+></p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage8.png"
+	width="1161"
+	height="541"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage8_hu_ba7e063459cf471e.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage8_hu_db1187fb7141f8de.png 1024w"
+	loading="lazy"
+	
+		alt="图8"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="214"
+		data-flex-basis="515px"
+	
+></p>
+<h1 id="js代码执行流程">JS代码执行流程
+</h1><h2 id="行开始之前">行开始之前：
+</h2><p>**GO：**堆中创建全局对象</p>
+<p>​	**VO：**堆中创建变量对象，存放变量，执行上下文必须关联一个</p>
+<p>**上下文执行栈：**先进后出</p>
+<p>​				关联VO、scope chain、 this</p>
+<p>**FO：**函数对象，存放函数</p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage9.png"
+	width="1292"
+	height="656"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage9_hu_3c98eb3ae04c40b4.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage9_hu_56daaa535462fb3c.png 1024w"
+	loading="lazy"
+	
+		alt="图9"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="196"
+		data-flex-basis="472px"
+	
+></p>
+<h2 id="代码执行开始">代码执行开始：
+</h2><p>执行全局上下文，从第一行代码上往下开始执行</p>
+<h3 id="函数中途调用如何执行">函数中途调用如何执行：
+</h3><p>函数的局部变量也要存放到一个AO当中，另外的！执行函数的时候才有新的函数执行上下文，关联一个AO</p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage10.png"
+	width="1116"
+	height="587"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage10_hu_66793e28996224f8.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage10_hu_642af05cf3915e52.png 1024w"
+	loading="lazy"
+	
+		alt="图10"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="190"
+		data-flex-basis="456px"
+	
+></p>
+<h3 id="如果创建了对象">如果创建了对象：
+</h3><p>在堆中单独创建一个obj对象</p>
+<h3 id="函数嵌套调用">函数嵌套调用：
+</h3><p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage11.png"
+	width="1266"
+	height="570"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage11_hu_215d4cab45ef83d7.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage11_hu_6bc6fcb059aba3ea.png 1024w"
+	loading="lazy"
+	
+		alt="图11"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="222"
+		data-flex-basis="533px"
+	
+></p>
+<p>总结：在函数执行过程中，如果没有调用函数，则从上到下正常执行，执行完毕后将全局上下文对象弹出；如果有函数调用，那么在上下文执行栈中会创建出一个函数上下文对象，上下文对象必须关联一个VO，所以此时会在堆中创建一个AO对象，用来存放函数调用结果，里面存放argument（存传入的参数）以及函数内部局部变量，执行完毕后AO里面的局部变量会被赋值成对应的值，然后栈弹出函数上下文；如果是函数嵌套调用，那么会新创建一个函数上下文压入栈中，然后继续刚才的操作，最后弹出栈，继续执行上一层函数的逻辑，最后执行全局上下文。</p>
+<h1 id="作用域和作用域链">作用域和作用域链
+</h1><h2 id="作用域">作用域
+</h2><p>全局作用域</p>
+<p>函数作用域</p>
+<p>块级作用域</p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage12.png"
+	width="838"
+	height="530"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage12_hu_c68bcec6da455001.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage12_hu_25c9258f315e7e9c.png 1024w"
+	loading="lazy"
+	
+		alt="图12"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="158"
+		data-flex-basis="379px"
+	
+></p>
+<p>变量查找顺序：</p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage13.png"
+	width="416"
+	height="148"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage13_hu_d7d8aea5a00e3b2.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage13_hu_a0bdc4cc11e95528.png 1024w"
+	loading="lazy"
+	
+		alt="图13"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="281"
+		data-flex-basis="674px"
+	
+></p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage14.png"
+	width="1094"
+	height="507"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage14_hu_2ea1516a8037f0b6.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage14_hu_74bd382e9b03d367.png 1024w"
+	loading="lazy"
+	
+		alt="图14"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="215"
+		data-flex-basis="517px"
+	
+></p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage15.png"
+	width="1033"
+	height="522"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage15_hu_4721cb589516fc7d.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage15_hu_5784f6573fc107d3.png 1024w"
+	loading="lazy"
+	
+		alt="图15"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="197"
+		data-flex-basis="474px"
+	
+></p>
+<p>函数情况（有定义变量）</p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage16.png"
+	width="1139"
+	height="527"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage16_hu_3a495d6e0fb51a66.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage16_hu_4f78841f11fa9e91.png 1024w"
+	loading="lazy"
+	
+		alt="图16"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="216"
+		data-flex-basis="518px"
+	
+></p>
+<p>优先在自己的作用域中找</p>
+<p>去上一层作用域找变量</p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage17.png"
+	width="1096"
+	height="534"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage17_hu_738fec012d041aaa.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage17_hu_87c9fc927c60bb94.png 1024w"
+	loading="lazy"
+	
+		alt="图17"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="205"
+		data-flex-basis="492px"
+	
+></p>
+<h2 id="作用域链">作用域链:
+</h2><p>进入执行上下文就会创建，根据代码类型创建</p>
+<p><strong>函数作用域链</strong>：函数解析的时候就创建作用域链，也就是在解析代码的时候，堆中还有一个scope，这个就是函数的作用域链，里面保存有GO对象的地址，<strong>所以在自己的AO作用域中找不到的时候，就会去到GO当中找！</strong></p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage18.png"
+	width="684"
+	height="526"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage18_hu_d09118b7e8833503.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage18_hu_81cbe017b1f9e6f1.png 1024w"
+	loading="lazy"
+	
+		alt="图18"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="130"
+		data-flex-basis="312px"
+	
+></p>
+<p><strong>函数嵌套作用域链：</strong></p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage19.png"
+	width="374"
+	height="378"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage19_hu_f6c7a9d765ff1037.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage19_hu_fe98e29c43285399.png 1024w"
+	loading="lazy"
+	
+		alt="图19"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="98"
+		data-flex-basis="237px"
+	
+></p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage20.png"
+	width="911"
+	height="787"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage20_hu_eafadd00b8b4814c.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage20_hu_9db132d13d8a7d49.png 1024w"
+	loading="lazy"
+	
+		alt="图20"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="115"
+		data-flex-basis="277px"
+	
+></p>
+<p>总结一下：多层函数嵌套：</p>
+<p>代码解析&mdash;&gt;GO对象&mdash;&gt;有函数&mdash;&gt;FO对象&mdash;&gt;开始调用&mdash;&gt;创建上下文对象&mdash;&gt;函数调用&mdash;&gt;创建<strong>函数上下文对象</strong>&mdash;&gt;FO生成作用域链指向GO&mdash;&gt;需要AO，创建AO，保存函数内部变量以及传入参数&mdash;&gt;函数嵌套再调用&mdash;&gt;需要新AO，创建AO，保存函数内部变量和传入参数&mdash;&gt;调用函数，创建新函数上下文对象&mdash;&gt;生成新AO作用域链，指向1：第一层函数AO，指向2：GO&mdash;&gt;打印值&mdash;&gt;在当前作用域中找&mdash;&gt;没有，沿着作用域链找，也就是第一层函数AO&mdash;&gt;发现变量（如果没有发现则继续向前，也就是在GO去寻找）&mdash;&gt;打印（若没有则报错）</p>
+<h2 id="面试提升">面试提升
+</h2><p>1、n打印结果</p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage21.png"
+	width="309"
+	height="222"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage21_hu_fa227029bb35bac9.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage21_hu_a5d1bbadfc6427a7.png 1024w"
+	loading="lazy"
+	
+		alt="图21"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="139"
+		data-flex-basis="334px"
+	
+></p>
+<p>2、打印结果</p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage22.png"
+	width="258"
+	height="250"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage22_hu_9e30654bd96f957c.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage22_hu_8b6240bda3f200f3.png 1024w"
+	loading="lazy"
+	
+		alt="图22"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="103"
+		data-flex-basis="247px"
+	
+></p>
+<p>3、打印结果</p>
+<p>函数查找变量是沿着“定义时”的作用域链”而不是“调用位置”</p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage23.png"
+	width="285"
+	height="324"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage23_hu_59989836ce80b45b.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage23_hu_609fd8089c5d82b6.png 1024w"
+	loading="lazy"
+	
+		alt="图23"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="87"
+		data-flex-basis="211px"
+	
+></p>
+<p>4、</p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage24.png"
+	width="301"
+	height="266"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage24_hu_77d423cbd335eed.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage24_hu_31b27b931e9fe65a.png 1024w"
+	loading="lazy"
+	
+		alt="图24"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="113"
+		data-flex-basis="271px"
+	
+></p>
+<h1 id="js内存管理和闭包">JS内存管理和闭包
+</h1><h2 id="内存管理">内存管理：
+</h2><p>1、分配</p>
+<p>2、使用</p>
+<p>3、销毁</p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage25.png"
+	width="702"
+	height="228"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage25_hu_e245eab7bed86e10.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage25_hu_936c516296da99df.png 1024w"
+	loading="lazy"
+	
+		alt="图25"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="307"
+		data-flex-basis="738px"
+	
+></p>
+<h2 id="闭包">闭包
+</h2><p>编程语言中：一个函数和一个环境共同组成的结构体</p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage26.png"
+	width="688"
+	height="360"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage26_hu_ec4a2644e19e77c8.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage26_hu_1996740f2a468e14.png 1024w"
+	loading="lazy"
+	
+		alt="图26"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="191"
+		data-flex-basis="458px"
+	
+></p>
+<p>js中：实现外层作用域访问，之所以能够沿着作用域链寻找外层作用域变量，是因为底层实现了闭包</p>
+<p>因此只要是JS函数，那就形成一个闭包，那就是一个闭包</p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage27.png"
+	width="793"
+	height="118"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage27_hu_4c1b26c8772aa17c.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage27_hu_7105780b76d52296.png 1024w"
+	loading="lazy"
+	
+		alt="图27"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="672"
+		data-flex-basis="1612px"
+	
+></p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage28.png"
+	width="371"
+	height="363"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage28_hu_271af79caca2ad3e.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage28_hu_664482b330cf3ea6.png 1024w"
+	loading="lazy"
+	
+		alt="图28"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="102"
+		data-flex-basis="245px"
+	
+></p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage29.png"
+	width="697"
+	height="550"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage29_hu_95732d96d5ad347d.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage29_hu_f02f6aa94c9a4ac7.png 1024w"
+	loading="lazy"
+	
+		alt="图29"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="126"
+		data-flex-basis="304px"
+	
+></p>
+<p>所有堆内存中的对象都是有引用的，所以不存在内存泄漏，</p>
+<p>但是，如果永远不再用adder8了，就会存在内存泄漏</p>
+<p><strong>闭包内存泄漏问题：</strong></p>
+<p>其实就是外层作用域的变量被持续引用，导致无法GC回收。如果这些长期引用没有被关闭，那就会存在内存泄漏的问题。</p>
+<p>常见的场景：</p>
+<p>比如：</p>
+<p>1、循环闭包中的大数据，也就是1000次循环都引用了同一个Object，那如果没有去手动释放的话就会导致内存泄漏</p>
+<p>2、DOM事件的监听，我的监听事件引用了外层作用域的变量，当DOM删除，监听消失，我这个引用在内存中还存在，因为没有手动removeEventListener,也就是移除监听。</p>
+<p>解决方案：</p>
+<p>1、主动给不再需要的变量赋值null，就是释放引用</p>
+<p>2、使用{}块级作用域或者let/const限制引用范围</p>
+<p>3、对定时器，监听器做好清理。</p>
+<p><strong>如何内存释放？</strong></p>
+<p>adder8=null   仔细看，adder8的AO和adder的FO都不可达了，就会被GC回收掉</p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage30.png"
+	width="445"
+	height="517"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage30_hu_31192a2cc4e27de0.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage30_hu_eb4dc088053a3303.png 1024w"
+	loading="lazy"
+	
+		alt="图30"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="86"
+		data-flex-basis="206px"
+	
+></p>
+<p>AO当中不使用的属性就会自动被释放掉</p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage31.png"
+	width="660"
+	height="676"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage31_hu_e8d891d2516a348f.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage31_hu_177985506c2d46ff.png 1024w"
+	loading="lazy"
+	
+		alt="图31"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="97"
+		data-flex-basis="234px"
+	
+></p>
+<h1 id="异步编程">异步编程
+</h1><h2 id="promise">Promise
+</h2><h3 id="promise的使用">Promise的使用
+</h3><p>异步执行</p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage32.png"
+	width="455"
+	height="522"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage32_hu_5aeabfcf33b62be8.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage32_hu_c4665f1d5b8acb54.png 1024w"
+	loading="lazy"
+	
+		alt="图32"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="87"
+		data-flex-basis="209px"
+	
+></p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage33.png"
+	width="699"
+	height="533"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage33_hu_c6a6d96bb4d6f47f.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage33_hu_4758a90ded8373ac.png 1024w"
+	loading="lazy"
+	
+		alt="图33"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="131"
+		data-flex-basis="314px"
+	
+></p>
+<p><strong>什么是promise？</strong></p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage34.png"
+	width="1030"
+	height="303"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage34_hu_25ede68cfbf26d99.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage34_hu_83114ddbd8ac5a24.png 1024w"
+	loading="lazy"
+	
+		alt="图34"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="339"
+		data-flex-basis="815px"
+	
+></p>
+<p><strong>promise编写：</strong></p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage35.png"
+	width="548"
+	height="546"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage35_hu_4e4c3ff12d78f41f.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage35_hu_36e1a1d7f853683b.png 1024w"
+	loading="lazy"
+	
+		alt="图35"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="100"
+		data-flex-basis="240px"
+	
+></p>
+<p><strong>promise使用：</strong></p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage36.png"
+	width="336"
+	height="200"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage36_hu_d9aa9dd0fee91f30.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage36_hu_fcd18c30cd4db6ff.png 1024w"
+	loading="lazy"
+	
+		alt="图36"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="168"
+		data-flex-basis="403px"
+	
+></p>
+<p><strong>promise状态</strong></p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage37.png"
+	width="594"
+	height="264"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage37_hu_e711199fb1b2a148.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage37_hu_9a026c86025226b5.png 1024w"
+	loading="lazy"
+	
+		alt="图37"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="225"
+		data-flex-basis="540px"
+	
+></p>
+<p><strong>executor</strong></p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage38.png"
+	width="1028"
+	height="294"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage38_hu_d2c80ae67df5bd1e.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage38_hu_b1000504377b0270.png 1024w"
+	loading="lazy"
+	
+		alt="图38"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="349"
+		data-flex-basis="839px"
+	
+></p>
+<p><strong>resolve的不同值</strong></p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage39.png"
+	width="1604"
+	height="329"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage39_hu_78a4e3c2ee4ec931.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage39_hu_61bb57fdb8221cc1.png 1024w"
+	loading="lazy"
+	
+		alt="图39"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="487"
+		data-flex-basis="1170px"
+	
+></p>
+<p><strong>then</strong></p>
+<p>可以传递两个参数</p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage40.png"
+	width="483"
+	height="210"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage40_hu_3d95aebcf7d30386.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage40_hu_f20a9dd3ad9e4fc1.png 1024w"
+	loading="lazy"
+	
+		alt="图40"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="230"
+		data-flex-basis="552px"
+	
+></p>
+<p>而可以进行多次调用,并且回调函数都会执行</p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage41.png"
+	width="351"
+	height="298"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage41_hu_4252aee58916e6be.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage41_hu_66b8232431668929.png 1024w"
+	loading="lazy"
+	
+		alt="图41"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="117"
+		data-flex-basis="282px"
+	
+></p>
+<p><strong>catch</strong></p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage42.png"
+	width="297"
+	height="514"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage42_hu_322938fd1083f551.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage42_hu_864239467e837361.png 1024w"
+	loading="lazy"
+	
+		alt="图42"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="57"
+		data-flex-basis="138px"
+	
+></p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage43.png"
+	width="565"
+	height="151"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage43_hu_6e2cb9804f537d78.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage43_hu_2d9b37509e3dd3bf.png 1024w"
+	loading="lazy"
+	
+		alt="图43"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="374"
+		data-flex-basis="898px"
+	
+></p>
+<p><em><strong>实例方法：</strong></em></p>
+<p><strong>then方法返回值</strong></p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage44.png"
+	width="718"
+	height="408"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage44_hu_85f68822430d92c2.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage44_hu_50cd581291a7624d.png 1024w"
+	loading="lazy"
+	
+		alt="图44"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="175"
+		data-flex-basis="422px"
+	
+></p>
+<p>方法传入回调函数的返回值类型，对于这种多个then，下一个then的执行取决于上一个then的返回值，其实他就是新创建了一个promise</p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage45.png"
+	width="955"
+	height="597"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage45_hu_90182034a71f09da.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage45_hu_5c0a8d37651682c5.png 1024w"
+	loading="lazy"
+	
+		alt="图45"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="159"
+		data-flex-basis="383px"
+	
+></p>
+<p><strong>catch方法返回值</strong></p>
+<p>catch也有返回值，也会返回新promise，可以实现链式调用</p>
+<p>很少见的写法，逻辑是和then一样的。</p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage46.png"
+	width="563"
+	height="336"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage46_hu_7f04c26591fbd776.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage46_hu_86b7d501e00b9d38.png 1024w"
+	loading="lazy"
+	
+		alt="图46"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="167"
+		data-flex-basis="402px"
+	
+></p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage47.png"
+	width="467"
+	height="638"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage47_hu_f914fa24c98b7233.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage47_hu_889cceb5e385da46.png 1024w"
+	loading="lazy"
+	
+		alt="图47"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="73"
+		data-flex-basis="175px"
+	
+></p>
+<p>如果想要实现调用中途reject的话，那就在then执行过程中<strong>抛出异常</strong>，就会跳过后续的then，找到最近的catch进行执行。</p>
+<p><strong>总结：then和catch的执行时机</strong></p>
+<p><strong>finally方法</strong>：无论promise对象是完成还是失败最终都会执行的代码</p>
+<p><em><strong>类方法：</strong></em></p>
+<p><strong>reject和resolve：</strong></p>
+<p>Promise直接调用reject或者resolve，然后调用then或者catch即可。</p>
+<p><strong>实例方法：</strong></p>
+<p><strong>all方法:</strong></p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage48.png"
+	width="1185"
+	height="253"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage48_hu_fe8b4bda22c7609d.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage48_hu_6df2924407a3b03e.png 1024w"
+	loading="lazy"
+	
+		alt="图48"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="468"
+		data-flex-basis="1124px"
+	
+></p>
+<p>**allselected方法：**等待所有promise都在执行完成，并且返回的一定是fulfill</p>
+<p><strong>race方法</strong>：只要有结果了就立马返回，不需要等待。</p>
+<p><strong>any方法：</strong><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage49.png"
+	width="823"
+	height="74"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage49_hu_519f584121a2af8c.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage49_hu_8a3f77dcc45923b4.png 1024w"
+	loading="lazy"
+	
+		alt="图49"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="1112"
+		data-flex-basis="2669px"
+	
+></p>
+<p>到676</p>
+<h2 id="iterator迭代器">Iterator迭代器
+</h2><p>写单个迭代器其实就是创建一个对象，然后添加上图中函数内部的逻辑。</p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage50.png"
+	width="538"
+	height="565"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage50_hu_17d4ce6b8e62062b.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage50_hu_b2cacb7b7ce1a542.png 1024w"
+	loading="lazy"
+	
+		alt="图50"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="95"
+		data-flex-basis="228px"
+	
+></p>
+<p>封装迭代器</p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage51.png"
+	width="533"
+	height="558"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage51_hu_b0b231ff698125f.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage51_hu_e09a37e4407f8494.png 1024w"
+	loading="lazy"
+	
+		alt="图51"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="95"
+		data-flex-basis="229px"
+	
+></p>
+<p><strong>可迭代对象：</strong></p>
+<p>其实就是一个对象内部带有迭代器的对象，就是可迭代对象，二原本不可以迭代的对象可以通过特定方式让其变得可迭代。</p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage52.png"
+	width="629"
+	height="425"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage52_hu_4a2d42de6d0e309f.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage52_hu_40a02f0052c745c0.png 1024w"
+	loading="lazy"
+	
+		alt="图52"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="148"
+		data-flex-basis="355px"
+	
+></p>
+<p>可迭代对象可以进行for of操作！</p>
+<p>优化：</p>
+<p>1、将对象变为可迭代对象的接口的名字不能变</p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage53.png"
+	width="338"
+	height="39"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage53_hu_b9606cf6f868f097.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage53_hu_6486e24941b55d30.png 1024w"
+	loading="lazy"
+	
+		alt="图53"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="866"
+		data-flex-basis="2080px"
+	
+></p>
+<p>2、在对象内部写的迭代器不单单可以迭代对象，还可以迭代key和value。</p>
+<p>3、迭代器中可以用this代替对象名字，因为this的指向是层层往上的。</p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage54.png"
+	width="541"
+	height="546"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage54_hu_df692ecc2139d6e2.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage54_hu_6a20981f722286fc.png 1024w"
+	loading="lazy"
+	
+		alt="图54"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="99"
+		data-flex-basis="237px"
+	
+></p>
+<p>可迭代对象的应用场景</p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage55.png"
+	width="1162"
+	height="241"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage55_hu_e42fe2a8ba679d27.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage55_hu_903a0b93b86aee0e.png 1024w"
+	loading="lazy"
+	
+		alt="图55"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="482"
+		data-flex-basis="1157px"
+	
+></p>
+<h2 id="generator生成器">Generator生成器
+</h2><p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage56.png"
+	width="1084"
+	height="51"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage56_hu_62d579568cc03468.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage56_hu_7410ef123c9945c4.png 1024w"
+	loading="lazy"
+	
+		alt="图56"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="2125"
+		data-flex-basis="5101px"
+	
+></p>
+<p><strong>基本使用：</strong></p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage57.png"
+	width="294"
+	height="390"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage57_hu_8781445e605b0e74.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage57_hu_d5c1339342791e5a.png 1024w"
+	loading="lazy"
+	
+		alt="图57"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="75"
+		data-flex-basis="180px"
+	
+></p>
+<p>生成器的执行：生成器的执行需要用next方法</p>
+<p>生成器参数返回值：</p>
+<p>所有yield执行完了，done返回值才会变true。</p>
+<p>返回值就是和迭代器的返回值一致的:</p>
+<p>1、当下一行代码还是yield的时候</p>
+<p>2、当下一行代码没有继续执行的代码时</p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage58.png"
+	width="306"
+	height="122"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage58_hu_9b780ff160984fb2.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage58_hu_57b55b9b73f195b5.png 1024w"
+	loading="lazy"
+	
+		alt="图58"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="250"
+		data-flex-basis="601px"
+	
+></p>
+<p><strong>返回值：</strong></p>
+<p>1、可以通过yield返回</p>
+<p>2、也可以通过return返回，但是一旦遇到return，后面的代码都不会执行了</p>
+<p>3、返回值可以被一个变量接收，接收到之后可以进行打印</p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage59.png"
+	width="427"
+	height="451"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage59_hu_aac57243f654f4ef.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage59_hu_97a24bc9299cd0d3.png 1024w"
+	loading="lazy"
+	
+		alt="图59"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="94"
+		data-flex-basis="227px"
+	
+></p>
+<p><strong>return提前结束：</strong></p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage60.png"
+	width="500"
+	height="564"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage60_hu_24053a2463125b8a.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage60_hu_a66c9dab47987b72.png 1024w"
+	loading="lazy"
+	
+		alt="图60"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="88"
+		data-flex-basis="212px"
+	
+></p>
+<p>直接调用return，后续代码都没有执行，调用return的代码都不会执行，因为没有用next，直接返回结果，done就是true了，value就是undefined</p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage61.png"
+	width="379"
+	height="226"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage61_hu_aa09f5a0a8f11aa5.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage61_hu_3ee5d6f6db8bd597.png 1024w"
+	loading="lazy"
+	
+		alt="图61"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="167"
+		data-flex-basis="402px"
+	
+></p>
+<p><strong>throw向函数抛出一个异常</strong></p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage62.png"
+	width="592"
+	height="164"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage62_hu_93f0bdb835bafd1a.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage62_hu_4218310f63dae419.png 1024w"
+	loading="lazy"
+	
+		alt="图62"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="360"
+		data-flex-basis="866px"
+	
+></p>
+<p>直接会报错，就来拿我调用的这次也不会执行，因为生成器的执行需要next，停止执行</p>
+<p><strong>生成器替代迭代器：</strong></p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage63.png"
+	width="508"
+	height="561"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage63_hu_312035d426a1fdd1.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage63_hu_d2e775547a61476d.png 1024w"
+	loading="lazy"
+	
+		alt="图63"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="90"
+		data-flex-basis="217px"
+	
+></p>
+<p>简写模式: yield*，这个语法糖就相当于用for循环遍历数组</p>
+<p>这是类的实现</p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage64.png"
+	width="636"
+	height="500"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage64_hu_1277107c7ce6c63a.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage64_hu_55addb1c70ff3724.png 1024w"
+	loading="lazy"
+	
+		alt="图64"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="127"
+		data-flex-basis="305px"
+	
+></p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage65.png"
+	width="555"
+	height="386"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage65_hu_fd83d008bf2bc9f.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage65_hu_1ca6185bab7f9bb9.png 1024w"
+	loading="lazy"
+	
+		alt="图65"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="143"
+		data-flex-basis="345px"
+	
+></p>
+<p>使用promise解决回调地狱（链式调用）</p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage66.png"
+	width="448"
+	height="297"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage66_hu_d6050658e70abae.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage66_hu_d32d4a5579d7e11e.png 1024w"
+	loading="lazy"
+	
+		alt="图66"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="150"
+		data-flex-basis="362px"
+	
+></p>
+<p>优化：</p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage67.png"
+	width="559"
+	height="477"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage67_hu_f8db5f0d137283ec.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage67_hu_6babbe9dbb8c56a5.png 1024w"
+	loading="lazy"
+	
+		alt="图67"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="117"
+		data-flex-basis="281px"
+	
+></p>
+<p><strong>优优化：异步函数！就是生成器的语法糖</strong></p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage68.png"
+	width="524"
+	height="363"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage68_hu_70d2939e47e9e622.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage68_hu_6253de628700e680.png 1024w"
+	loading="lazy"
+	
+		alt="图68"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="144"
+		data-flex-basis="346px"
+	
+></p>
+<p>自动化执行（了解）</p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage69.png"
+	width="574"
+	height="433"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage69_hu_b25ca545fb73a5e1.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage69_hu_659ae63bbf8d81b7.png 1024w"
+	loading="lazy"
+	
+		alt="图69"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="132"
+		data-flex-basis="318px"
+	
+></p>
+<h2 id="asyncawait">async/await
+</h2><p><strong>异步函数写法：</strong></p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage70.png"
+	width="317"
+	height="183"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage70_hu_9baea5635070710a.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage70_hu_3c471d1525fbfea8.png 1024w"
+	loading="lazy"
+	
+		alt="图70"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="173"
+		data-flex-basis="415px"
+	
+></p>
+<p>执行流程：与普通函数一样，返回值有区别</p>
+<p><strong>返回值：</strong></p>
+<p>三种返回值:</p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage71.png"
+	width="426"
+	height="585"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage71_hu_ddb1c01e126210cb.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage71_hu_b4a3af29aecef2aa.png 1024w"
+	loading="lazy"
+	
+		alt="图71"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="72"
+		data-flex-basis="174px"
+	
+></p>
+<p><strong>与普通函数的区别：</strong></p>
+<p>1、如果异步函数抛出异常，不会立刻像普通函数一样报错，而是会作为Promise的reject来传递，也就是被catch捕获</p>
+<p>2、可以使用await关键字：await和async其实就是生成器的演化，核心都是等待promise返回，再继续执行代码</p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage72.png"
+	width="515"
+	height="495"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage72_hu_c0d4202859cf4aac.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage72_hu_4e03b18e7c7148ca.png 1024w"
+	loading="lazy"
+	
+		alt="图72"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="104"
+		data-flex-basis="249px"
+	
+></p>
+<p>当他resolve的时候，以及当他reject的时候，两种情况怎么处理</p>
+<p><strong>async中使用await：</strong></p>
+<p><img src="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage73.png"
+	width="400"
+	height="116"
+	srcset="/p/javascript%E9%AB%98%E7%BA%A7/bodyImage73_hu_a866a700cae1dce.png 480w, /p/javascript%E9%AB%98%E7%BA%A7/bodyImage73_hu_9cfc6f8785869f2a.png 1024w"
+	loading="lazy"
+	
+		alt="图73"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="344"
+		data-flex-basis="827px"
+	
+></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/js-%E9%97%AD%E5%8C%85%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90-%E4%BB%8E%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%88%B0%E5%86%85%E5%AD%98%E5%9B%9E%E6%94%B6/">
+        
+        
+            <div class="article-image">
+                <img src="/p/js-%E9%97%AD%E5%8C%85%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90-%E4%BB%8E%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%88%B0%E5%86%85%E5%AD%98%E5%9B%9E%E6%94%B6/HeaderImage.5aabcc270726108114f6fe8e8a0cbe11_hu_ab3c03747372ad07.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post JS 闭包深度解析 —— 从作用域到内存回收"
+                        
+                        data-hash="md5-WqvMJwcmEIEU9v6Oigy&#43;EQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">JS 闭包深度解析 —— 从作用域到内存回收</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2026 陈梓锋
+    </section>
+    
+    <section class="powerby">
+        
+            给我offer！！ <br/>
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.33.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+    
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.c922af694cc257bf1ecc41c0dd7b0430f9114ec280ccf67cd2c6ad55f5316c4e.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

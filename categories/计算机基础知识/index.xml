@@ -169,8 +169,8 @@
 &lt;p&gt;👉 所以：
 &lt;strong&gt;两次不够确认双方状态，三次是确保双方都“明确在线、序列号同步”的最少次数。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;挥手：&lt;/strong&gt;&lt;/p&gt;
-&lt;h3 id=&#34;-tcp-是全双工的&#34;&gt;✅ &lt;strong&gt;TCP 是全双工的&lt;/strong&gt;
-&lt;/h3&gt;&lt;ul&gt;
+&lt;h2 id=&#34;tcp-是全双工的&#34;&gt;&lt;strong&gt;TCP 是全双工的&lt;/strong&gt;
+&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;一条 TCP 连接里，有两条独立的方向：&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
@@ -230,8 +230,8 @@
 &lt;p&gt;&lt;strong&gt;etag底层怎么判断两个文件相同？&lt;/strong&gt;
 ![图3]（bodyImage3.png）&lt;/p&gt;
 &lt;h1 id=&#34;网络攻击和攻击的方式&#34;&gt;网络攻击和攻击的方式
-&lt;/h1&gt;&lt;h3 id=&#34;1-跨站脚本攻击xss&#34;&gt;1. &lt;strong&gt;跨站脚本攻击（XSS）&lt;/strong&gt;
-&lt;/h3&gt;&lt;ul&gt;
+&lt;/h1&gt;&lt;h2 id=&#34;1-跨站脚本攻击xss&#34;&gt;1. &lt;strong&gt;跨站脚本攻击（XSS）&lt;/strong&gt;
+&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;为什么需要了解&lt;/strong&gt;：XSS 攻击是针对前端的常见攻击，攻击者通过在网页中注入恶意的 JavaScript 代码，窃取用户的敏感信息（如 Cookies、token）或篡改页面内容。&lt;/p&gt;
 &lt;/li&gt;
@@ -258,8 +258,8 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;2-跨站请求伪造csrf&#34;&gt;2. &lt;strong&gt;跨站请求伪造（CSRF）&lt;/strong&gt;
-&lt;/h3&gt;&lt;ul&gt;
+&lt;h2 id=&#34;2-跨站请求伪造csrf&#34;&gt;2. &lt;strong&gt;跨站请求伪造（CSRF）&lt;/strong&gt;
+&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;攻击方式&lt;/strong&gt;：攻击者诱使用户在已登录的情况下，点击恶意链接或加载恶意页面，自动向服务器发起请求。&lt;/p&gt;
 &lt;/li&gt;
@@ -273,8 +273,8 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;3-网络钓鱼phishing&#34;&gt;3. &lt;strong&gt;网络钓鱼（Phishing）&lt;/strong&gt;
-&lt;/h3&gt;&lt;ul&gt;
+&lt;h2 id=&#34;3-网络钓鱼phishing&#34;&gt;3. &lt;strong&gt;网络钓鱼（Phishing）&lt;/strong&gt;
+&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;攻击方式&lt;/strong&gt;： 钓鱼攻击通过伪装成合法网站或应用诱导用户输入个人信息，前端需要时刻关注用户交互界面的安全性，防止用户误入假网站、点击恶意链接。&lt;/p&gt;
 &lt;/li&gt;
@@ -289,6 +289,127 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>浏览器缓存</title>
+        <link>https://thvvvchen.github.io/p/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/</link>
+        <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
+        
+        <guid>https://thvvvchen.github.io/p/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/</guid>
+        <description>&lt;img src="https://thvvvchen.github.io/p/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/HeaderImage.png" alt="Featured image of post 浏览器缓存" /&gt;&lt;h1 id=&#34;浏览器缓存http缓存协议&#34;&gt;浏览器缓存？http缓存协议？
+&lt;/h1&gt;&lt;p&gt;浏览器缓存是浏览器对已请求资源的本地存储机制，核心分为&lt;strong&gt;强缓存&lt;/strong&gt;和&lt;strong&gt;协商缓存&lt;/strong&gt;，由 HTTP 缓存协议（HTTP 头字段）控制。&lt;/p&gt;
+&lt;h2 id=&#34;一强缓存&#34;&gt;一、强缓存
+&lt;/h2&gt;&lt;p&gt;浏览器直接从本地缓存读取资源，不向服务器发起请求，由以下 HTTP 头控制：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Expires（HTTP/1.0）&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;格式：&lt;code&gt;Expires: Wed, 26 Dec 2025 12:00:00 GMT&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;含义：资源的过期时间（服务器时间），若当前时间早于 Expires，直接用缓存。&lt;/li&gt;
+&lt;li&gt;缺陷：依赖服务器与客户端时间同步，易因时间偏差失效。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Cache-Control（HTTP/1.1，优先级更高）&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;常用值：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;max-age=3600&lt;/code&gt;：资源在本地缓存 3600 秒（从请求成功时开始计时）。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;public&lt;/code&gt;：允许任何缓存（浏览器、CDN 等）存储该资源。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;private&lt;/code&gt;：仅允许浏览器（私有缓存）存储，禁止 CDN 等共享缓存。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;no-cache&lt;/code&gt;：不使用强缓存，直接进入协商缓存。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;no-store&lt;/code&gt;：禁止任何缓存，每次都从服务器获取新资源。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;二协商缓存&#34;&gt;二、协商缓存
+&lt;/h2&gt;&lt;p&gt;浏览器先向服务器发送请求，由服务器判断资源是否更新：若未更新，返回 304 状态码，浏览器用本地缓存；若已更新，返回 200 和新资源。由以下 HTTP 头配对控制：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Last-Modified &amp;amp; If-Modified-Since&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;服务器响应头：&lt;code&gt;Last-Modified: Tue, 25 Dec 2025 10:00:00 GMT&lt;/code&gt;（资源最后修改时间）。&lt;/li&gt;
+&lt;li&gt;浏览器请求头：&lt;code&gt;If-Modified-Since: Tue, 25 Dec 2025 10:00:00 GMT&lt;/code&gt;（携带上次的 Last-Modified 值）。&lt;/li&gt;
+&lt;li&gt;服务器逻辑：对比资源当前修改时间与 If-Modified-Since，若未变化则返回 304。&lt;/li&gt;
+&lt;li&gt;缺陷：无法识别 “文件内容未变但修改时间变化” 的情况，精度仅到秒级。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;ETag &amp;amp; If-None-Match（优先级更高）&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;服务器响应头：&lt;code&gt;ETag: &amp;quot;abc123&amp;quot;&lt;/code&gt;（资源内容的唯一标识，通常是哈希值）。&lt;/li&gt;
+&lt;li&gt;浏览器请求头：&lt;code&gt;If-None-Match: &amp;quot;abc123&amp;quot;&lt;/code&gt;（携带上次的 ETag 值）。&lt;/li&gt;
+&lt;li&gt;服务器逻辑：对比资源当前 ETag 与 If-None-Match，若一致则返回 304。&lt;/li&gt;
+&lt;li&gt;优势：基于内容标识，精度更高，避免时间偏差问题。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;三缓存流程总结&#34;&gt;三、缓存流程总结
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;浏览器请求资源时，先检查&lt;strong&gt;Cache-Control/Expires&lt;/strong&gt;：若未过期，直接用强缓存。&lt;/li&gt;
+&lt;li&gt;若强缓存过期，发起请求并携带&lt;strong&gt;If-Modified-Since/If-None-Match&lt;/strong&gt;，进入协商缓存。&lt;/li&gt;
+&lt;li&gt;服务器判断资源是否更新：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;未更新：返回 304，浏览器用本地缓存。&lt;/li&gt;
+&lt;li&gt;已更新：返回 200 + 新资源，更新本地缓存。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h1 id=&#34;lastmodified是请求一次还是两次&#34;&gt;lastmodified是请求一次还是两次？
+&lt;/h1&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;一次，强缓存过期之后，浏览器会携带if&amp;hellip;..，请求服务器，服务器比对last&amp;hellip;.，返回304或者200以及新数据。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h1 id=&#34;last和etag的区别&#34;&gt;last和etag的区别？
+&lt;/h1&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;last：精确度是秒级的，无法识别秒内对内容的修改，他的优先级也比etag更低，更适用于对内容变化敏感度低、修改频率低的资源。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;etag：是资源内容的唯一哈希值，精确度更高，优先级更高，适用于那些对内容变化敏感的场景。但是由于哈希计算，会额外增加服务器计算成本。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h1 id=&#34;etag底层怎么判断两个文件相同&#34;&gt;etag底层怎么判断两个文件相同？
+&lt;/h1&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://thvvvchen.github.io/p/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/bodyImage1.png&#34;
+	width=&#34;1261&#34;
+	height=&#34;442&#34;
+	srcset=&#34;https://thvvvchen.github.io/p/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/bodyImage1_hu_1abbd7947893ff5e.png 480w, https://thvvvchen.github.io/p/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/bodyImage1_hu_9e5dbc2460fe960a.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图1&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;285&#34;
+		data-flex-basis=&#34;684px&#34;
+	
+&gt;&lt;/p&gt;
 </description>
         </item>
         

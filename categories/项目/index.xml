@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>项目 on 陈梓锋</title>
+        <link>https://thvvvchen.github.io/categories/%E9%A1%B9%E7%9B%AE/</link>
+        <description>Recent content in 项目 on 陈梓锋</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <copyright>陈梓锋</copyright>
+        <lastBuildDate>Thu, 01 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://thvvvchen.github.io/categories/%E9%A1%B9%E7%9B%AE/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Cookie和Session</title>
+        <link>https://thvvvchen.github.io/p/cookie%E5%92%8Csession/</link>
+        <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
+        
+        <guid>https://thvvvchen.github.io/p/cookie%E5%92%8Csession/</guid>
+        <description>&lt;img src="https://thvvvchen.github.io/p/cookie%E5%92%8Csession/HeaderImage.png" alt="Featured image of post Cookie和Session" /&gt;&lt;h1 id=&#34;1-session-登录基于服务端状态&#34;&gt;1. Session 登录（基于服务端状态）
+&lt;/h1&gt;&lt;p&gt;Session 是服务端为每个用户创建的「状态会话」，核心流程：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;用户提交账号密码，服务端验证通过后，创建 &lt;code&gt;Session&lt;/code&gt;（包含用户信息、过期时间等），并生成唯一的 &lt;code&gt;SessionID&lt;/code&gt;；&lt;/li&gt;
+&lt;li&gt;服务端将 &lt;code&gt;Session&lt;/code&gt; 存储在内存 / Redis / 数据库中，同时把 &lt;code&gt;SessionID&lt;/code&gt; 通过 Cookie 返给客户端；&lt;/li&gt;
+&lt;li&gt;客户端后续请求时，自动携带 Cookie 中的 &lt;code&gt;SessionID&lt;/code&gt;，服务端通过 &lt;code&gt;SessionID&lt;/code&gt; 查找对应的 &lt;code&gt;Session&lt;/code&gt;，验证身份。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;2-token-登录基于无状态令牌&#34;&gt;2. Token 登录（基于无状态令牌）
+&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;Token 是服务端生成的「加密令牌」，核心流程：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;用户提交账号密码，服务端验证通过后，生成包含用户信息（如 uid、权限）、过期时间的 Token（通常为 JWT 格式），直接返回给客户端；&lt;/li&gt;
+&lt;li&gt;客户端将 Token 存储在 localStorage/sessionStorage/Cookie 中，后续请求通过 Header（如 &lt;code&gt;Authorization: Bearer &amp;lt;Token&amp;gt;&lt;/code&gt;）携带 Token；&lt;/li&gt;
+&lt;li&gt;服务端接收请求后，解密 / 验证 Token 的合法性（签名、过期时间），无需存储状态，直接从 Token 中提取用户信息完成认证。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;跨域支持：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Session：弱（Cookie 跨域需配置 CORS + SameSite）&lt;/p&gt;
+&lt;p&gt;Token：强（Header 携带 Token 无跨域限制）&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;安全性：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Session：依赖 Cookie 安全配置（防 XSS/CSRF）&lt;/p&gt;
+&lt;p&gt;Token：防 XSS（避免存 localStorage），无 CSRF 风险&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;性能：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Session：服务端需查询 Session，略耗资源&lt;/p&gt;
+&lt;p&gt;Token：服务端仅验证 Token，性能更高&lt;/p&gt;
+&lt;h2 id=&#34;场景-1单体应用-vs-分布式应用核心状态存储&#34;&gt;场景 1：单体应用 vs 分布式应用（核心：状态存储）
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;背景&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;场景 A：某公司内部管理系统，部署在单台服务器上，仅公司内网访问，用户量小（&amp;lt;100 人）。&lt;/li&gt;
+&lt;li&gt;场景 B：同系统后期用户量增长，部署为 3 台服务器 + 负载均衡（用户请求随机分配到任意服务器）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;思考问题&lt;/strong&gt;：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;场景 A 用 Session 登录是否可行？为什么？&lt;/li&gt;
+&lt;li&gt;场景 B 用 Session 登录会出现什么问题？如何解决？&lt;/li&gt;
+&lt;li&gt;场景 B 用 Token 登录是否需要解决上述问题？为什么？&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;参考分析：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;场景 A 用 Session 完全可行：单服务器下，Session 存储在服务器内存，用户请求始终命中同一服务器，Session ID 对应的用户信息可直接查询，开发简单、无额外成本。&lt;/li&gt;
+&lt;li&gt;场景 B 用 Session 会出现「登录态丢失」：用户登录时请求到服务器 1，Session 存储在服务器 1；下一次请求被分配到服务器 2/3，服务器 2/3 无该 Session ID 的数据，提示「未登录」。解决方式：需将 Session 集中存储（如 Redis），所有服务器共享 Session 数据（本质是「有状态」的折中方案），但增加了 Redis 运维和 IO 开销。&lt;/li&gt;
+&lt;li&gt;场景 B 用 Token 无需解决该问题：Token 是无状态的，任意服务器均可独立解密验签，无需共享数据，天然适配分布式架构。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;场景-2前后端分离跨域核心跨域适配&#34;&gt;场景 2：前后端分离跨域（核心：跨域适配）
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;背景&lt;/strong&gt;：某电商网站采用「前端（域名：&lt;a class=&#34;link&#34; href=&#34;https://www.shop.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;www.shop.com&lt;/a&gt;）+ 后端接口（域名：&lt;a class=&#34;link&#34; href=&#34;https://api.shop.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;api.shop.com&lt;/a&gt;）」架构，用户在前端页面登录后，需调用后端接口获取订单数据。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;思考问题&lt;/strong&gt;：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;用 Session 登录时，前端请求后端接口会遇到什么问题？（提示：Cookie 同源策略）&lt;/li&gt;
+&lt;li&gt;要让 Session 支持跨域，需要做哪些配置？存在什么风险？&lt;/li&gt;
+&lt;li&gt;用 Token 登录如何解决跨域问题？为什么更简单？&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;参考分析：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Session 核心问题：Cookie 受同源策略限制，&lt;a class=&#34;link&#34; href=&#34;https://www.shop.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;www.shop.com&lt;/a&gt; 下的 Cookie（存储 Session ID）无法自动携带到 &lt;a class=&#34;link&#34; href=&#34;https://api.shop.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;api.shop.com&lt;/a&gt;，后端无法获取 Session ID，判定用户未登录。&lt;/li&gt;
+&lt;li&gt;Session 跨域配置：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;后端开启 CORS，设置 &lt;code&gt;Access-Control-Allow-Origin: www.shop.com&lt;/code&gt;、&lt;code&gt;Access-Control-Allow-Credentials: true&lt;/code&gt;；&lt;/li&gt;
+&lt;li&gt;前端请求时设置 &lt;code&gt;withCredentials: true&lt;/code&gt;；&lt;/li&gt;
+&lt;li&gt;Cookie 配置 &lt;code&gt;SameSite=None&lt;/code&gt; + &lt;code&gt;Secure&lt;/code&gt;（仅 HTTPS 生效）。风险：&lt;code&gt;SameSite=None&lt;/code&gt; 会增加 CSRF 攻击风险，需额外配置 CSRF Token 防御。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;Token 跨域方案：前端将 Token 放在请求头（如 &lt;code&gt;Authorization: Bearer &amp;lt;Token&amp;gt;&lt;/code&gt;），后端解析 Header 即可验证身份。原因：请求头不受同源策略限制，无需复杂配置，天然支持跨域。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;场景-3移动端-app-登录核心客户端存储&#34;&gt;场景 3：移动端 APP 登录（核心：客户端存储）
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;背景&lt;/strong&gt;：某外卖平台开发了 iOS/Android APP，用户在 APP 内登录后，需持续调用接口获取商家、订单信息。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;思考问题&lt;/strong&gt;：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;用 Session 登录是否适合 APP？为什么？&lt;/li&gt;
+&lt;li&gt;用 Token 登录的优势是什么？客户端该如何存储 Token？&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;参考分析：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Session 不适合 APP：Session 依赖 Cookie，但移动端 APP 无「Cookie」概念（Cookie 是浏览器特性），无法自动携带 Session ID；若强行模拟（如 APP 手动存储 Session ID 并每次请求携带），开发成本高，且失去 Session 「自动携带」的优势。&lt;/li&gt;
+&lt;li&gt;Token 优势：客户端可将 Token 存储在 APP 的「本地存储」（如 iOS 的 Keychain、Android 的 SharedPreferences），每次请求时手动添加到 Header 中，适配所有移动端场景；存储建议：敏感 Token 需加密存储，避免明文；短期 Token + 长期 Refresh Token 分离存储（Refresh Token 更安全）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;场景-4安全攻击防御核心风险差异&#34;&gt;场景 4：安全攻击防御（核心：风险差异）
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;背景&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;场景 A：某网站用 Session 登录，仅配置了基本 Cookie（未设置 HttpOnly、SameSite）。&lt;/li&gt;
+&lt;li&gt;场景 B：同网站改用 Token 登录，将 Token 存储在 LocalStorage 中。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;思考问题&lt;/strong&gt;：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;场景 A 可能遭遇什么攻击？如何防御？&lt;/li&gt;
+&lt;li&gt;场景 B 可能遭遇什么攻击？如何防御？&lt;/li&gt;
+&lt;li&gt;哪种方案的安全配置更简单？&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;参考分析：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;场景 A 风险：CSRF 攻击（攻击者诱导用户点击恶意链接，利用 Cookie 自动携带特性发起请求）；XSS 攻击（窃取 Cookie，若未设置 HttpOnly）。防御：Cookie 配置 &lt;code&gt;HttpOnly&lt;/code&gt;（防 XSS）、&lt;code&gt;SameSite=Strict/Lax&lt;/code&gt;（防 CSRF）、开启 HTTPS；额外添加 CSRF Token 验证。&lt;/li&gt;
+&lt;li&gt;场景 B 风险：XSS 攻击（LocalStorage 可被 JS 读取，攻击者注入恶意脚本盗取 Token）；Token 泄露后无过期机制的话，风险持续。防御：缩短 Token 过期时间（如 30 分钟）、使用 Refresh Token 无感刷新；Token 存储在 HttpOnly Cookie 中（而非 LocalStorage）；开启 HTTPS；输入过滤防 XSS。&lt;/li&gt;
+&lt;li&gt;安全配置复杂度：Session 需同时防御 CSRF + XSS，Token 只需重点防御 XSS（无 CSRF 风险），但 Token 需设计过期 / 刷新机制。折中方案：Token 存储在 HttpOnly Cookie 中（防 XSS）+ SameSite（兜底），兼顾两种优势。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;场景-5登录态刷新与注销核心生命周期管理&#34;&gt;场景 5：登录态刷新与注销（核心：生命周期管理）
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;背景&lt;/strong&gt;：某社交平台要求：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;用户登录后，若 2 小时无操作则自动登出；&lt;/li&gt;
+&lt;li&gt;用户手动点击「注销」后，需立即失效登录态。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;思考问题&lt;/strong&gt;：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;用 Session 实现「自动登出」和「注销」的逻辑是什么？&lt;/li&gt;
+&lt;li&gt;用 Token 实现「自动登出」和「注销」的难点是什么？如何解决？&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;参考分析：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Session 实现逻辑：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;自动登出：服务端给 Session 设置过期时间（如 2 小时），每次用户操作时刷新过期时间；若超时，服务端直接销毁 Session。&lt;/li&gt;
+&lt;li&gt;注销：服务端接收注销请求后，立即删除该 Session ID 对应的存储数据，后续请求无法验证。优势：服务端可「主动控制」登录态，逻辑简单。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;Token 实现难点：Token 是无状态的，一旦生成，服务端无法主动销毁（除非 Token 本身过期）。解决方式：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;自动登出：Token 中内置过期时间（exp 字段），缩短有效期（如 2 小时），过期后自动失效；&lt;/li&gt;
+&lt;li&gt;注销：需额外维护「Token 黑名单」（如 Redis 存储已注销的 Token），验证 Token 时先查黑名单；折中：Refresh Token 机制（短期 Access Token 负责接口访问，长期 Refresh Token 负责刷新 Access Token），注销时仅拉黑 Refresh Token，兼顾体验和可控性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;验证关键点你是否真正理解&#34;&gt;验证关键点（你是否真正理解）
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;核心区别不是「Cookie vs Header」，而是「服务端是否存储状态」；&lt;/li&gt;
+&lt;li&gt;Session 的痛点是「跨域、分布式、多端适配」，Token 的痛点是「主动注销、XSS 防护」；&lt;/li&gt;
+&lt;li&gt;选型不是「非此即彼」，而是「场景适配」：单体 / 内网用 Session 更简单，分布式 / 跨域 / 多端用 Token 更适配。&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Monorepo相关知识">
+<title>关于Monorepo</title>
+
+<link rel='canonical' href='https://thvvvchen.github.io/p/%E5%85%B3%E4%BA%8Emonorepo/'>
+
+<link rel="stylesheet" href="/scss/style.min.833d6eed45de56f48306bf57268d5b8cdfc8a60e8e7bdc99810464fcd033f7c6.css"><meta property='og:title' content="关于Monorepo">
+<meta property='og:description' content="Monorepo相关知识">
+<meta property='og:url' content='https://thvvvchen.github.io/p/%E5%85%B3%E4%BA%8Emonorepo/'>
+<meta property='og:site_name' content='陈梓锋'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-01-01T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-01-01T00:00:00&#43;00:00'/><meta property='og:image' content='https://thvvvchen.github.io/p/%E5%85%B3%E4%BA%8Emonorepo/HeaderImage.png' />
+<meta name="twitter:title" content="关于Monorepo">
+<meta name="twitter:description" content="Monorepo相关知识"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://thvvvchen.github.io/p/%E5%85%B3%E4%BA%8Emonorepo/HeaderImage.png' />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_773b889da9d1e3e9.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">😔</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">陈梓锋</a></h1>
+            <h2 class="site-description">我的个人空间</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.doubao.com/chat/34464154873104130'
+                        target="_blank"
+                        title="Wechat"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-wechat"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M16.5 10c3.038 0 5.5 2.015 5.5 4.5c0 1.397 -.778 2.645 -2 3.47l0 2.03l-1.964 -1.178a6.649 6.649 0 0 1 -1.536 .178c-3.038 0 -5.5 -2.015 -5.5 -4.5s2.462 -4.5 5.5 -4.5z" /><path d="M11.197 15.698c-.69 .196 -1.43 .302 -2.197 .302a8.008 8.008 0 0 1 -2.612 -.432l-2.388 1.432v-2.801c-1.237 -1.082 -2 -2.564 -2 -4.199c0 -3.314 3.134 -6 7 -6c3.782 0 6.863 2.57 7 5.785l0 .233" /><path d="M10 8h.01" /><path d="M7 8h.01" /><path d="M15 14h.01" /><path d="M18 14h.01" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.yuque.com/dashboard'
+                        target="_blank"
+                        title="Yuque"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-file-text-spark"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M12 21h-5a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v3.5" /><path d="M9 9h1" /><path d="M9 13h6" /><path d="M9 17h3" /><path d="M19 22.5a4.75 4.75 0 0 1 3.5 -3.5a4.75 4.75 0 0 1 -3.5 -3.5a4.75 4.75 0 0 1 -3.5 3.5a4.75 4.75 0 0 1 3.5 3.5" /></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E4%BD%9C%E8%80%85/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>作者</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>查找</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E8%81%94/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>关联</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#monorepo组件复用的基石">Monorepo：组件复用的基石</a>
+          <ol>
+            <li><a href="#使用场景">使用场景</a></li>
+            <li><a href="#什么是-monorepo">什么是 Monorepo？</a></li>
+            <li><a href="#monorepo-在组件化中的优势">Monorepo 在组件化中的优势</a></li>
+          </ol>
+        </li>
+        <li><a href="#底层实现原理">底层实现（原理）</a>
+          <ol>
+            <li><a href="#核心原理workspace-与-symlink">核心原理：Workspace 与 Symlink</a></li>
+            <li><a href="#优势">优势</a></li>
+          </ol>
+        </li>
+        <li><a href="#组件库的结构设计与构建流程">组件库的结构设计与构建流程</a>
+          <ol>
+            <li><a href="#1-典型的-monorepo-结构">1. 典型的 Monorepo 结构</a></li>
+            <li><a href="#2-构建与导出机制">2. 构建与导出机制</a></li>
+          </ol>
+        </li>
+        <li><a href="#业务组件的设计原则">业务组件的设计原则</a>
+          <ol>
+            <li><a href="#1-抽象与通用性">1. 抽象与通用性</a></li>
+            <li><a href="#2-数据驱动与属性-props-规范">2. 数据驱动与属性 (Props) 规范</a></li>
+            <li><a href="#3-可扩展的样式与主题化">3. 可扩展的样式与主题化</a></li>
+          </ol>
+        </li>
+        <li><a href="#关键实践组件的消费与联调">关键实践：组件的消费与联调</a>
+          <ol>
+            <li><a href="#1-monorepo-中的引用方式">1. Monorepo 中的引用方式</a></li>
+            <li><a href="#2-本地联调优势hot-reload">2. 本地联调优势（Hot Reload）</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%E5%85%B3%E4%BA%8Emonorepo/">
+                <img src="/p/%E5%85%B3%E4%BA%8Emonorepo/HeaderImage_hu_dbddd84e690c4ed5.png"
+                        srcset="/p/%E5%85%B3%E4%BA%8Emonorepo/HeaderImage_hu_dbddd84e690c4ed5.png 800w, /p/%E5%85%B3%E4%BA%8Emonorepo/HeaderImage_hu_967d16d877b5fec5.png 1600w"
+                        width="800" 
+                        height="439" 
+                        loading="lazy"
+                        alt="Featured image of post 关于Monorepo" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E5%B7%A5%E7%A8%8B%E5%8C%96%E7%9B%B8%E5%85%B3/" >
+                工程化相关
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E5%85%B3%E4%BA%8Emonorepo/">关于Monorepo</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Monorepo相关知识
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published" datetime='2026-01-01T00:00:00Z'>Jan 01, 2026</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 5 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="monorepo组件复用的基石">Monorepo：组件复用的基石
+</h2><p>基于 Monorepo 体系构建业务组件库是提升企业级前端项目效率和代码质量的最佳实践。它通过<strong>统一的依赖管理</strong>、<strong>简化的本地开发流程</strong>和<strong>清晰的模块划分</strong>，完美解决了跨多个子应用和模块进行组件复用时遇到的版本同步和开发调试效率问题。</p>
+<h3 id="使用场景">使用场景
+</h3><p>组件库在 Monorepo 体系下的应用场景通常是为了解决<strong>跨项目、多团队协作</strong>的问题，尤其是在大型企业级应用中：</p>
+<ul>
+<li><strong>微前端架构 (Wujie/Qiankun)：</strong> 不同的子应用（Sub-app）需要共享同一个 UI 风格和业务逻辑组件（如权限筛选器、统一数据表格）。</li>
+<li><strong>多端/多产品线：</strong> 多个产品线（如 B 端管理后台、C 端活动页）需要保持一致的品牌风格和基础功能。</li>
+<li><strong>高频迭代：</strong> 需要快速复用已验证的活动组件（如答题卡片、弹窗模板）来快速搭建新的表单、活动页面。</li>
+</ul>
+<h3 id="什么是-monorepo">什么是 Monorepo？
+</h3><p><strong>Monorepo</strong>（单一代码仓库）是一种代码管理策略，即将多个项目、多个应用或多个库的代码都存放在同一个 Git 仓库中。这与传统的 Multirepo（多仓库）模式形成对比。</p>
+<p>包管理工具相关八股记得看。缺点也得了解</p>
+<h3 id="monorepo-在组件化中的优势">Monorepo 在组件化中的优势
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th><strong>特性</strong></th>
+          <th><strong>优势描述</strong></th>
+          <th><strong>如何促进复用</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>统一依赖管理</strong></td>
+          <td>所有项目（应用、组件库）共享一套 <code>package.json</code> 或由 Lerna/Turborepo 等工具统一管理依赖版本。</td>
+          <td>避免不同项目使用不同版本的组件或工具库，保证一致性。</td>
+      </tr>
+      <tr>
+          <td><strong>本地即时引用</strong></td>
+          <td>应用可以直接引用组件库的源码，无需发布到 NPM。</td>
+          <td>在开发阶段，修改组件库代码后，应用可以<strong>实时热更新</strong>，极大提高开发和调试效率。</td>
+      </tr>
+      <tr>
+          <td><strong>原子化提交</strong></td>
+          <td>一次提交可以涉及多个项目（如修改组件和更新使用它的应用）。</td>
+          <td>确保组件 API 变更时，使用方能够同步更新，降低集成风险。</td>
+      </tr>
+      <tr>
+          <td><strong>工作区（Workspace）</strong></td>
+          <td>Lerna, Yarn/NPM/PNPM 的 Workspace 特性让代码结构清晰，每个子项目独立管理。</td>
+          <td>业务组件库本身成为 Monorepo 内的一个独立包，易于查找和导入。</td>
+      </tr>
+  </tbody>
+</table></div>
+<h2 id="底层实现原理">底层实现（原理）
+</h2><p>Monorepo 实现跨模块复用的核心在于<strong>工作区（Workspace）机制和符号链接（Symlink）</strong>。</p>
+<h3 id="核心原理workspace-与-symlink">核心原理：Workspace 与 Symlink
+</h3><ol>
+<li><strong>Workspace 机制（Yarn/NPM/PNPM）：</strong></li>
+</ol>
+<ul>
+<li>
+<ul>
+<li>○ Monorepo 工具（如 PNPM/Yarn）通过配置根目录下的 package.json，将不同的子项目（组件库、应用）定义为 Workspace。</li>
+<li>组件库的发布名： 组件库在自己的 package.json 中定义一个名字（例如 @my-org/biz-components）。</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li><strong>符号链接 (Symlink)：</strong></li>
+</ol>
+<ul>
+<li>
+<ul>
+<li>当在应用 A 中通过 import { MyComp } from &lsquo;@my-org/biz-components&rsquo; 引用组件时，包管理器不会去 NPM 远程仓库下载，而是在本地的 node_modules 目录下创建一个符号链接，直接指向 Monorepo 内的组件库源码目录。</li>
+</ul>
+</li>
+</ul>
+<h3 id="优势">优势
+</h3><ul>
+<li><strong>零发布依赖：</strong> 在本地开发时，应用 A 直接使用组件库的<strong>源码</strong>，无需执行打包、发布到 NPM、再安装的繁琐流程。</li>
+<li><strong>HMR 联动：</strong> 当修改组件库源码时，由于 Webpack/Vite 等构建工具可以跟踪到本地源码变化，热模块替换（HMR）机制会被触发，应用 A <strong>实时更新</strong>。</li>
+</ul>
+<h2 id="组件库的结构设计与构建流程">组件库的结构设计与构建流程
+</h2><p>在 Monorepo 中，组件库通常作为一个独立的 <strong>Package</strong> 存在。</p>
+<h3 id="1-典型的-monorepo-结构">1. 典型的 Monorepo 结构
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">/monorepo-root
+</span></span><span class="line"><span class="cl">├── /packages
+</span></span><span class="line"><span class="cl">│   ├── /apps       # 业务应用（如：activity-app, admin-app）
+</span></span><span class="line"><span class="cl">│   │   ├── /app-a  # 微前端子应用 A
+</span></span><span class="line"><span class="cl">│   │   └── /app-b  # 后台管理系统 B
+</span></span><span class="line"><span class="cl">│   └── /libs       # 共享库和组件
+</span></span><span class="line"><span class="cl">│       └── /biz-components  # ⭐️ 核心业务组件库 package
+</span></span><span class="line"><span class="cl">│           ├── /src         # 组件源码
+</span></span><span class="line"><span class="cl">│           ├── /dist        # 打包后的产物
+</span></span><span class="line"><span class="cl">│           └── package.json # 组件库的依赖和导出配置
+</span></span><span class="line"><span class="cl">├── package.json # 根目录依赖管理
+</span></span><span class="line"><span class="cl">└── lerna.json   # (如果使用 Lerna)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="2-构建与导出机制">2. 构建与导出机制
+</h3><p>为了让其他应用能正确使用组件库，我们需要设计良好的构建和导出流程：</p>
+<ul>
+<li>
+<p><strong>打包工具：</strong> 使用 Rollup/Vite/Webpack 打包 <code>biz-components</code> package。</p>
+</li>
+<li>
+<p><strong>导出格式：</strong> 必须同时提供 <strong>ES Module (ESM)</strong> 和 <strong>CommonJS (CJS)</strong> 格式的产物，以适应不同的应用环境。</p>
+</li>
+<li>
+<ul>
+<li>在组件库的 <code>package.json</code> 中配置 <code>main</code> (CJS) 和 <code>module</code> (ESM)。</li>
+</ul>
+</li>
+<li>
+<p><strong>Tree Shaking 优化：</strong> 确保应用在导入时能够移除未使用的组件，避免打包体积过大。</p>
+</li>
+</ul>
+<h2 id="业务组件的设计原则">业务组件的设计原则
+</h2><p>业务组件库不同于基础 UI 库（如 Element Plus），它承载了特定的业务逻辑和数据流。</p>
+<h3 id="1-抽象与通用性">1. 抽象与通用性
+</h3><ul>
+<li><strong>分离业务逻辑：</strong> 组件内部应只包含 UI 渲染和事件触发。涉及后端接口调用、复杂的权限判断等，应由应用层传入或通过 <strong>Hooks/Composition Function</strong> 封装。</li>
+<li><strong>插槽 (Slots) 优先：</strong> 使用 Vue 的 <code>slot</code> 机制，最大化内容和结构的可定制性。例如，一个“分页表格”组件应该允许调用方自定义表格的某列渲染逻辑。</li>
+</ul>
+<h3 id="2-数据驱动与属性-props-规范">2. 数据驱动与属性 (Props) 规范
+</h3><ul>
+<li><strong>Props 扁平化：</strong> 避免多层嵌套的 Props 对象，尽量保持 API 扁平易读。</li>
+<li><strong>Typescript 约束：</strong> 在 Monorepo 中，组件库应该使用 TypeScript 定义清晰的 Props 接口。这不仅能提供类型安全，还能让使用方在开发时获得<strong>智能提示</strong>，提高开发效率。</li>
+</ul>
+<h3 id="3-可扩展的样式与主题化">3. 可扩展的样式与主题化
+</h3><ul>
+<li><strong>CSS 变量/主题变量：</strong> 引入 CSS 变量（如 <code>--primary-color</code>）或 SASS/LESS 变量，以便应用层可以轻松切换主题色、字体大小等样式，实现<strong>跨模块的主题动态切换</strong>。</li>
+<li><strong>样式覆盖机制：</strong> 允许组件通过 Props 传入自定义 Class 或 Style，确保在特殊业务场景下样式能够被覆盖和调整。</li>
+</ul>
+<h2 id="关键实践组件的消费与联调">关键实践：组件的消费与联调
+</h2><h3 id="1-monorepo-中的引用方式">1. Monorepo 中的引用方式
+</h3><p>在 Monorepo 的应用 package (<code>app-a</code>) 中，可以直接通过包名导入组件库：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="c1">// 在 app-a/src/main.js 中
+</span></span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">SearchFilterArea</span><span class="p">,</span> <span class="nx">PagingTable</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;biz-components&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 注意：这里的 &#39;biz-components&#39; 是组件库 package.json 中的 name 字段
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>得益于 Monorepo 的 Workspace 机制，这个导入路径在本地开发时会直接指向组件库的源码。</p>
+<h3 id="2-本地联调优势hot-reload">2. 本地联调优势（Hot Reload）
+</h3><p>这是 Monorepo 最大的优势之一。</p>
+<p>当你在 biz-components 库中修改一个组件（例如 PagingTable）时，由于应用 (app-a) 引用的是本地源码，Webook 的 HMR (Hot Module Replacement) 机制能即时将更改同步到运行中的应用中。</p>
+<p>传统 Multirepo 流程： 修改组件 打包 发布到 NPM  应用 npm install 更新版本 重启应用。</p>
+<p>Monorepo 流程： 修改组件浏览器自动热更新。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/cdn-%E5%8A%A0%E9%80%9F%E5%89%8D%E7%AB%AF%E8%B5%84%E6%BA%90%E7%9A%84%E5%AE%9E%E8%B7%B5%E4%B8%8E%E4%BC%98%E5%8C%96/">
+        
+        
+            <div class="article-image">
+                <img src="/p/cdn-%E5%8A%A0%E9%80%9F%E5%89%8D%E7%AB%AF%E8%B5%84%E6%BA%90%E7%9A%84%E5%AE%9E%E8%B7%B5%E4%B8%8E%E4%BC%98%E5%8C%96/HeaderImage.36eaa43c2e61584429f3eba5acfc9683_hu_b0b64c1a8ea7df8d.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post CDN 加速前端资源的实践与优化"
+                        
+                        data-hash="md5-NuqkPC5hWEQp8&#43;ulrPyWgw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">CDN 加速前端资源的实践与优化</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2026 陈梓锋
+    </section>
+    
+    <section class="powerby">
+        
+            给我offer！！ <br/>
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.33.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+    
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.c922af694cc257bf1ecc41c0dd7b0430f9114ec280ccf67cd2c6ad55f5316c4e.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

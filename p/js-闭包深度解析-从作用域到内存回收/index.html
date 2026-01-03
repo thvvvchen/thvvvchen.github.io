@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="1.2.1 闭包的形成原理 1. 作用域与作用域链 JavaScript 采用词法作用域（Lexical Scope）规则：\n函数的作用域在定义阶段就已确定，而不是在调用阶段。\n当一个函数被创建时，JS 引擎会：\n">
+<title>JS 闭包深度解析 —— 从作用域到内存回收</title>
+
+<link rel='canonical' href='https://thvvvchen.github.io/p/js-%E9%97%AD%E5%8C%85%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90-%E4%BB%8E%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%88%B0%E5%86%85%E5%AD%98%E5%9B%9E%E6%94%B6/'>
+
+<link rel="stylesheet" href="/scss/style.min.833d6eed45de56f48306bf57268d5b8cdfc8a60e8e7bdc99810464fcd033f7c6.css"><meta property='og:title' content="JS 闭包深度解析 —— 从作用域到内存回收">
+<meta property='og:description' content="1.2.1 闭包的形成原理 1. 作用域与作用域链 JavaScript 采用词法作用域（Lexical Scope）规则：\n函数的作用域在定义阶段就已确定，而不是在调用阶段。\n当一个函数被创建时，JS 引擎会：\n">
+<meta property='og:url' content='https://thvvvchen.github.io/p/js-%E9%97%AD%E5%8C%85%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90-%E4%BB%8E%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%88%B0%E5%86%85%E5%AD%98%E5%9B%9E%E6%94%B6/'>
+<meta property='og:site_name' content='陈梓锋'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-01-01T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-01-01T00:00:00&#43;00:00'/><meta property='og:image' content='https://thvvvchen.github.io/p/js-%E9%97%AD%E5%8C%85%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90-%E4%BB%8E%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%88%B0%E5%86%85%E5%AD%98%E5%9B%9E%E6%94%B6/HeaderImage.png' />
+<meta name="twitter:title" content="JS 闭包深度解析 —— 从作用域到内存回收">
+<meta name="twitter:description" content="1.2.1 闭包的形成原理 1. 作用域与作用域链 JavaScript 采用词法作用域（Lexical Scope）规则：\n函数的作用域在定义阶段就已确定，而不是在调用阶段。\n当一个函数被创建时，JS 引擎会：\n"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://thvvvchen.github.io/p/js-%E9%97%AD%E5%8C%85%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90-%E4%BB%8E%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%88%B0%E5%86%85%E5%AD%98%E5%9B%9E%E6%94%B6/HeaderImage.png' />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_773b889da9d1e3e9.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">😔</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">陈梓锋</a></h1>
+            <h2 class="site-description">我的个人空间</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.doubao.com/chat/34464154873104130'
+                        target="_blank"
+                        title="Wechat"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-wechat"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M16.5 10c3.038 0 5.5 2.015 5.5 4.5c0 1.397 -.778 2.645 -2 3.47l0 2.03l-1.964 -1.178a6.649 6.649 0 0 1 -1.536 .178c-3.038 0 -5.5 -2.015 -5.5 -4.5s2.462 -4.5 5.5 -4.5z" /><path d="M11.197 15.698c-.69 .196 -1.43 .302 -2.197 .302a8.008 8.008 0 0 1 -2.612 -.432l-2.388 1.432v-2.801c-1.237 -1.082 -2 -2.564 -2 -4.199c0 -3.314 3.134 -6 7 -6c3.782 0 6.863 2.57 7 5.785l0 .233" /><path d="M10 8h.01" /><path d="M7 8h.01" /><path d="M15 14h.01" /><path d="M18 14h.01" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.yuque.com/dashboard'
+                        target="_blank"
+                        title="Yuque"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-file-text-spark"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M12 21h-5a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v3.5" /><path d="M9 9h1" /><path d="M9 13h6" /><path d="M9 17h3" /><path d="M19 22.5a4.75 4.75 0 0 1 3.5 -3.5a4.75 4.75 0 0 1 -3.5 -3.5a4.75 4.75 0 0 1 -3.5 3.5a4.75 4.75 0 0 1 3.5 3.5" /></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E4%BD%9C%E8%80%85/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>作者</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>查找</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E8%81%94/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>关联</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#121-闭包的形成原理">1.2.1 闭包的形成原理</a>
+      <ol>
+        <li><a href="#1-作用域与作用域链">1. 作用域与作用域链</a></li>
+        <li><a href="#2-闭包的本质定义">2. 闭包的本质定义</a></li>
+        <li><a href="#3-闭包形成的必要条件">3. 闭包形成的必要条件</a></li>
+      </ol>
+    </li>
+    <li><a href="#122-内存模型与生命周期">1.2.2 内存模型与生命周期</a>
+      <ol>
+        <li><a href="#1-javascript-的堆与栈模型">1. JavaScript 的堆与栈模型</a>
+          <ol>
+            <li><a href="#栈stack">栈（Stack）</a></li>
+            <li><a href="#堆heap">堆（Heap）</a></li>
+          </ol>
+        </li>
+        <li><a href="#2-活动对象ao与作用域链">2. 活动对象（AO）与作用域链</a></li>
+        <li><a href="#3-闭包下的生命周期变化">3. 闭包下的生命周期变化</a>
+          <ol>
+            <li><a href="#执行流程拆解">执行流程拆解</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#123-闭包的经典应用场景">1.2.3 闭包的经典应用场景</a>
+      <ol>
+        <li><a href="#1-数据私有化封装状态">1. 数据私有化（封装状态）</a></li>
+        <li><a href="#2-函数工厂--参数预置">2. 函数工厂 / 参数预置</a></li>
+        <li><a href="#3-防抖--节流状态持久化">3. 防抖 / 节流（状态持久化）</a></li>
+      </ol>
+    </li>
+    <li><a href="#124-垃圾回收与内存泄漏风险">1.2.4 垃圾回收与内存泄漏风险</a>
+      <ol>
+        <li><a href="#1-javascript-的垃圾回收机制">1. JavaScript 的垃圾回收机制</a></li>
+        <li><a href="#2-常见内存泄漏场景">2. 常见内存泄漏场景</a>
+          <ol>
+            <li><a href="#1意外的全局变量">1）意外的全局变量</a></li>
+            <li><a href="#2闭包长期缓存大对象">2）闭包长期缓存大对象</a></li>
+            <li><a href="#3dom-事件未移除">3）DOM 事件未移除</a></li>
+          </ol>
+        </li>
+        <li><a href="#3-优化与治理策略">3. 优化与治理策略</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/js-%E9%97%AD%E5%8C%85%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90-%E4%BB%8E%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%88%B0%E5%86%85%E5%AD%98%E5%9B%9E%E6%94%B6/">
+                <img src="/p/js-%E9%97%AD%E5%8C%85%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90-%E4%BB%8E%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%88%B0%E5%86%85%E5%AD%98%E5%9B%9E%E6%94%B6/HeaderImage_hu_9f0edbab1c76e276.png"
+                        srcset="/p/js-%E9%97%AD%E5%8C%85%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90-%E4%BB%8E%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%88%B0%E5%86%85%E5%AD%98%E5%9B%9E%E6%94%B6/HeaderImage_hu_9f0edbab1c76e276.png 800w, /p/js-%E9%97%AD%E5%8C%85%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90-%E4%BB%8E%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%88%B0%E5%86%85%E5%AD%98%E5%9B%9E%E6%94%B6/HeaderImage_hu_6557175df12bb853.png 1600w"
+                        width="800" 
+                        height="383" 
+                        loading="lazy"
+                        alt="Featured image of post JS 闭包深度解析 —— 从作用域到内存回收" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/javascript/" >
+                JavaScript
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/js-%E9%97%AD%E5%8C%85%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90-%E4%BB%8E%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%88%B0%E5%86%85%E5%AD%98%E5%9B%9E%E6%94%B6/">JS 闭包深度解析 —— 从作用域到内存回收</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published" datetime='2026-01-01T00:00:00Z'>Jan 01, 2026</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 3 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="121-闭包的形成原理">1.2.1 闭包的形成原理
+</h1><h2 id="1-作用域与作用域链">1. 作用域与作用域链
+</h2><p>JavaScript 采用词法作用域（Lexical Scope）规则：</p>
+<p>函数的作用域在<strong>定义阶段</strong>就已确定，而不是在调用阶段。</p>
+<p>当一个函数被创建时，JS 引擎会：</p>
+<ul>
+<li>为该函数保存一份<strong>外部词法环境的引用</strong></li>
+<li>形成一条从当前环境指向外部环境的 <strong>作用域链</strong></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">当前执行环境 → 外层函数环境 → 全局环境
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="2-闭包的本质定义">2. 闭包的本质定义
+</h2><p>闭包并不是某种特殊语法，而是一种结果：</p>
+<p><strong>函数 + 创建时所捕获的词法环境 = 闭包</strong></p>
+<p>只要函数能够在其定义环境之外访问外部变量，这个函数就形成了闭包。</p>
+<h2 id="3-闭包形成的必要条件">3. 闭包形成的必要条件
+</h2><p>闭包通常需要同时满足以下三个条件：</p>
+<ol>
+<li><strong>函数嵌套</strong></li>
+<li><strong>内部函数引用外部函数变量</strong></li>
+<li><strong>内部函数在外部函数作用域之外被调用</strong></li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">outer</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="kd">function</span> <span class="nx">inner</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">fn</span> <span class="o">=</span> <span class="nx">outer</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fn</span><span class="p">();</span> <span class="c1">// 10
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>outer 已经执行完毕，但 inner 仍然可以访问 x —— 这正是闭包存在的体现。</p>
+<h1 id="122-内存模型与生命周期">1.2.2 内存模型与生命周期
+</h1><h2 id="1-javascript-的堆与栈模型">1. JavaScript 的堆与栈模型
+</h2><p>在 JS 中，内存主要分为两类：</p>
+<h3 id="栈stack">栈（Stack）
+</h3><ul>
+<li>
+<p>存储：</p>
+</li>
+<li>
+<ul>
+<li>基本类型（number、string、boolean、null、undefined、symbol）</li>
+<li>执行上下文（Execution Context）</li>
+</ul>
+</li>
+<li>
+<p>特点：</p>
+</li>
+<li>
+<ul>
+<li>先进后出</li>
+<li>生命周期短</li>
+<li>自动回收</li>
+</ul>
+</li>
+</ul>
+<h3 id="堆heap">堆（Heap）
+</h3><ul>
+<li>
+<p>存储：</p>
+</li>
+<li>
+<ul>
+<li>引用类型（Object、Array、Function）</li>
+</ul>
+</li>
+<li>
+<p>特点：</p>
+</li>
+<li>
+<ul>
+<li>动态分配</li>
+<li>需要垃圾回收机制管理</li>
+</ul>
+</li>
+</ul>
+<p><strong>函数对象本身存在于堆中，而执行上下文在栈中</strong></p>
+<h2 id="2-活动对象ao与作用域链">2. 活动对象（AO）与作用域链
+</h2><p>当函数执行时，会创建一个<strong>执行上下文</strong>，其中包含一个 <strong>活动对象（AO）</strong>：</p>
+<ul>
+<li>
+<p>AO 内部存储：</p>
+</li>
+<li>
+<ul>
+<li>形参</li>
+<li>局部变量</li>
+<li>函数声明</li>
+<li>this</li>
+</ul>
+</li>
+</ul>
+<p>多个执行上下文通过<strong>引用关系</strong>构成作用域链。</p>
+<h2 id="3-闭包下的生命周期变化">3. 闭包下的生命周期变化
+</h2><p>闭包对内存生命周期的最大影响在于：</p>
+<p><strong>它打破了“函数执行完即可销毁变量”的直觉。</strong></p>
+<h3 id="执行流程拆解">执行流程拆解
+</h3><ol>
+<li><strong>外部函数调用</strong></li>
+</ol>
+<ul>
+<li>
+<ul>
+<li>创建 AO</li>
+<li>AO 入作用域链</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li><strong>内部函数创建</strong></li>
+</ol>
+<ul>
+<li>
+<ul>
+<li>内部函数对象被分配到堆内存</li>
+<li>保存对当前作用域链的引用</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li><strong>外部函数执行结束</strong></li>
+</ol>
+<ul>
+<li>
+<ul>
+<li>执行上下文出栈</li>
+<li>⚠️ 但 AO 仍被内部函数引用 → 无法回收</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li><strong>内部函数执行</strong></li>
+</ol>
+<ul>
+<li>
+<ul>
+<li>通过保存的作用域链访问外部变量</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">堆（函数对象）
+</span></span><span class="line"><span class="cl">   ↓
+</span></span><span class="line"><span class="cl">作用域链
+</span></span><span class="line"><span class="cl">   ↓
+</span></span><span class="line"><span class="cl">外部 AO（未被销毁）
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>这正是闭包“持有外部变量”的根本原因。</strong></p>
+<h1 id="123-闭包的经典应用场景">1.2.3 闭包的经典应用场景
+</h1><h2 id="1-数据私有化封装状态">1. 数据私有化（封装状态）
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">createCounter</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">increment</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="o">++</span><span class="nx">count</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">decrement</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="o">--</span><span class="nx">count</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">getCount</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">count</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">counter</span> <span class="o">=</span> <span class="nx">createCounter</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nx">counter</span><span class="p">.</span><span class="nx">increment</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nx">counter</span><span class="p">.</span><span class="nx">getCount</span><span class="p">();</span> <span class="c1">// 1
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>count 不暴露到全局</li>
+<li>只能通过受控 API 操作</li>
+<li>是 JS 实现“私有变量”的核心手段</li>
+</ul>
+<h2 id="2-函数工厂--参数预置">2. 函数工厂 / 参数预置
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">createAdder</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">value</span> <span class="o">+</span> <span class="nx">num</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">add5</span> <span class="o">=</span> <span class="nx">createAdder</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">add5</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span> <span class="c1">// 8
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>应用场景：</p>
+<ul>
+<li>参数定制</li>
+<li>业务策略封装</li>
+<li>高阶函数</li>
+</ul>
+<h2 id="3-防抖--节流状态持久化">3. 防抖 / 节流（状态持久化）
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">debounce</span><span class="p">(</span><span class="nx">fn</span><span class="p">,</span> <span class="nx">delay</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">timer</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="kd">function</span><span class="p">(...</span><span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">clearTimeout</span><span class="p">(</span><span class="nx">timer</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">timer</span> <span class="o">=</span> <span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">fn</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">args</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span> <span class="nx">delay</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>timer 能跨多次函数调用存在，本质原因正是闭包。</p>
+<h1 id="124-垃圾回收与内存泄漏风险">1.2.4 垃圾回收与内存泄漏风险
+</h1><h2 id="1-javascript-的垃圾回收机制">1. JavaScript 的垃圾回收机制
+</h2><p>现代 JS 引擎（如 V8）主要采用：</p>
+<p><strong>标记-清除（Mark &amp; Sweep）算法</strong></p>
+<ul>
+<li>从根对象（全局对象、当前执行栈）开始</li>
+<li>递归标记所有可达对象</li>
+<li>未被标记的对象会被回收</li>
+</ul>
+<p><strong>闭包的影响：</strong></p>
+<ul>
+<li>被闭包引用的 AO 是“可达对象”</li>
+<li>即使函数执行完，也不会被回收</li>
+</ul>
+<h2 id="2-常见内存泄漏场景">2. 常见内存泄漏场景
+</h2><h3 id="1意外的全局变量">1）意外的全局变量
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">bar</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// 未声明，挂到全局
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="2闭包长期缓存大对象">2）闭包长期缓存大对象
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">createCache</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">largeData</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">1000000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">largeData</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="3dom-事件未移除">3）DOM 事件未移除
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="nx">element</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>组件销毁但事件仍存在 → 闭包持有 DOM 与数据</p>
+<h2 id="3-优化与治理策略">3. 优化与治理策略
+</h2><ul>
+<li><strong>及时解除引用</strong></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">timer = null;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p><strong>使用 WeakMap / WeakSet</strong></p>
+</li>
+<li>
+<ul>
+<li>不阻止垃圾回收</li>
+<li>适合缓存临时对象</li>
+</ul>
+</li>
+<li>
+<p><strong>组件卸载时清理副作用</strong></p>
+</li>
+<li>
+<ul>
+<li>定时器</li>
+<li>事件监听</li>
+<li>订阅</li>
+</ul>
+</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/javascript%E9%AB%98%E7%BA%A7/">
+        
+        
+            <div class="article-image">
+                <img src="/p/javascript%E9%AB%98%E7%BA%A7/HeaderImage.5aabcc270726108114f6fe8e8a0cbe11_hu_ab3c03747372ad07.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post JavaScript高级"
+                        
+                        data-hash="md5-WqvMJwcmEIEU9v6Oigy&#43;EQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">JavaScript高级</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2026 陈梓锋
+    </section>
+    
+    <section class="powerby">
+        
+            给我offer！！ <br/>
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.33.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+    
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.c922af694cc257bf1ecc41c0dd7b0430f9114ec280ccf67cd2c6ad55f5316c4e.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
